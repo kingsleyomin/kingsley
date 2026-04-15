@@ -65,7 +65,7 @@ const Index = () => {
         <GridWrapper>
           <GridContent>
             <div className="article-full-width">
-              <ul className="grid gap-12 md:gap-[70px] lgPlus:gap-24 3xl:gap-32">
+              <ul className="grid gap-12 md:grid-cols-2 md:gap-[70px] lgPlus:gap-24 3xl:gap-32">
                 {allArticles.slice(0, 5).map((article, index) => (
                   <li
                     key={index}
@@ -81,7 +81,7 @@ const Index = () => {
                       image={article.image}
                       imageAlt={article.title}
                       publishDate={article.publishDate}
-                      className={index === 0 ? 'md:flex md:flex-row md:gap-8' : ''}
+                      className={index === 0 ? 'first-card' : ''}
                     />
                   </li>
                 ))}
