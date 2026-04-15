@@ -20,7 +20,7 @@ const Header = () => {
               to="/"
               className="font-sans text-2xl font-bold text-foreground"
             >
-              Voyager
+              KO
             </Link>
 
             {/* Desktop Navigation */}
