@@ -65,12 +65,12 @@ const Index = () => {
         <GridWrapper>
           <GridContent>
             <div className="article-full-width">
-              <ul className="article-two-columns">
-                {allArticles.map((article, index) => (
+              <ul className="grid gap-12 md:gap-[70px] lgPlus:gap-24 3xl:gap-32">
+                {allArticles.slice(0, 5).map((article, index) => (
                   <li
                     key={index}
                     ref={(el) => (articlesRef.current[index] = el)}
-                    className="blog-feed__item"
+                    className={`blog-feed__item ${index === 0 ? 'md:col-span-2' : ''}`}
                     style={{
                       animationDelay: `${(index % 2) * 150}ms`,
                     }}
@@ -81,6 +81,7 @@ const Index = () => {
                       image={article.image}
                       imageAlt={article.title}
                       publishDate={article.publishDate}
+                      className={index === 0 ? 'md:flex md:flex-row md:gap-8' : ''}
                     />
                   </li>
                 ))}
