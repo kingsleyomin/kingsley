@@ -53,8 +53,8 @@ const Index = () => {
         <GridWrapper>
           <GridContent className="!mt-0 !mb-0">
             <BlogHero
-              title="Voyager"
-              description="Voyager Press is a modern travel and lifestyle newsroom that showcases inspiring stories, destination features, and travel industry updates."
+              title="Kingsley"
+              description="A creative Product Designer with a focus on helping startups and large organizations design modern and user-centric solutions."
             />
           </GridContent>
         </GridWrapper>
