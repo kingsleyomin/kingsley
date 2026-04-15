@@ -21,12 +21,12 @@ export default function ArticlePreview({
   category,
   className = "",
 }: ArticlePreviewProps) {
-  const isHorizontal = className.includes('md:flex-row');
+  const isFirstCard = className.includes('first-card');
   
   return (
     <article className={`relative flex flex-col ${className}`}>
       <figure className={`relative order-[-1] mb-[1.25rem] overflow-hidden bg-muted group/image ${
-        isHorizontal ? 'pb-[100%] md:pb-0 md:flex-1 md:min-h-[400px]' : 'pb-[100%]'
+        isFirstCard ? 'pb-[56.25%]' : 'pb-[100%]'
       }`}>
         <Link to={`/article/${slug}`} title={imageAlt}>
           <img
@@ -37,33 +37,31 @@ export default function ArticlePreview({
         </Link>
       </figure>
 
-      <div className={isHorizontal ? 'md:flex-1 md:flex md:flex-col md:justify-center' : ''}>
-        <div className="flex items-center gap-3 order-[-1] mb-[0.5rem]">
-          {category && (
-            <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[0.6875rem] font-sans font-medium uppercase tracking-wide">
-              {category}
-            </span>
-          )}
-          <time className="uppercase text-muted-foreground text-[0.75rem] font-sans">
-            {publishDate}
-          </time>
-        </div>
-
-        <h3 className="mt-[0.1875rem] text-[1.375rem] md:text-[1.6875rem] leading-[1.4] font-display font-semibold tracking-[-0.02em]">
-          <Link
-            to={`/article/${slug}`}
-            className="inline-block transition-colors duration-300 text-foreground hover:text-primary"
-          >
-            {title}
-          </Link>
-        </h3>
-
-        {description && (
-          <p className="mt-3 font-sans text-[0.9375rem] leading-relaxed text-muted-foreground italic">
-            {description}
-          </p>
+      <div className="flex items-center gap-3 order-[-1] mb-[0.5rem]">
+        {category && (
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[0.6875rem] font-sans font-medium uppercase tracking-wide">
+            {category}
+          </span>
         )}
+        <time className="uppercase text-muted-foreground text-[0.75rem] font-sans">
+          {publishDate}
+        </time>
       </div>
+
+      <h3 className="mt-[0.1875rem] text-[1.375rem] md:text-[1.6875rem] leading-[1.4] font-display font-semibold tracking-[-0.02em]">
+        <Link
+          to={`/article/${slug}`}
+          className="inline-block transition-colors duration-300 text-foreground hover:text-primary"
+        >
+          {title}
+        </Link>
+      </h3>
+
+      {description && (
+        <p className="mt-3 font-sans text-[0.9375rem] leading-relaxed text-muted-foreground italic">
+          {description}
+        </p>
+      )}
     </article>
   );
 }
