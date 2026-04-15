@@ -94,7 +94,7 @@ const Index = () => {
       <footer className="border-t border-border mt-24">
         <div className="article-grid py-12">
           <div className="article-hero text-center text-sm text-muted-foreground">
-            <p>© 2024 Voyager Press. All rights reserved.</p>
+            <p>© 2024 KO. All rights reserved.</p>
           </div>
         </div>
       </footer>
