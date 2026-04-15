@@ -46,7 +46,7 @@ export interface ArticleData {
 export const articlesData: Record<string, ArticleData> = {
   "about-james": {
     slug: "about-james",
-    title: "Who's James?",
+    title: "Case Study: Brand Redesign",
     subtitle: "A Personal Introduction",
     publishDate: "March 20, 2024",
     author: {
@@ -112,7 +112,7 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "editorial-elegance": {
     slug: "editorial-elegance",
-    title: "Statement Jewelry",
+    title: "Mobile App Design",
     subtitle: "The Power of Accessories",
     publishDate: "March 15, 2024",
     author: {
@@ -178,7 +178,7 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "desert-dreams": {
     slug: "desert-dreams",
-    title: "Bold Lip",
+    title: "Dashboard UI",
     subtitle: "The Power of Color",
     publishDate: "March 15, 2024",
     author: {
@@ -244,7 +244,7 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "vintage-highway": {
     slug: "vintage-highway",
-    title: "Luxury Streetwear",
+    title: "E-commerce Platform",
     subtitle: "From Streets to Status",
     publishDate: "March 12, 2024",
     author: {
@@ -310,7 +310,7 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "lavender-fields": {
     slug: "lavender-fields",
-    title: "The Hat Edit",
+    title: "SaaS Product Design",
     subtitle: "Elevated Menswear Accessories",
     publishDate: "March 8, 2024",
     author: {
