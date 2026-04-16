@@ -112,9 +112,9 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "editorial-elegance": {
     slug: "editorial-elegance",
-    title: "One-Stop Investment Platform\n",
+    title: "\n",
     subtitle: "The Power of Accessories",
-    publishDate: "LADDA",
+    publishDate: "LADDA — ALL YOUR INVESTMENTS IN ONE PLACE.",
     author: {
       name: "James Carter",
       title: "Fashion Photographer",
@@ -178,7 +178,7 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "desert-dreams": {
     slug: "desert-dreams",
-    title: "Improving the app experience to make transactions faster and easier. \nMaking transactions fast, simple & seamless.",
+    title: "Reimagining the  mobile app experience to improve usability.",
     subtitle: "The Power of Color",
     publishDate: "PRESTMIT — MOBILE APP REDESIGN",
     author: {
@@ -244,7 +244,7 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "vintage-highway": {
     slug: "vintage-highway",
-    title: "Easy, scalable SMS for businesses. ",
+    title: "Helping businesses send and manage SMS easily at scale.\n\n\n",
     subtitle: "From Streets to Status",
     publishDate: "LETSHEGO — SMS API HUB",
     author: {
