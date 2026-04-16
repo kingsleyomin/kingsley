@@ -51,7 +51,7 @@ export default function ArticlePreview({
       <h3 className="mt-[0.1875rem] text-[1.375rem] md:text-[1.6875rem] leading-[1.4] font-display font-semibold tracking-[-0.02em]">
         <Link
           to={`/article/${slug}`}
-          className="inline-block transition-colors duration-300 text-foreground hover:text-primary"
+          className="inline-block transition-colors duration-300 text-foreground hover:text-primary whitespace-pre-line"
         >
           {title}
         </Link>

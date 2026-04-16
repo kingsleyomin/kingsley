@@ -46,9 +46,9 @@ export interface ArticleData {
 export const articlesData: Record<string, ArticleData> = {
   "about-james": {
     slug: "about-james",
-    title: "Case Study: Brand Redesign",
+    title: "Enabling smooth and reliable payments across multiple channels. ",
     subtitle: "A Personal Introduction",
-    publishDate: "March 20, 2024",
+    publishDate: "ZEST PAYMENT GATEWAY",
     author: {
       name: "James Carter",
       title: "Fashion Photographer",
@@ -112,9 +112,9 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "editorial-elegance": {
     slug: "editorial-elegance",
-    title: "Mobile App Design",
+    title: "One-Stop Investment Platform\n",
     subtitle: "The Power of Accessories",
-    publishDate: "March 15, 2024",
+    publishDate: "LADDA",
     author: {
       name: "James Carter",
       title: "Fashion Photographer",
@@ -178,9 +178,9 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "desert-dreams": {
     slug: "desert-dreams",
-    title: "Dashboard UI",
+    title: "Improving the app experience to make transactions faster and easier. \nMaking transactions fast, simple & seamless.",
     subtitle: "The Power of Color",
-    publishDate: "March 15, 2024",
+    publishDate: "PRESTMIT — MOBILE APP REDESIGN",
     author: {
       name: "James Carter",
       title: "Fashion Photographer",
@@ -244,9 +244,9 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "vintage-highway": {
     slug: "vintage-highway",
-    title: "E-commerce Platform",
+    title: "Easy, scalable SMS for businesses. ",
     subtitle: "From Streets to Status",
-    publishDate: "March 12, 2024",
+    publishDate: "LETSHEGO — SMS API HUB",
     author: {
       name: "James Carter",
       title: "Fashion Photographer",
@@ -310,9 +310,9 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "lavender-fields": {
     slug: "lavender-fields",
-    title: "SaaS Product Design",
+    title: "Connecting car owners with reliable drivers . \n",
     subtitle: "Elevated Menswear Accessories",
-    publishDate: "March 8, 2024",
+    publishDate: "DRYVA — DRIVER MARKETPLACE",
     author: {
       name: "James Carter",
       title: "Fashion Photographer",
