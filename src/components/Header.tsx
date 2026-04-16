@@ -29,13 +29,13 @@ const Header = () => {
                 to="/article/about-james"
                 className="text-[1.125rem] font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                About the Author
+                About
               </Link>
               <Link
                 to="/contact"
                 className="text-[1.125rem] font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                Get in touch
+                Contact
               </Link>
               <NewsletterSheet>
                 <button className="text-[1.125rem] font-medium text-muted-foreground hover:text-foreground transition-colors">
@@ -68,14 +68,14 @@ const Header = () => {
                     onClick={() => setIsOpen(false)}
                     className="text-[1.8rem] font-medium text-foreground hover:text-primary transition-colors"
                   >
-                    About the Author
+                    About
                   </Link>
                   <Link
                     to="/contact"
                     onClick={() => setIsOpen(false)}
                     className="text-[1.8rem] font-medium text-foreground hover:text-primary transition-colors"
                   >
-                    Get in touch
+                    Contact
                   </Link>
                   <NewsletterSheet>
                     <button
