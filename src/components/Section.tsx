@@ -7,7 +7,7 @@ interface SectionProps {
 
 export default function Section({ children, className = "" }: SectionProps) {
   return (
-    <section className={`article-grid pb-12 md:pb-20 lg:pb-32 ${className}`}>
+    <section className={`article-grid md:pb-20 lg:pb-32 pb-[80px] ${className}`}>
       {children}
     </section>
   );

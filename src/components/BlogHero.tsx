@@ -7,7 +7,7 @@ interface BlogHeroProps {
 
 const BlogHero = ({ title, description }: BlogHeroProps) => {
   return (
-    <div className="article-full-width text-center flex flex-col items-center">
+    <div className="article-full-width text-center flex flex-col items-center mt-[80px]">
       {/* Title - Full Width */}
       <h1 className="font-display font-semibold fluid-title mb-12">
         {title.split(" ").map((word, index) => (
