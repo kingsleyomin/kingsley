@@ -112,7 +112,7 @@ export const articlesData: Record<string, ArticleData> = {
   },
   "editorial-elegance": {
     slug: "editorial-elegance",
-    title: "\n",
+    title: "A unified investment platform for seamless access to diverse assets.",
     subtitle: "The Power of Accessories",
     publishDate: "LADDA — ALL YOUR INVESTMENTS IN ONE PLACE.",
     author: {
