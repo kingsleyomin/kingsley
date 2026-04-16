@@ -7,6 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import NewsletterSheet from "@/components/NewsletterSheet";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,11 +17,8 @@ const Header = () => {
       <div className="article-header-grid" style={{ minHeight: "72px" }}>
         <div className="article-wrapper-constrained">
           <div className="flex items-center justify-between h-full py-4">
-            <Link
-              to="/"
-              className="font-sans text-2xl font-bold text-foreground"
-            >
-              KO
+            <Link to="/" aria-label="Home" className="flex items-center">
+              <img src={logo} alt="Logo" className="h-8 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
