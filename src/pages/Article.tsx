@@ -136,8 +136,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="01" label="Introduction & Overview" />
-            {introBlocks.length > 0 ? (
-              introBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {introParagraphs.length > 0 ? (
+              introParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 A snapshot of the project, the product context, and why this work
@@ -151,8 +151,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="02" label="The Challenge" />
-            {challengeBlocks.length > 0 ? (
-              challengeBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {challengeParagraphs.length > 0 ? (
+              challengeParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 Customers were dropping off at key points in the journey. The
@@ -161,10 +161,7 @@ const Article = () => {
               </p>
             )}
             <figure className="blockquote-big">
-              <blockquote>
-                {challengeBlocks[0]?.content?.slice(0, 140) ||
-                  "Designing for clarity, speed, and trust at every step."}
-              </blockquote>
+              <blockquote>{challengeHighlight}</blockquote>
             </figure>
           </ArticleContent>
         </ArticleContainer>
@@ -173,14 +170,10 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="03" label="Project Goal" />
-            {goalBlocks.length > 0 ? (
-              goalBlocks.map((b, i) => <p key={i}>{b.content}</p>)
-            ) : (
-              <p>
-                We set out to redesign the experience around four north-star
-                goals — each tied directly to a measurable business outcome.
-              </p>
-            )}
+            <p>
+              We set out to redesign the experience around a focused set of
+              north-star goals — each tied to a measurable business outcome.
+            </p>
             <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-10">
               {goals.map((g, i) => (
                 <div
