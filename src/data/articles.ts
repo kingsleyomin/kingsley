@@ -11,6 +11,38 @@ const circularHorizonsHero = "/images/pexels-brianasarejr-12417686.jpg";
 const retroRevivalHero = "/images/pexels-brianasarejr-17553641.jpg";
 const goldenSpheresHero = "/images/pexels-jameshausley-3328337.jpg";
 
+export interface CaseStudySection {
+  paragraphs: string[];
+  highlight?: string;
+}
+
+export interface CaseStudyTeamMember {
+  role: string;
+  name: string;
+}
+
+export interface CaseStudyMetric {
+  value: string;
+  label: string;
+}
+
+export interface CaseStudyMeta {
+  client: string;
+  role: string;
+  year: string;
+  duration: string;
+  introduction: CaseStudySection;
+  challenge: CaseStudySection;
+  goals: string[];
+  team: CaseStudyTeamMember[];
+  research: CaseStudySection;
+  userFlows: CaseStudySection;
+  wireframes: CaseStudySection;
+  solution: CaseStudySection;
+  outcome: CaseStudySection;
+  metrics: CaseStudyMetric[];
+}
+
 export interface ArticleData {
   slug: string;
   title: string;
@@ -25,6 +57,7 @@ export interface ArticleData {
   readTime: string;
   viewCount: string;
   shareCount: number;
+  caseStudy?: CaseStudyMeta;
   content: {
     type: "paragraph" | "heading" | "image" | "blockquote-big";
     content?: string;
@@ -58,6 +91,72 @@ export const articlesData: Record<string, ArticleData> = {
     readTime: "8 min",
     viewCount: "4.8k",
     shareCount: 142,
+    caseStudy: {
+      client: "Zest",
+      role: "Lead Product Designer",
+      year: "2024",
+      duration: "12 weeks",
+      introduction: {
+        paragraphs: [
+          "Zest is a payment gateway helping African merchants accept payments across cards, bank transfers, USSD, and mobile wallets from a single integration. As the product expanded into new markets, the merchant dashboard had grown organically — features were added wherever there was room, and the experience had drifted away from the needs of the people running businesses on it.",
+          "I led the redesign of the merchant-facing platform, with the goal of making it the calmest, most reliable place a business owner could check on their money. The work spanned the dashboard, transactions, settlements, and the developer onboarding flow.",
+        ],
+      },
+      challenge: {
+        paragraphs: [
+          "Merchants were dropping out of onboarding before completing their first transaction. Those who made it through struggled to reconcile settlements, find specific transactions, or understand why a payment had failed. Support tickets repeated the same handful of questions every week.",
+          "Underneath that, three things were going wrong: information hierarchy on the dashboard didn't match how merchants actually worked, transaction states were ambiguous, and the developer integration docs lived separately from the product — so engineers and operators were stuck switching contexts to debug anything.",
+        ],
+        highlight:
+          "Money moves fast. The interface around it has to feel slower, calmer, and absolutely certain.",
+      },
+      goals: [
+        "Cut time-to-first-transaction for new merchants by simplifying onboarding into clear, sequential steps.",
+        "Make transaction status, fees, and settlement timing unambiguous at a glance.",
+        "Unify the merchant dashboard and developer experience so context-switching disappears.",
+        "Establish a scalable design system to support future channels and markets.",
+      ],
+      team: [
+        { role: "Lead Product Designer", name: "Kingsley Omin" },
+        { role: "Product Manager", name: "Ifeoma Eze" },
+        { role: "Engineering Lead", name: "Tunde Akinola" },
+        { role: "User Researcher", name: "Sade Adebayo" },
+      ],
+      research: {
+        paragraphs: [
+          "We started by spending two weeks with merchants — small e-commerce stores, ticketing platforms, and SaaS founders. Twelve in-depth interviews, five on-site visits, and a review of six months of support tickets gave us a clear picture of where the experience broke down.",
+          "On the analytics side, funnel review showed onboarding drop-off concentrated at KYC document upload, and transaction-page heatmaps revealed merchants were scrolling past the very filters they needed. We triangulated qualitative pain with quantitative signal before drawing a single screen.",
+        ],
+      },
+      userFlows: {
+        paragraphs: [
+          "We rebuilt the three highest-impact flows — merchant onboarding, transaction reconciliation, and settlement payout — around the fastest path to a successful outcome. Each flow was reduced to its essential decisions, and side paths (export, dispute, refund) were demoted to secondary actions instead of competing for attention.",
+          "Mapping the journeys end-to-end exposed places where the system was asking merchants for information it already had, and steps that existed only because of legacy backend constraints. Several of those steps were removed entirely with the engineering team.",
+        ],
+      },
+      wireframes: {
+        paragraphs: [
+          "Low-fidelity wireframes let us pressure-test the new information hierarchy with real merchants in under a week. Three rounds of clickable Figma prototypes were tested with eight merchants each round, with iteration between sessions.",
+          "By the third round, the new dashboard structure tested 38% faster on the core 'find a specific transaction' task. Engineering reviewed every wireframe before we moved into high-fidelity to keep the design grounded in what was actually shippable.",
+        ],
+      },
+      solution: {
+        paragraphs: [
+          "The final design centres the dashboard on a single, scannable summary of money in, money out, and money settling — with everything else one click away. Transaction states use a clear visual language (succeeded, processing, failed, refunded) that's consistent across the dashboard, receipts, and webhook payloads.",
+          "Developer documentation now lives inside the product, contextual to whatever the merchant is looking at. A unified design system — Zest DS — was built alongside the redesign, giving engineering a shared component library for every future surface.",
+        ],
+      },
+      outcome: {
+        paragraphs: [
+          "Within the first quarter after launch, merchant onboarding completion rose sharply, support volume on the most common questions dropped by more than half, and merchant NPS improved meaningfully. The redesign also unblocked two new payment channels that had been stuck in the backlog because the old UI couldn't accommodate them.",
+        ],
+      },
+      metrics: [
+        { value: "+47%", label: "Onboarding completion" },
+        { value: "−58%", label: "Support tickets on top issues" },
+        { value: "+32", label: "Merchant NPS lift" },
+      ],
+    },
     content: [
       {
         type: "paragraph",
@@ -124,6 +223,72 @@ export const articlesData: Record<string, ArticleData> = {
     readTime: "8 min",
     viewCount: "2.4k",
     shareCount: 89,
+    caseStudy: {
+      client: "Ladda",
+      role: "Senior Product Designer",
+      year: "2024",
+      duration: "10 weeks",
+      introduction: {
+        paragraphs: [
+          "Ladda is a unified investment platform that lets retail investors hold stocks, fixed income, mutual funds, and savings products in a single account. The team had product-market fit but were losing engaged users at the second-investment moment — people opened an account, made one purchase, and never returned.",
+          "I joined to redesign the discovery and portfolio surfaces, with a brief to make the second investment feel as obvious and confident as the first.",
+        ],
+      },
+      challenge: {
+        paragraphs: [
+          "Investing across asset classes is genuinely complicated, and the existing app reflected that complexity instead of softening it. Each asset type lived on its own screen, with its own language, its own performance chart, and its own way of showing returns. Users had no single mental model for what they owned.",
+          "On top of that, the discover tab surfaced everything equally — a trending stock sat next to a long-duration bond fund with no context about which made sense for whom. New investors froze. Experienced ones bypassed the app entirely and went to spreadsheets.",
+        ],
+        highlight:
+          "A great investment app makes a complicated decision feel like a simple one — without hiding what's actually happening.",
+      },
+      goals: [
+        "Give every user one consistent view of their portfolio, regardless of asset mix.",
+        "Make discovery feel personal — surface what's relevant to this user, this week.",
+        "Lower the cognitive load of placing a second, third, and fourth investment.",
+        "Maintain the trust signals serious investors expect: clear fees, real performance, no gamification.",
+      ],
+      team: [
+        { role: "Senior Product Designer", name: "Kingsley Omin" },
+        { role: "Head of Product", name: "Olamide Bello" },
+        { role: "Engineering Manager", name: "Chinedu Okafor" },
+        { role: "Data Scientist", name: "Aisha Yusuf" },
+      ],
+      research: {
+        paragraphs: [
+          "We ran a mixed-methods study: fifteen user interviews split across first-time and seasoned investors, a diary study with eight users over two weeks, and behavioural analysis of cohorts that had churned after their first transaction.",
+          "The clearest insight came from the diary study: users were checking the app for a feeling — calm, curiosity, or urgency — far more often than to take an action. The product was treating every visit as transactional. It needed to support reflection too.",
+        ],
+      },
+      userFlows: {
+        paragraphs: [
+          "The new portfolio flow consolidates all asset classes into a single, scannable overview, with drill-downs that reveal complexity only when wanted. The discover flow was rebuilt around three contextual entry points: 'Continue building', 'New for you', and 'Worth a look this week'.",
+          "Placing an investment was reduced from seven steps to three on the most common path, with the safety checks moved into a single confirmation moment instead of being spread throughout the journey.",
+        ],
+      },
+      wireframes: {
+        paragraphs: [
+          "Wireframes focused on hierarchy first, visuals second. We tested three structurally different portfolio layouts before settling on the unified one — the alternatives kept reintroducing the per-asset-class fragmentation we were trying to remove.",
+          "Each wireframe round was reviewed with the compliance team to make sure clarity didn't drift into overpromising. Fees, risk labels, and historical performance language were locked in before any high-fidelity work began.",
+        ],
+      },
+      solution: {
+        paragraphs: [
+          "The redesigned Ladda opens to a single portfolio view that totals everything you own and shows how it's moved today, this month, and all-time. Asset-specific detail lives one tap away but never competes for the headline.",
+          "Discover now feels personal — recommendations are framed around the user's existing portfolio and goals, with clear reasoning shown instead of hidden behind an algorithm. The investment flow is calmer, faster, and ends with a confirmation screen designed to reduce regret rather than celebrate the spend.",
+        ],
+      },
+      outcome: {
+        paragraphs: [
+          "After launch, repeat investment rate within the first 30 days more than doubled, and weekly active sessions per user grew significantly without any change in marketing spend. Crucially, support contacts about 'how do I see my total portfolio' essentially disappeared.",
+        ],
+      },
+      metrics: [
+        { value: "2.3x", label: "30-day repeat investment rate" },
+        { value: "+71%", label: "Weekly active sessions" },
+        { value: "−83%", label: "Portfolio-confusion tickets" },
+      ],
+    },
     content: [
       {
         type: "paragraph",
@@ -190,6 +355,72 @@ export const articlesData: Record<string, ArticleData> = {
     readTime: "6 min",
     viewCount: "1.8k",
     shareCount: 64,
+    caseStudy: {
+      client: "Prestmit",
+      role: "Product Designer",
+      year: "2023",
+      duration: "8 weeks",
+      introduction: {
+        paragraphs: [
+          "Prestmit is one of West Africa's most-used platforms for trading gift cards, cryptocurrency, and bill payments. The mobile app handled millions of transactions a year, but its UX had grown by accretion — every new product line had been bolted onto the home screen, and the experience felt heavier with each release.",
+          "I led a ground-up redesign of the mobile app, prioritising clarity, trust, and speed for users who are often transacting in moments of real financial pressure.",
+        ],
+      },
+      challenge: {
+        paragraphs: [
+          "User reviews were honest about the problems: a confusing home screen, unclear rates before submission, and a trade flow that asked for too much information too early. New users abandoned their first trade nearly half the time.",
+          "Internally, the team also needed a flexible architecture — Prestmit launches new card types and crypto pairs constantly, and the old design couldn't accommodate a new product without an emergency redesign each time.",
+        ],
+        highlight:
+          "Trust isn't a colour or a copy line. It's earned in the seconds between submitting a trade and seeing it confirmed.",
+      },
+      goals: [
+        "Redesign the home and trade flows around the user's primary intent: 'I want to trade this for that, now.'",
+        "Show real, current rates upfront — not after the user has invested effort.",
+        "Cut steps in the gift card and crypto trade flows by at least 40%.",
+        "Build a modular interface that can absorb new products without redesign.",
+      ],
+      team: [
+        { role: "Product Designer", name: "Kingsley Omin" },
+        { role: "Product Lead", name: "Emeka Nwosu" },
+        { role: "Mobile Engineering Lead", name: "Adaeze Iwu" },
+        { role: "Customer Success Lead", name: "Bisi Adeyemi" },
+      ],
+      research: {
+        paragraphs: [
+          "We started with a heuristic audit of the existing app, then ran ten remote user sessions with active traders across Nigeria, Ghana, and Kenya. App store reviews from the previous twelve months were coded into a thematic map of complaints.",
+          "Three themes dominated: rate visibility, trade speed, and the anxiety of uploading a card image and not knowing what happens next. The redesign was scoped around solving those three problems before anything else.",
+        ],
+      },
+      userFlows: {
+        paragraphs: [
+          "We mapped the existing trade flow next to the proposed one and found we could remove four screens entirely without losing any required information — most of them existed only because of historical UI choices, not real user needs.",
+          "The new flow puts the rate, the amount, and the payout method on a single screen so users can see the entire deal before committing. Status updates after submission were redesigned as a clear, narrated timeline instead of a silent loading state.",
+        ],
+      },
+      wireframes: {
+        paragraphs: [
+          "We wireframed the new home screen as a configurable grid of intents — 'Sell gift card', 'Sell crypto', 'Pay a bill', 'Buy data' — that the team can reorder as new products launch. Engineering signed off on the modular structure before high-fidelity began.",
+          "Two rounds of unmoderated testing on UserTesting validated the new trade flow with first-time users completing a trade in under 90 seconds.",
+        ],
+      },
+      solution: {
+        paragraphs: [
+          "The new Prestmit app opens to a calm, intent-led home screen, with live rates surfaced at the top for the user's most-used products. The trade flow is three screens: choose what you're trading, confirm the rate, see it complete.",
+          "Trust signals are quiet but ever-present — verified rates, transaction status timeline, support reachable from any screen. The visual language was rebuilt around legibility on the lower-end Android devices most of Prestmit's users carry.",
+        ],
+      },
+      outcome: {
+        paragraphs: [
+          "Six weeks after rollout, first-trade completion rose dramatically, average trade time fell, and the app's store rating climbed to its highest point ever. The modular home screen has since absorbed three new product lines without a single design change.",
+        ],
+      },
+      metrics: [
+        { value: "+62%", label: "First-trade completion" },
+        { value: "−44%", label: "Average trade time" },
+        { value: "4.7★", label: "Play Store rating" },
+      ],
+    },
     content: [
       {
         type: "paragraph",
@@ -256,6 +487,72 @@ export const articlesData: Record<string, ArticleData> = {
     readTime: "7 min",
     viewCount: "3.1k",
     shareCount: 95,
+    caseStudy: {
+      client: "Letshego",
+      role: "Product Designer",
+      year: "2024",
+      duration: "9 weeks",
+      introduction: {
+        paragraphs: [
+          "Letshego's SMS API Hub is a B2B platform that lets businesses send transactional and marketing SMS at scale across multiple African markets. The product worked well technically, but the dashboard had been built primarily for engineers — operations and marketing users couldn't get to the information they needed without help from a developer.",
+          "The brief was to redesign the hub for the people who actually run SMS campaigns day to day: ops managers, marketers, and customer success teams.",
+        ],
+      },
+      challenge: {
+        paragraphs: [
+          "The existing dashboard exposed every API field as a UI control. Sending a campaign required understanding sender IDs, throttling rates, and DLR codes — concepts that meant nothing to the marketing managers who were the actual senders. Most teams worked around the dashboard by emailing requests to their developers.",
+          "Reporting was even harder. Delivery, failure, and engagement data lived in three separate exports. Composing a single weekly report meant joining CSVs by hand. The team needed a dashboard that respected non-engineers without removing the depth that engineers depended on.",
+        ],
+        highlight:
+          "The best B2B tools quietly handle complexity, exposing it only to the people who need it.",
+      },
+      goals: [
+        "Let a non-technical user send a compliant campaign in under five minutes.",
+        "Consolidate delivery, failure, and engagement reporting into one explorable view.",
+        "Preserve full API-level control for technical users — without making it the default.",
+        "Build role-aware navigation so ops, marketing, and dev teams each see the right entry points.",
+      ],
+      team: [
+        { role: "Product Designer", name: "Kingsley Omin" },
+        { role: "Senior PM", name: "Lerato Nkosi" },
+        { role: "Engineering Lead", name: "Kabelo Moeng" },
+        { role: "Customer Success Manager", name: "Thandi Dube" },
+      ],
+      research: {
+        paragraphs: [
+          "We interviewed twelve customer accounts across banking, retail, and logistics, speaking to both the marketing/ops users and the developers who supported them. Shadowing sessions revealed how often developers were pulled into routine campaign sends — sometimes daily.",
+          "We also ran a competitive teardown of five SMS platforms, focusing on how they balanced approachability with developer depth. The strongest patterns went into the design principles for the redesign.",
+        ],
+      },
+      userFlows: {
+        paragraphs: [
+          "We designed two parallel flows for sending a campaign: a guided builder for non-technical users and an advanced editor for engineers. Both produce the same underlying API call, so a marketer's draft can be reviewed or refined by a developer without rebuilding.",
+          "Reporting was rebuilt around a single explore view with saved filters, replacing the three-export workflow. Scheduled report subscriptions removed another recurring manual task entirely.",
+        ],
+      },
+      wireframes: {
+        paragraphs: [
+          "Wireframes for the campaign builder were tested with six marketing users across three customer accounts. Early versions still leaked technical jargon; the third iteration replaced that language with plain task-led copy and tested noticeably better.",
+          "The advanced editor wireframes were validated with developers, who confirmed they retained access to every parameter they used in the previous UI.",
+        ],
+      },
+      solution: {
+        paragraphs: [
+          "The new SMS API Hub opens to a role-aware dashboard. Marketing users see a campaign builder, recent sends, and a clean reporting summary. Developers see API keys, logs, and webhook configuration as their primary surface.",
+          "Reporting is one explorable view: filter by campaign, country, sender, or time, save the view, and optionally schedule it as an email. The dashboard preserves every advanced control behind progressive disclosure, so power users lose nothing.",
+        ],
+      },
+      outcome: {
+        paragraphs: [
+          "Customer accounts reported a sharp drop in developer-assisted campaign requests within the first month. Time-to-first-campaign for new customer ops users fell from over an hour to under ten minutes, and weekly reporting time was cut by more than half across pilot accounts.",
+        ],
+      },
+      metrics: [
+        { value: "−68%", label: "Dev-assisted send requests" },
+        { value: "−85%", label: "Time-to-first-campaign" },
+        { value: "+54%", label: "Weekly active ops users" },
+      ],
+    },
     content: [
       {
         type: "paragraph",
@@ -322,6 +619,72 @@ export const articlesData: Record<string, ArticleData> = {
     readTime: "5 min",
     viewCount: "2.2k",
     shareCount: 71,
+    caseStudy: {
+      client: "Dryva",
+      role: "Product Designer",
+      year: "2024",
+      duration: "11 weeks",
+      introduction: {
+        paragraphs: [
+          "Dryva is a marketplace that connects car owners with vetted, professional drivers — for daily commutes, long trips, or full-time hires. The product launched on demand from a clear early-adopter base, but the matching experience hadn't been designed end-to-end. Bookings were happening, but trust was leaking at every step.",
+          "I led the redesign of both sides of the marketplace: the owner app for booking drivers and the driver app for managing trips and earnings.",
+        ],
+      },
+      challenge: {
+        paragraphs: [
+          "Car owners didn't have enough information to confidently choose a driver. Profiles were sparse, ratings were inconsistently displayed, and pricing felt opaque. Many bookings were being made and then cancelled within minutes once the owner saw the final fare.",
+          "On the driver side, the app was a simple job list with no clear earnings view, no trip history, and no way to manage availability. Top-rated drivers were leaving the platform, and the matching algorithm was favouring availability over quality, accelerating the spiral.",
+        ],
+        highlight:
+          "A two-sided marketplace stands or falls on whether both sides feel respected by the design.",
+      },
+      goals: [
+        "Give car owners enough information to choose a driver in under two minutes, with confidence.",
+        "Make pricing transparent before the booking commitment, not after.",
+        "Build a driver experience that surfaces earnings, ratings, and availability as a coherent dashboard.",
+        "Improve the quality of matches by giving both sides better signals to act on.",
+      ],
+      team: [
+        { role: "Product Designer", name: "Kingsley Omin" },
+        { role: "Co-founder & CEO", name: "Damilola Ade" },
+        { role: "Mobile Engineering Lead", name: "Folake Adekunle" },
+        { role: "Operations Lead", name: "Henry Obi" },
+      ],
+      research: {
+        paragraphs: [
+          "We ran parallel research streams on both sides of the marketplace: nine interviews with car owners (a mix of first-time and repeat bookers) and seven interviews with active drivers across full-time and part-time tiers.",
+          "The strongest insight: both sides wanted the same thing — predictability. Owners wanted predictable pricing and reliable drivers. Drivers wanted predictable income and respectful clients. Designing for predictability became the project's organising principle.",
+        ],
+      },
+      userFlows: {
+        paragraphs: [
+          "The owner booking flow was rebuilt to surface vetted profiles, full pricing breakdown, and trip details on a single screen, with the booking action only enabled once everything is visible. Cancellation, rebooking, and rating flows were redesigned to feel humane on both sides.",
+          "The driver flow now centres on a daily dashboard: today's trips, this week's earnings, current rating, and availability toggles, all in a single scannable view.",
+        ],
+      },
+      wireframes: {
+        paragraphs: [
+          "Wireframes were tested with five owners and five drivers per round, across three rounds. Iteration on the driver dashboard was particularly fast — small changes to the earnings card noticeably affected how confident drivers felt about the platform.",
+          "The matching logic was redesigned in parallel with the UI, so the screens and the algorithm shipped as one coherent change rather than a UX retrofit on a legacy system.",
+        ],
+      },
+      solution: {
+        paragraphs: [
+          "The redesigned Dryva owner app makes choosing a driver feel like choosing from a curated set rather than scrolling a directory. Profiles, pricing, and trip details are all visible before commitment, and post-trip ratings are framed around specific qualities rather than star averages alone.",
+          "The driver app is now a calm daily companion — earnings, schedule, and reputation are visible in one place, and availability can be adjusted without digging through settings. Both apps share a single design system that keeps the brand coherent across the marketplace.",
+        ],
+      },
+      outcome: {
+        paragraphs: [
+          "Booking-to-confirmation conversion rose substantially after launch, and post-booking cancellations fell by more than half. Driver retention measurably improved over the first quarter, with the highest-rated drivers staying on the platform longer than at any previous point.",
+        ],
+      },
+      metrics: [
+        { value: "+38%", label: "Booking conversion" },
+        { value: "−56%", label: "Post-booking cancellations" },
+        { value: "+29%", label: "Driver 90-day retention" },
+      ],
+    },
     content: [
       {
         type: "paragraph",

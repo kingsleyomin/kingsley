@@ -21,35 +21,56 @@ const Article = () => {
     return <Navigate to="/404" replace />;
   }
 
-  // Derive case study meta from existing article data
+  const cs = articleData.caseStudy;
+
+  // Derive case study meta — prefer typed caseStudy data, fall back to article fields
   const projectTag = articleData.publishDate;
-  const role = articleData.subtitle || "Product Design";
-  const year = "2024";
-  const duration = articleData.readTime || "8 weeks";
-  const client = projectTag.split("—")[0].trim();
+  const client = cs?.client ?? projectTag.split("—")[0].trim();
+  const role = cs?.role ?? articleData.subtitle ?? "Product Design";
+  const year = cs?.year ?? "2024";
+  const duration = cs?.duration ?? articleData.readTime ?? "8 weeks";
 
-  // Split content into narrative chunks for each section
+  // Section content — use structured caseStudy when available, otherwise slice paragraphs
   const paragraphs = articleData.content.filter((b) => b.type === "paragraph");
-  const introBlocks = paragraphs.slice(0, 2);
-  const challengeBlocks = paragraphs.slice(2, 4);
-  const goalBlocks = paragraphs.slice(4, 5);
-  const researchBlocks = paragraphs.slice(5, 7);
-  const solutionBlocks = paragraphs.slice(7, 9);
-  const outcomeBlocks = paragraphs.slice(9);
+  const fallback = (start: number, end?: number): string[] =>
+    paragraphs.slice(start, end).map((b) => b.content ?? "").filter(Boolean);
 
-  // Project team (sample roles)
-  const team = [
+  const introParagraphs = cs?.introduction.paragraphs ?? fallback(0, 2);
+  const challengeParagraphs = cs?.challenge.paragraphs ?? fallback(2, 4);
+  const challengeHighlight =
+    cs?.challenge.highlight ??
+    (challengeParagraphs[0]?.slice(0, 140) ||
+      "Designing for clarity, speed, and trust at every step.");
+  const researchParagraphs = cs?.research.paragraphs ?? fallback(5, 7);
+  const userFlowParagraphs =
+    cs?.userFlows.paragraphs ?? [
+      "Mapping the end-to-end journey surfaced redundant steps and decision points where users hesitated. We rebuilt the flows around the fastest path to a successful outcome.",
+    ];
+  const wireframeParagraphs =
+    cs?.wireframes.paragraphs ?? [
+      "Low-fidelity wireframes let us pressure-test layout and hierarchy quickly. Each iteration was reviewed with engineering to keep the solution feasible and the team aligned.",
+    ];
+  const solutionParagraphs = cs?.solution.paragraphs ?? fallback(7, 9);
+  const outcomeParagraphs = cs?.outcome.paragraphs ?? fallback(9);
+
+  const goals = cs?.goals ?? [
+    "Simplify the end-to-end experience across web and mobile.",
+    "Reduce drop-off in the core funnel by removing friction.",
+    "Build trust through clearer states and confirmations.",
+    "Establish a scalable design foundation for future surfaces.",
+  ];
+
+  const team = cs?.team ?? [
     { role: "Product Designer", name: articleData.author.name },
     { role: "Design Lead", name: "Amelia Chen" },
     { role: "Product Manager", name: "Marcus Reid" },
     { role: "Engineering Lead", name: "Priya Natarajan" },
   ];
 
-  const goals = [
-    "Simplify the end-to-end payment experience across web and mobile.",
-    "Reduce drop-off in the checkout funnel by removing friction points.",
-    "Build trust through clearer transaction states and confirmations.",
-    "Establish a scalable design foundation for future product surfaces.",
+  const metrics = cs?.metrics ?? [
+    { value: "+42%", label: "Conversion lift" },
+    { value: "3.2x", label: "Engagement growth" },
+    { value: "98%", label: "Stakeholder approval" },
   ];
 
   const nextProject = articleData.relatedArticles[0];
@@ -115,8 +136,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="01" label="Introduction & Overview" />
-            {introBlocks.length > 0 ? (
-              introBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {introParagraphs.length > 0 ? (
+              introParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 A snapshot of the project, the product context, and why this work
@@ -130,8 +151,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="02" label="The Challenge" />
-            {challengeBlocks.length > 0 ? (
-              challengeBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {challengeParagraphs.length > 0 ? (
+              challengeParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 Customers were dropping off at key points in the journey. The
@@ -140,10 +161,7 @@ const Article = () => {
               </p>
             )}
             <figure className="blockquote-big">
-              <blockquote>
-                {challengeBlocks[0]?.content?.slice(0, 140) ||
-                  "Designing for clarity, speed, and trust at every step."}
-              </blockquote>
+              <blockquote>{challengeHighlight}</blockquote>
             </figure>
           </ArticleContent>
         </ArticleContainer>
@@ -152,14 +170,10 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="03" label="Project Goal" />
-            {goalBlocks.length > 0 ? (
-              goalBlocks.map((b, i) => <p key={i}>{b.content}</p>)
-            ) : (
-              <p>
-                We set out to redesign the experience around four north-star
-                goals — each tied directly to a measurable business outcome.
-              </p>
-            )}
+            <p>
+              We set out to redesign the experience around a focused set of
+              north-star goals — each tied to a measurable business outcome.
+            </p>
             <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-10">
               {goals.map((g, i) => (
                 <div
@@ -206,8 +220,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="05" label="Research Strategy" />
-            {researchBlocks.length > 0 ? (
-              researchBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {researchParagraphs.length > 0 ? (
+              researchParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 We combined qualitative interviews, usability testing, and
@@ -235,11 +249,9 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="06" label="User Flows" />
-            <p>
-              Mapping the end-to-end journey surfaced redundant steps and
-              decision points where users hesitated. We rebuilt the flows around
-              the fastest path to a successful transaction.
-            </p>
+            {userFlowParagraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </ArticleContent>
         </ArticleContainer>
         <section className="article-grid pb-16 md:pb-24">
@@ -261,11 +273,9 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="07" label="Wireframes" />
-            <p>
-              Low-fidelity wireframes let us pressure-test layout and hierarchy
-              quickly. Each iteration was reviewed with engineering to keep the
-              solution feasible and the team aligned.
-            </p>
+            {wireframeParagraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </ArticleContent>
         </ArticleContainer>
         <section className="article-grid pb-16 md:pb-24">
@@ -299,8 +309,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="08" label="The Design Solution" />
-            {solutionBlocks.length > 0 ? (
-              solutionBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {solutionParagraphs.length > 0 ? (
+              solutionParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 The final design brings clarity, speed, and confidence to every
@@ -329,8 +339,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="09" label="Outcome & Impact" />
-            {outcomeBlocks.length > 0 ? (
-              outcomeBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {outcomeParagraphs.length > 0 ? (
+              outcomeParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 Within the first quarter after launch, the redesigned experience
@@ -340,11 +350,7 @@ const Article = () => {
             )}
 
             <div className="not-prose grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 mb-16">
-              {[
-                { value: "+42%", label: "Conversion lift" },
-                { value: "3.2x", label: "Engagement growth" },
-                { value: "98%", label: "Stakeholder approval" },
-              ].map((m) => (
+              {metrics.map((m) => (
                 <div
                   key={m.label}
                   className="rounded-[var(--radius)] border border-border bg-card p-6 md:p-8"
