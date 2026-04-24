@@ -249,11 +249,9 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="06" label="User Flows" />
-            <p>
-              Mapping the end-to-end journey surfaced redundant steps and
-              decision points where users hesitated. We rebuilt the flows around
-              the fastest path to a successful transaction.
-            </p>
+            {userFlowParagraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </ArticleContent>
         </ArticleContainer>
         <section className="article-grid pb-16 md:pb-24">
@@ -275,11 +273,9 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="07" label="Wireframes" />
-            <p>
-              Low-fidelity wireframes let us pressure-test layout and hierarchy
-              quickly. Each iteration was reviewed with engineering to keep the
-              solution feasible and the team aligned.
-            </p>
+            {wireframeParagraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </ArticleContent>
         </ArticleContainer>
         <section className="article-grid pb-16 md:pb-24">
@@ -354,11 +350,7 @@ const Article = () => {
             )}
 
             <div className="not-prose grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 mb-16">
-              {[
-                { value: "+42%", label: "Conversion lift" },
-                { value: "3.2x", label: "Engagement growth" },
-                { value: "98%", label: "Stakeholder approval" },
-              ].map((m) => (
+              {metrics.map((m) => (
                 <div
                   key={m.label}
                   className="rounded-[var(--radius)] border border-border bg-card p-6 md:p-8"
