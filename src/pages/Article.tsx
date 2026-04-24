@@ -8,6 +8,10 @@ import {
   TopShares,
 } from "@/components/ArticleComponents";
 import { getArticleBySlug } from "@/data/articles";
+import researchImage from "@/assets/case-study-research.jpg";
+import userflowImage from "@/assets/case-study-userflow.jpg";
+import wireframesImage from "@/assets/case-study-wireframes.jpg";
+import solutionImage from "@/assets/case-study-solution.jpg";
 
 const Article = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -18,18 +22,35 @@ const Article = () => {
   }
 
   // Derive case study meta from existing article data
-  const projectTag = articleData.publishDate; // e.g. "PRESTMIT — MOBILE APP REDESIGN"
+  const projectTag = articleData.publishDate;
   const role = articleData.subtitle || "Product Design";
   const year = "2024";
   const duration = articleData.readTime || "8 weeks";
   const client = projectTag.split("—")[0].trim();
 
-  // Split content into narrative chunks
+  // Split content into narrative chunks for each section
   const paragraphs = articleData.content.filter((b) => b.type === "paragraph");
-  const overviewBlocks = paragraphs.slice(0, 2);
+  const introBlocks = paragraphs.slice(0, 2);
   const challengeBlocks = paragraphs.slice(2, 4);
-  const processBlocks = paragraphs.slice(4, 7);
-  const outcomeBlocks = paragraphs.slice(7);
+  const goalBlocks = paragraphs.slice(4, 5);
+  const researchBlocks = paragraphs.slice(5, 7);
+  const solutionBlocks = paragraphs.slice(7, 9);
+  const outcomeBlocks = paragraphs.slice(9);
+
+  // Project team (sample roles)
+  const team = [
+    { role: "Product Designer", name: articleData.author.name },
+    { role: "Design Lead", name: "Amelia Chen" },
+    { role: "Product Manager", name: "Marcus Reid" },
+    { role: "Engineering Lead", name: "Priya Natarajan" },
+  ];
+
+  const goals = [
+    "Simplify the end-to-end payment experience across web and mobile.",
+    "Reduce drop-off in the checkout funnel by removing friction points.",
+    "Build trust through clearer transaction states and confirmations.",
+    "Establish a scalable design foundation for future product surfaces.",
+  ];
 
   const nextProject = articleData.relatedArticles[0];
 
@@ -41,7 +62,6 @@ const Article = () => {
         {/* CASE STUDY HERO */}
         <section className="article-grid relative pt-12 md:pt-20 pb-16 md:pb-24">
           <div className="article-hero">
-            {/* Back link */}
             <Link
               to="/blog"
               className="inline-flex items-center text-[0.8125rem] uppercase tracking-[0.15em] font-sans font-medium text-muted-foreground hover:text-foreground transition-colors group mb-12"
@@ -50,55 +70,35 @@ const Article = () => {
               All Case Studies
             </Link>
 
-            {/* Project tag */}
             <p className="font-sans text-[0.75rem] md:text-[0.8125rem] uppercase tracking-[0.2em] text-primary font-semibold mb-6">
               {projectTag}
             </p>
 
-            {/* Title */}
             <h1 className="font-display font-semibold tracking-[-0.03em] leading-[1.05] text-[clamp(2.5rem,7vw,5.5rem)] mb-10 max-w-[18ch]">
               {articleData.title}
             </h1>
 
-            {/* Project meta grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 pt-10 mt-2 border-t border-border">
-              <div>
-                <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-2">
-                  Client
-                </p>
-                <p className="text-[0.9375rem] md:text-[1rem] font-sans font-semibold text-foreground">
-                  {client}
-                </p>
-              </div>
-              <div>
-                <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-2">
-                  Role
-                </p>
-                <p className="text-[0.9375rem] md:text-[1rem] font-sans font-semibold text-foreground">
-                  {role}
-                </p>
-              </div>
-              <div>
-                <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-2">
-                  Year
-                </p>
-                <p className="text-[0.9375rem] md:text-[1rem] font-sans font-semibold text-foreground">
-                  {year}
-                </p>
-              </div>
-              <div>
-                <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-2">
-                  Duration
-                </p>
-                <p className="text-[0.9375rem] md:text-[1rem] font-sans font-semibold text-foreground">
-                  {duration}
-                </p>
-              </div>
+              {[
+                { label: "Client", value: client },
+                { label: "Role", value: role },
+                { label: "Year", value: year },
+                { label: "Duration", value: duration },
+              ].map((m) => (
+                <div key={m.label}>
+                  <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-2">
+                    {m.label}
+                  </p>
+                  <p className="text-[0.9375rem] md:text-[1rem] font-sans font-semibold text-foreground">
+                    {m.value}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* HERO IMAGE — full bleed within grid */}
+        {/* HERO IMAGE */}
         <section className="article-grid pb-20 md:pb-32">
           <div className="article-full-width">
             <div className="w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
@@ -111,61 +111,183 @@ const Article = () => {
           </div>
         </section>
 
-        {/* OVERVIEW */}
+        {/* 01 — INTRODUCTION / OVERVIEW */}
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
-            <SectionLabel index="01" label="Overview" />
-            {overviewBlocks.map((b, i) => (
-              <p key={i}>{b.content}</p>
-            ))}
+            <SectionLabel index="01" label="Introduction & Overview" />
+            {introBlocks.length > 0 ? (
+              introBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            ) : (
+              <p>
+                A snapshot of the project, the product context, and why this work
+                mattered for the business and the people who use it every day.
+              </p>
+            )}
           </ArticleContent>
         </ArticleContainer>
 
-        {/* CHALLENGE */}
-        {challengeBlocks.length > 0 && (
-          <ArticleContainer className="pb-16 md:pb-24">
-            <ArticleContent>
-              <SectionLabel index="02" label="The Challenge" />
-              {challengeBlocks.map((b, i) => (
-                <p key={i}>{b.content}</p>
-              ))}
-              <figure className="blockquote-big">
-                <blockquote>
-                  {challengeBlocks[0]?.content?.slice(0, 140) ||
-                    "Designing for clarity, speed, and trust."}
-                </blockquote>
-              </figure>
-            </ArticleContent>
-          </ArticleContainer>
-        )}
+        {/* 02 — THE CHALLENGE */}
+        <ArticleContainer className="pb-16 md:pb-24">
+          <ArticleContent>
+            <SectionLabel index="02" label="The Challenge" />
+            {challengeBlocks.length > 0 ? (
+              challengeBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            ) : (
+              <p>
+                Customers were dropping off at key points in the journey. The
+                existing experience was fragmented, slow to load, and lacked the
+                clarity needed to build trust at the moment of payment.
+              </p>
+            )}
+            <figure className="blockquote-big">
+              <blockquote>
+                {challengeBlocks[0]?.content?.slice(0, 140) ||
+                  "Designing for clarity, speed, and trust at every step."}
+              </blockquote>
+            </figure>
+          </ArticleContent>
+        </ArticleContainer>
 
-        {/* PROCESS */}
-        {processBlocks.length > 0 && (
-          <ArticleContainer className="pb-16 md:pb-24">
-            <ArticleContent>
-              <SectionLabel index="03" label="Process & Approach" />
-              {processBlocks.map((b, i) => (
-                <p key={i}>{b.content}</p>
+        {/* 03 — PROJECT GOAL */}
+        <ArticleContainer className="pb-16 md:pb-24">
+          <ArticleContent>
+            <SectionLabel index="03" label="Project Goal" />
+            {goalBlocks.length > 0 ? (
+              goalBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            ) : (
+              <p>
+                We set out to redesign the experience around four north-star
+                goals — each tied directly to a measurable business outcome.
+              </p>
+            )}
+            <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-10">
+              {goals.map((g, i) => (
+                <div
+                  key={i}
+                  className="flex gap-4 rounded-[var(--radius)] border border-border bg-card p-6"
+                >
+                  <span className="font-display font-semibold text-[0.875rem] tracking-[0.15em] text-primary shrink-0">
+                    0{i + 1}
+                  </span>
+                  <p className="font-sans text-[0.9375rem] md:text-[1rem] leading-[1.55] text-foreground m-0">
+                    {g}
+                  </p>
+                </div>
               ))}
-            </ArticleContent>
-          </ArticleContainer>
-        )}
+            </div>
+          </ArticleContent>
+        </ArticleContainer>
 
-        {/* VISUALS GALLERY */}
+        {/* 04 — PROJECT TEAM */}
+        <ArticleContainer className="pb-16 md:pb-24">
+          <ArticleContent>
+            <SectionLabel index="04" label="Project Team" />
+            <p>
+              A small, cross-functional team partnered closely from discovery
+              through launch — keeping design, product, and engineering aligned
+              on outcomes.
+            </p>
+            <div className="not-prose grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-10">
+              {team.map((t) => (
+                <div key={t.role} className="border-t border-border pt-5">
+                  <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-2">
+                    {t.role}
+                  </p>
+                  <p className="text-[0.9375rem] md:text-[1rem] font-sans font-semibold text-foreground">
+                    {t.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </ArticleContent>
+        </ArticleContainer>
+
+        {/* 05 — RESEARCH STRATEGY */}
+        <ArticleContainer className="pb-16 md:pb-24">
+          <ArticleContent>
+            <SectionLabel index="05" label="Research Strategy" />
+            {researchBlocks.length > 0 ? (
+              researchBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            ) : (
+              <p>
+                We combined qualitative interviews, usability testing, and
+                analytics review to triangulate what was happening — and why.
+              </p>
+            )}
+          </ArticleContent>
+        </ArticleContainer>
+        <section className="article-grid pb-16 md:pb-24">
+          <div className="article-full-width">
+            <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
+              <img
+                src={researchImage}
+                alt="Research session with user interview and sticky notes"
+                loading="lazy"
+                width={1280}
+                height={800}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* 06 — USER FLOWS */}
+        <ArticleContainer className="pb-16 md:pb-24">
+          <ArticleContent>
+            <SectionLabel index="06" label="User Flows" />
+            <p>
+              Mapping the end-to-end journey surfaced redundant steps and
+              decision points where users hesitated. We rebuilt the flows around
+              the fastest path to a successful transaction.
+            </p>
+          </ArticleContent>
+        </ArticleContainer>
+        <section className="article-grid pb-16 md:pb-24">
+          <div className="article-full-width">
+            <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
+              <img
+                src={userflowImage}
+                alt="User flow diagram"
+                loading="lazy"
+                width={1280}
+                height={800}
+                className="w-full h-full object-contain bg-card"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* 07 — WIREFRAMES */}
+        <ArticleContainer className="pb-16 md:pb-24">
+          <ArticleContent>
+            <SectionLabel index="07" label="Wireframes" />
+            <p>
+              Low-fidelity wireframes let us pressure-test layout and hierarchy
+              quickly. Each iteration was reviewed with engineering to keep the
+              solution feasible and the team aligned.
+            </p>
+          </ArticleContent>
+        </ArticleContainer>
         <section className="article-grid pb-16 md:pb-24">
           <div className="article-full-width">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="aspect-[4/5] overflow-hidden rounded-[var(--radius)] bg-muted">
                 <img
-                  src={articleData.heroImage}
-                  alt={`${articleData.title} — visual 1`}
+                  src={wireframesImage}
+                  alt="Mobile wireframes"
+                  loading="lazy"
+                  width={1280}
+                  height={800}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-[4/5] overflow-hidden rounded-[var(--radius)] bg-muted md:mt-16">
                 <img
-                  src={nextProject?.image || articleData.heroImage}
-                  alt={`${articleData.title} — visual 2`}
+                  src={wireframesImage}
+                  alt="Mobile wireframes — second iteration"
+                  loading="lazy"
+                  width={1280}
+                  height={800}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -173,38 +295,71 @@ const Article = () => {
           </div>
         </section>
 
-        {/* OUTCOME */}
-        {outcomeBlocks.length > 0 && (
-          <ArticleContainer className="pb-16 md:pb-24">
-            <ArticleContent>
-              <SectionLabel index="04" label="Outcome & Impact" />
-              {outcomeBlocks.map((b, i) => (
-                <p key={i}>{b.content}</p>
-              ))}
+        {/* 08 — THE DESIGN SOLUTION */}
+        <ArticleContainer className="pb-16 md:pb-24">
+          <ArticleContent>
+            <SectionLabel index="08" label="The Design Solution" />
+            {solutionBlocks.length > 0 ? (
+              solutionBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            ) : (
+              <p>
+                The final design brings clarity, speed, and confidence to every
+                step. A unified visual system, clearer states, and a focused
+                checkout flow make the experience feel effortless.
+              </p>
+            )}
+          </ArticleContent>
+        </ArticleContainer>
+        <section className="article-grid pb-16 md:pb-24">
+          <div className="article-full-width">
+            <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
+              <img
+                src={solutionImage}
+                alt="Final design solution screens"
+                loading="lazy"
+                width={1280}
+                height={800}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
 
-              {/* Metrics */}
-              <div className="not-prose grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 mb-16">
-                {[
-                  { value: "+42%", label: "Conversion lift" },
-                  { value: "3.2x", label: "Engagement growth" },
-                  { value: "98%", label: "Stakeholder approval" },
-                ].map((m) => (
-                  <div
-                    key={m.label}
-                    className="rounded-[var(--radius)] border border-border bg-card p-6 md:p-8"
-                  >
-                    <p className="font-display font-semibold text-[2.25rem] md:text-[2.75rem] leading-none tracking-[-0.02em] text-foreground mb-3">
-                      {m.value}
-                    </p>
-                    <p className="text-[0.8125rem] uppercase tracking-[0.15em] font-sans text-muted-foreground">
-                      {m.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </ArticleContent>
-          </ArticleContainer>
-        )}
+        {/* 09 — OUTCOME & IMPACT */}
+        <ArticleContainer className="pb-16 md:pb-24">
+          <ArticleContent>
+            <SectionLabel index="09" label="Outcome & Impact" />
+            {outcomeBlocks.length > 0 ? (
+              outcomeBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            ) : (
+              <p>
+                Within the first quarter after launch, the redesigned experience
+                delivered measurable gains across conversion, engagement, and
+                stakeholder confidence.
+              </p>
+            )}
+
+            <div className="not-prose grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 mb-16">
+              {[
+                { value: "+42%", label: "Conversion lift" },
+                { value: "3.2x", label: "Engagement growth" },
+                { value: "98%", label: "Stakeholder approval" },
+              ].map((m) => (
+                <div
+                  key={m.label}
+                  className="rounded-[var(--radius)] border border-border bg-card p-6 md:p-8"
+                >
+                  <p className="font-display font-semibold text-[2.25rem] md:text-[2.75rem] leading-none tracking-[-0.02em] text-foreground mb-3">
+                    {m.value}
+                  </p>
+                  <p className="text-[0.8125rem] uppercase tracking-[0.15em] font-sans text-muted-foreground">
+                    {m.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </ArticleContent>
+        </ArticleContainer>
 
         {/* SHARE */}
         <ArticleContainer className="pb-20 md:pb-28">
