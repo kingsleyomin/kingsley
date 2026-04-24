@@ -41,6 +41,12 @@ export interface CaseStudyMeta {
   solution: CaseStudySection;
   outcome: CaseStudySection;
   metrics: CaseStudyMetric[];
+  images?: {
+    research?: string;
+    userFlow?: string;
+    wireframes?: string;
+    solution?: string;
+  };
 }
 
 export interface ArticleData {
