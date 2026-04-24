@@ -182,8 +182,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "+47%", label: "Onboarding completion" },
         { value: "−58%", label: "Support tickets on top issues" },
-        { value: "+32", label: "Merchant NPS lift" },
       ],
+      images: {
+        research: zestResearch,
+        userFlow: zestUserflow,
+        wireframes: zestWireframes,
+        solution: zestSolution,
+      },
     },
     content: [
       {
@@ -314,8 +319,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "2.3x", label: "30-day repeat investment rate" },
         { value: "+71%", label: "Weekly active sessions" },
-        { value: "−83%", label: "Portfolio-confusion tickets" },
       ],
+      images: {
+        research: laddaResearch,
+        userFlow: laddaUserflow,
+        wireframes: laddaWireframes,
+        solution: laddaSolution,
+      },
     },
     content: [
       {
@@ -446,8 +456,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "+62%", label: "First-trade completion" },
         { value: "−44%", label: "Average trade time" },
-        { value: "4.7★", label: "Play Store rating" },
       ],
+      images: {
+        research: prestmitResearch,
+        userFlow: prestmitUserflow,
+        wireframes: prestmitWireframes,
+        solution: prestmitSolution,
+      },
     },
     content: [
       {
@@ -578,8 +593,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "−68%", label: "Dev-assisted send requests" },
         { value: "−85%", label: "Time-to-first-campaign" },
-        { value: "+54%", label: "Weekly active ops users" },
       ],
+      images: {
+        research: letshegoResearch,
+        userFlow: letshegoUserflow,
+        wireframes: letshegoWireframes,
+        solution: letshegoSolution,
+      },
     },
     content: [
       {
@@ -710,8 +730,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "+38%", label: "Booking conversion" },
         { value: "−56%", label: "Post-booking cancellations" },
-        { value: "+29%", label: "Driver 90-day retention" },
       ],
+      images: {
+        research: dryvaResearch,
+        userFlow: dryvaUserflow,
+        wireframes: dryvaWireframes,
+        solution: dryvaSolution,
+      },
     },
     content: [
       {
