@@ -220,8 +220,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="05" label="Research Strategy" />
-            {researchBlocks.length > 0 ? (
-              researchBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {researchParagraphs.length > 0 ? (
+              researchParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 We combined qualitative interviews, usability testing, and
@@ -313,8 +313,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="08" label="The Design Solution" />
-            {solutionBlocks.length > 0 ? (
-              solutionBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {solutionParagraphs.length > 0 ? (
+              solutionParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 The final design brings clarity, speed, and confidence to every
@@ -343,8 +343,8 @@ const Article = () => {
         <ArticleContainer className="pb-16 md:pb-24">
           <ArticleContent>
             <SectionLabel index="09" label="Outcome & Impact" />
-            {outcomeBlocks.length > 0 ? (
-              outcomeBlocks.map((b, i) => <p key={i}>{b.content}</p>)
+            {outcomeParagraphs.length > 0 ? (
+              outcomeParagraphs.map((p, i) => <p key={i}>{p}</p>)
             ) : (
               <p>
                 Within the first quarter after launch, the redesigned experience
