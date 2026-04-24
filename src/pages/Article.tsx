@@ -21,35 +21,56 @@ const Article = () => {
     return <Navigate to="/404" replace />;
   }
 
-  // Derive case study meta from existing article data
+  const cs = articleData.caseStudy;
+
+  // Derive case study meta — prefer typed caseStudy data, fall back to article fields
   const projectTag = articleData.publishDate;
-  const role = articleData.subtitle || "Product Design";
-  const year = "2024";
-  const duration = articleData.readTime || "8 weeks";
-  const client = projectTag.split("—")[0].trim();
+  const client = cs?.client ?? projectTag.split("—")[0].trim();
+  const role = cs?.role ?? articleData.subtitle ?? "Product Design";
+  const year = cs?.year ?? "2024";
+  const duration = cs?.duration ?? articleData.readTime ?? "8 weeks";
 
-  // Split content into narrative chunks for each section
+  // Section content — use structured caseStudy when available, otherwise slice paragraphs
   const paragraphs = articleData.content.filter((b) => b.type === "paragraph");
-  const introBlocks = paragraphs.slice(0, 2);
-  const challengeBlocks = paragraphs.slice(2, 4);
-  const goalBlocks = paragraphs.slice(4, 5);
-  const researchBlocks = paragraphs.slice(5, 7);
-  const solutionBlocks = paragraphs.slice(7, 9);
-  const outcomeBlocks = paragraphs.slice(9);
+  const fallback = (start: number, end?: number): string[] =>
+    paragraphs.slice(start, end).map((b) => b.content ?? "").filter(Boolean);
 
-  // Project team (sample roles)
-  const team = [
+  const introParagraphs = cs?.introduction.paragraphs ?? fallback(0, 2);
+  const challengeParagraphs = cs?.challenge.paragraphs ?? fallback(2, 4);
+  const challengeHighlight =
+    cs?.challenge.highlight ??
+    (challengeParagraphs[0]?.slice(0, 140) ||
+      "Designing for clarity, speed, and trust at every step.");
+  const researchParagraphs = cs?.research.paragraphs ?? fallback(5, 7);
+  const userFlowParagraphs =
+    cs?.userFlows.paragraphs ?? [
+      "Mapping the end-to-end journey surfaced redundant steps and decision points where users hesitated. We rebuilt the flows around the fastest path to a successful outcome.",
+    ];
+  const wireframeParagraphs =
+    cs?.wireframes.paragraphs ?? [
+      "Low-fidelity wireframes let us pressure-test layout and hierarchy quickly. Each iteration was reviewed with engineering to keep the solution feasible and the team aligned.",
+    ];
+  const solutionParagraphs = cs?.solution.paragraphs ?? fallback(7, 9);
+  const outcomeParagraphs = cs?.outcome.paragraphs ?? fallback(9);
+
+  const goals = cs?.goals ?? [
+    "Simplify the end-to-end experience across web and mobile.",
+    "Reduce drop-off in the core funnel by removing friction.",
+    "Build trust through clearer states and confirmations.",
+    "Establish a scalable design foundation for future surfaces.",
+  ];
+
+  const team = cs?.team ?? [
     { role: "Product Designer", name: articleData.author.name },
     { role: "Design Lead", name: "Amelia Chen" },
     { role: "Product Manager", name: "Marcus Reid" },
     { role: "Engineering Lead", name: "Priya Natarajan" },
   ];
 
-  const goals = [
-    "Simplify the end-to-end payment experience across web and mobile.",
-    "Reduce drop-off in the checkout funnel by removing friction points.",
-    "Build trust through clearer transaction states and confirmations.",
-    "Establish a scalable design foundation for future product surfaces.",
+  const metrics = cs?.metrics ?? [
+    { value: "+42%", label: "Conversion lift" },
+    { value: "3.2x", label: "Engagement growth" },
+    { value: "98%", label: "Stakeholder approval" },
   ];
 
   const nextProject = articleData.relatedArticles[0];
