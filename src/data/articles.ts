@@ -11,6 +11,38 @@ const circularHorizonsHero = "/images/pexels-brianasarejr-12417686.jpg";
 const retroRevivalHero = "/images/pexels-brianasarejr-17553641.jpg";
 const goldenSpheresHero = "/images/pexels-jameshausley-3328337.jpg";
 
+export interface CaseStudySection {
+  paragraphs: string[];
+  highlight?: string;
+}
+
+export interface CaseStudyTeamMember {
+  role: string;
+  name: string;
+}
+
+export interface CaseStudyMetric {
+  value: string;
+  label: string;
+}
+
+export interface CaseStudyMeta {
+  client: string;
+  role: string;
+  year: string;
+  duration: string;
+  introduction: CaseStudySection;
+  challenge: CaseStudySection;
+  goals: string[];
+  team: CaseStudyTeamMember[];
+  research: CaseStudySection;
+  userFlows: CaseStudySection;
+  wireframes: CaseStudySection;
+  solution: CaseStudySection;
+  outcome: CaseStudySection;
+  metrics: CaseStudyMetric[];
+}
+
 export interface ArticleData {
   slug: string;
   title: string;
@@ -25,6 +57,7 @@ export interface ArticleData {
   readTime: string;
   viewCount: string;
   shareCount: number;
+  caseStudy?: CaseStudyMeta;
   content: {
     type: "paragraph" | "heading" | "image" | "blockquote-big";
     content?: string;
