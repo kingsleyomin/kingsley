@@ -11,6 +11,28 @@ const circularHorizonsHero = "/images/pexels-brianasarejr-12417686.jpg";
 const retroRevivalHero = "/images/pexels-brianasarejr-17553641.jpg";
 const goldenSpheresHero = "/images/pexels-jameshausley-3328337.jpg";
 
+// Per-project case study imagery (research, user flow, wireframes, solution)
+import zestResearch from "@/assets/zest-research.jpg";
+import zestUserflow from "@/assets/zest-userflow.jpg";
+import zestWireframes from "@/assets/zest-wireframes.jpg";
+import zestSolution from "@/assets/zest-solution.jpg";
+import laddaResearch from "@/assets/ladda-research.jpg";
+import laddaUserflow from "@/assets/ladda-userflow.jpg";
+import laddaWireframes from "@/assets/ladda-wireframes.jpg";
+import laddaSolution from "@/assets/ladda-solution.jpg";
+import prestmitResearch from "@/assets/prestmit-research.jpg";
+import prestmitUserflow from "@/assets/prestmit-userflow.jpg";
+import prestmitWireframes from "@/assets/prestmit-wireframes.jpg";
+import prestmitSolution from "@/assets/prestmit-solution.jpg";
+import letshegoResearch from "@/assets/letshego-research.jpg";
+import letshegoUserflow from "@/assets/letshego-userflow.jpg";
+import letshegoWireframes from "@/assets/letshego-wireframes.jpg";
+import letshegoSolution from "@/assets/letshego-solution.jpg";
+import dryvaResearch from "@/assets/dryva-research.jpg";
+import dryvaUserflow from "@/assets/dryva-userflow.jpg";
+import dryvaWireframes from "@/assets/dryva-wireframes.jpg";
+import dryvaSolution from "@/assets/dryva-solution.jpg";
+
 export interface CaseStudySection {
   paragraphs: string[];
   highlight?: string;
