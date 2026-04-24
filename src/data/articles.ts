@@ -91,6 +91,72 @@ export const articlesData: Record<string, ArticleData> = {
     readTime: "8 min",
     viewCount: "4.8k",
     shareCount: 142,
+    caseStudy: {
+      client: "Zest",
+      role: "Lead Product Designer",
+      year: "2024",
+      duration: "12 weeks",
+      introduction: {
+        paragraphs: [
+          "Zest is a payment gateway helping African merchants accept payments across cards, bank transfers, USSD, and mobile wallets from a single integration. As the product expanded into new markets, the merchant dashboard had grown organically — features were added wherever there was room, and the experience had drifted away from the needs of the people running businesses on it.",
+          "I led the redesign of the merchant-facing platform, with the goal of making it the calmest, most reliable place a business owner could check on their money. The work spanned the dashboard, transactions, settlements, and the developer onboarding flow.",
+        ],
+      },
+      challenge: {
+        paragraphs: [
+          "Merchants were dropping out of onboarding before completing their first transaction. Those who made it through struggled to reconcile settlements, find specific transactions, or understand why a payment had failed. Support tickets repeated the same handful of questions every week.",
+          "Underneath that, three things were going wrong: information hierarchy on the dashboard didn't match how merchants actually worked, transaction states were ambiguous, and the developer integration docs lived separately from the product — so engineers and operators were stuck switching contexts to debug anything.",
+        ],
+        highlight:
+          "Money moves fast. The interface around it has to feel slower, calmer, and absolutely certain.",
+      },
+      goals: [
+        "Cut time-to-first-transaction for new merchants by simplifying onboarding into clear, sequential steps.",
+        "Make transaction status, fees, and settlement timing unambiguous at a glance.",
+        "Unify the merchant dashboard and developer experience so context-switching disappears.",
+        "Establish a scalable design system to support future channels and markets.",
+      ],
+      team: [
+        { role: "Lead Product Designer", name: "Kingsley Omin" },
+        { role: "Product Manager", name: "Ifeoma Eze" },
+        { role: "Engineering Lead", name: "Tunde Akinola" },
+        { role: "User Researcher", name: "Sade Adebayo" },
+      ],
+      research: {
+        paragraphs: [
+          "We started by spending two weeks with merchants — small e-commerce stores, ticketing platforms, and SaaS founders. Twelve in-depth interviews, five on-site visits, and a review of six months of support tickets gave us a clear picture of where the experience broke down.",
+          "On the analytics side, funnel review showed onboarding drop-off concentrated at KYC document upload, and transaction-page heatmaps revealed merchants were scrolling past the very filters they needed. We triangulated qualitative pain with quantitative signal before drawing a single screen.",
+        ],
+      },
+      userFlows: {
+        paragraphs: [
+          "We rebuilt the three highest-impact flows — merchant onboarding, transaction reconciliation, and settlement payout — around the fastest path to a successful outcome. Each flow was reduced to its essential decisions, and side paths (export, dispute, refund) were demoted to secondary actions instead of competing for attention.",
+          "Mapping the journeys end-to-end exposed places where the system was asking merchants for information it already had, and steps that existed only because of legacy backend constraints. Several of those steps were removed entirely with the engineering team.",
+        ],
+      },
+      wireframes: {
+        paragraphs: [
+          "Low-fidelity wireframes let us pressure-test the new information hierarchy with real merchants in under a week. Three rounds of clickable Figma prototypes were tested with eight merchants each round, with iteration between sessions.",
+          "By the third round, the new dashboard structure tested 38% faster on the core 'find a specific transaction' task. Engineering reviewed every wireframe before we moved into high-fidelity to keep the design grounded in what was actually shippable.",
+        ],
+      },
+      solution: {
+        paragraphs: [
+          "The final design centres the dashboard on a single, scannable summary of money in, money out, and money settling — with everything else one click away. Transaction states use a clear visual language (succeeded, processing, failed, refunded) that's consistent across the dashboard, receipts, and webhook payloads.",
+          "Developer documentation now lives inside the product, contextual to whatever the merchant is looking at. A unified design system — Zest DS — was built alongside the redesign, giving engineering a shared component library for every future surface.",
+        ],
+      },
+      outcome: {
+        paragraphs: [
+          "Within the first quarter after launch, merchant onboarding completion rose sharply, support volume on the most common questions dropped by more than half, and merchant NPS improved meaningfully. The redesign also unblocked two new payment channels that had been stuck in the backlog because the old UI couldn't accommodate them.",
+        ],
+      },
+      metrics: [
+        { value: "+47%", label: "Onboarding completion" },
+        { value: "−58%", label: "Support tickets on top issues" },
+        { value: "+32", label: "Merchant NPS lift" },
+      ],
+    },
     content: [
       {
         type: "paragraph",
