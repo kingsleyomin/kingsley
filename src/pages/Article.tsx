@@ -73,6 +73,12 @@ const Article = () => {
     { value: "98%", label: "Stakeholder approval" },
   ];
 
+  // Per-project imagery, with generic fallbacks
+  const researchSrc = cs?.images?.research ?? researchImage;
+  const userFlowSrc = cs?.images?.userFlow ?? userflowImage;
+  const wireframesSrc = cs?.images?.wireframes ?? wireframesImage;
+  const solutionSrc = cs?.images?.solution ?? solutionImage;
+
   const nextProject = articleData.relatedArticles[0];
 
   return (
