@@ -11,6 +11,28 @@ const circularHorizonsHero = "/images/pexels-brianasarejr-12417686.jpg";
 const retroRevivalHero = "/images/pexels-brianasarejr-17553641.jpg";
 const goldenSpheresHero = "/images/pexels-jameshausley-3328337.jpg";
 
+// Per-project case study imagery (research, user flow, wireframes, solution)
+import zestResearch from "@/assets/zest-research.jpg";
+import zestUserflow from "@/assets/zest-userflow.jpg";
+import zestWireframes from "@/assets/zest-wireframes.jpg";
+import zestSolution from "@/assets/zest-solution.jpg";
+import laddaResearch from "@/assets/ladda-research.jpg";
+import laddaUserflow from "@/assets/ladda-userflow.jpg";
+import laddaWireframes from "@/assets/ladda-wireframes.jpg";
+import laddaSolution from "@/assets/ladda-solution.jpg";
+import prestmitResearch from "@/assets/prestmit-research.jpg";
+import prestmitUserflow from "@/assets/prestmit-userflow.jpg";
+import prestmitWireframes from "@/assets/prestmit-wireframes.jpg";
+import prestmitSolution from "@/assets/prestmit-solution.jpg";
+import letshegoResearch from "@/assets/letshego-research.jpg";
+import letshegoUserflow from "@/assets/letshego-userflow.jpg";
+import letshegoWireframes from "@/assets/letshego-wireframes.jpg";
+import letshegoSolution from "@/assets/letshego-solution.jpg";
+import dryvaResearch from "@/assets/dryva-research.jpg";
+import dryvaUserflow from "@/assets/dryva-userflow.jpg";
+import dryvaWireframes from "@/assets/dryva-wireframes.jpg";
+import dryvaSolution from "@/assets/dryva-solution.jpg";
+
 export interface CaseStudySection {
   paragraphs: string[];
   highlight?: string;
@@ -41,6 +63,12 @@ export interface CaseStudyMeta {
   solution: CaseStudySection;
   outcome: CaseStudySection;
   metrics: CaseStudyMetric[];
+  images?: {
+    research?: string;
+    userFlow?: string;
+    wireframes?: string;
+    solution?: string;
+  };
 }
 
 export interface ArticleData {
@@ -154,8 +182,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "+47%", label: "Onboarding completion" },
         { value: "−58%", label: "Support tickets on top issues" },
-        { value: "+32", label: "Merchant NPS lift" },
       ],
+      images: {
+        research: zestResearch,
+        userFlow: zestUserflow,
+        wireframes: zestWireframes,
+        solution: zestSolution,
+      },
     },
     content: [
       {
@@ -286,8 +319,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "2.3x", label: "30-day repeat investment rate" },
         { value: "+71%", label: "Weekly active sessions" },
-        { value: "−83%", label: "Portfolio-confusion tickets" },
       ],
+      images: {
+        research: laddaResearch,
+        userFlow: laddaUserflow,
+        wireframes: laddaWireframes,
+        solution: laddaSolution,
+      },
     },
     content: [
       {
@@ -418,8 +456,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "+62%", label: "First-trade completion" },
         { value: "−44%", label: "Average trade time" },
-        { value: "4.7★", label: "Play Store rating" },
       ],
+      images: {
+        research: prestmitResearch,
+        userFlow: prestmitUserflow,
+        wireframes: prestmitWireframes,
+        solution: prestmitSolution,
+      },
     },
     content: [
       {
@@ -550,8 +593,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "−68%", label: "Dev-assisted send requests" },
         { value: "−85%", label: "Time-to-first-campaign" },
-        { value: "+54%", label: "Weekly active ops users" },
       ],
+      images: {
+        research: letshegoResearch,
+        userFlow: letshegoUserflow,
+        wireframes: letshegoWireframes,
+        solution: letshegoSolution,
+      },
     },
     content: [
       {
@@ -682,8 +730,13 @@ export const articlesData: Record<string, ArticleData> = {
       metrics: [
         { value: "+38%", label: "Booking conversion" },
         { value: "−56%", label: "Post-booking cancellations" },
-        { value: "+29%", label: "Driver 90-day retention" },
       ],
+      images: {
+        research: dryvaResearch,
+        userFlow: dryvaUserflow,
+        wireframes: dryvaWireframes,
+        solution: dryvaSolution,
+      },
     },
     content: [
       {

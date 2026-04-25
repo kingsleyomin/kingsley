@@ -73,6 +73,12 @@ const Article = () => {
     { value: "98%", label: "Stakeholder approval" },
   ];
 
+  // Per-project imagery, with generic fallbacks
+  const researchSrc = cs?.images?.research ?? researchImage;
+  const userFlowSrc = cs?.images?.userFlow ?? userflowImage;
+  const wireframesSrc = cs?.images?.wireframes ?? wireframesImage;
+  const solutionSrc = cs?.images?.solution ?? solutionImage;
+
   const nextProject = articleData.relatedArticles[0];
 
   return (
@@ -234,7 +240,7 @@ const Article = () => {
           <div className="article-full-width">
             <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
               <img
-                src={researchImage}
+                src={researchSrc}
                 alt="Research session with user interview and sticky notes"
                 loading="lazy"
                 width={1280}
@@ -258,7 +264,7 @@ const Article = () => {
           <div className="article-full-width">
             <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
               <img
-                src={userflowImage}
+                src={userFlowSrc}
                 alt="User flow diagram"
                 loading="lazy"
                 width={1280}
@@ -283,7 +289,7 @@ const Article = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="aspect-[4/5] overflow-hidden rounded-[var(--radius)] bg-muted">
                 <img
-                  src={wireframesImage}
+                  src={wireframesSrc}
                   alt="Mobile wireframes"
                   loading="lazy"
                   width={1280}
@@ -293,7 +299,7 @@ const Article = () => {
               </div>
               <div className="aspect-[4/5] overflow-hidden rounded-[var(--radius)] bg-muted md:mt-16">
                 <img
-                  src={wireframesImage}
+                  src={wireframesSrc}
                   alt="Mobile wireframes — second iteration"
                   loading="lazy"
                   width={1280}
@@ -324,7 +330,7 @@ const Article = () => {
           <div className="article-full-width">
             <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
               <img
-                src={solutionImage}
+                src={solutionSrc}
                 alt="Final design solution screens"
                 loading="lazy"
                 width={1280}
