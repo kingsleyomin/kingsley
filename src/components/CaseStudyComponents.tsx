@@ -1,22 +1,22 @@
 import { ReactNode } from "react";
 
-interface ArticleProps {
+interface CaseStudyProps {
   children: ReactNode;
   className?: string;
 }
 
-export function Article({ children, className = "" }: ArticleProps) {
+export function CaseStudy({ children, className = "" }: CaseStudyProps) {
   return <article className={`flex flex-col ${className}`}>{children}</article>;
 }
 
-interface ArticleContainerProps {
+interface CaseStudyContainerProps {
   children: ReactNode;
   className?: string;
 }
 
-export function ArticleContainer({ children, className = "" }: ArticleContainerProps) {
+export function CaseStudyContainer({ children, className = "" }: CaseStudyContainerProps) {
   return (
-    <div className={`article-grid relative ${className}`}>
+    <div className={`case-study-grid relative ${className}`}>
       {children}
     </div>
   );
@@ -101,16 +101,16 @@ export function TopShares({ facebookUrl, twitterUrl, linkedinUrl, className = ""
   );
 }
 
-interface ArticleContentProps {
+interface CaseStudyContentProps {
   children: ReactNode;
   className?: string;
 }
 
-export function ArticleContent({ children, className = "" }: ArticleContentProps) {
+export function CaseStudyContent({ children, className = "" }: CaseStudyContentProps) {
   return (
     <div
       className={`
-      article-body
+      case-study-body
       [&_p]:font-normal
       [&_h2]:mt-[1.666em] [&_h2]:mb-[0.666em] [&_h2]:text-[1.125rem] [&_h2]:md:text-[1.3125rem] [&_h2]:lg:text-[1.6875rem] [&_h2]:font-display [&_h2]:font-semibold [&_h2]:tracking-[-0.02em] [&_h2]:leading-[1.6] [&_h2]:lg:leading-[1.4]
       [&_h2:first-child]:mt-0

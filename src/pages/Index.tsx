@@ -1,18 +1,17 @@
 import { useEffect, useRef, useMemo } from "react";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
-import ArticlePreview from "@/components/ArticlePreview";
+import CaseStudyPreview from "@/components/CaseStudyPreview";
 import BlogHero from "@/components/BlogHero";
 import WavyBackground from "@/components/WavyBackground";
 import {
-  GridContainer,
   GridContent,
   GridWrapper,
 } from "@/components/GridContainer";
-import { articlesData } from "@/data/articles";
+import { caseStudiesData } from "@/data/caseStudies";
 
 const Index = () => {
-  const articlesRef = useRef<(HTMLElement | null)[]>([]);
+  const caseStudiesRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,20 +26,20 @@ const Index = () => {
       { threshold: 0.1 }
     );
 
-    articlesRef.current.forEach((article) => {
-      if (article) observer.observe(article);
+    caseStudiesRef.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  // Transform articlesData into the format needed for the article grid
-  const allArticles = useMemo(() => {
-    return Object.values(articlesData).map((article) => ({
-      title: article.title,
-      image: article.heroImage,
-      publishDate: article.publishDate,
-      slug: article.slug,
+  // Transform caseStudiesData into the format needed for the grid
+  const allCaseStudies = useMemo(() => {
+    return Object.values(caseStudiesData).map((cs) => ({
+      title: cs.title,
+      image: cs.heroImage,
+      publishDate: cs.publishDate,
+      slug: cs.slug,
     }));
   }, []);
 
@@ -60,27 +59,27 @@ const Index = () => {
         </GridWrapper>
       </Section>
 
-      {/* Articles Section - Accordion Grid */}
+      {/* Case Studies Section - Accordion Grid */}
       <Section>
         <GridWrapper>
           <GridContent>
-            <div className="article-full-width">
+            <div className="case-study-full-width">
               <ul className="grid gap-12 md:grid-cols-2 md:gap-[70px] lgPlus:gap-24 3xl:gap-32">
-                {allArticles.slice(0, 5).map((article, index) => (
+                {allCaseStudies.slice(0, 5).map((cs, index) => (
                   <li
                     key={index}
-                    ref={(el) => (articlesRef.current[index] = el)}
+                    ref={(el) => (caseStudiesRef.current[index] = el)}
                     className={`blog-feed__item ${index === 0 ? 'md:col-span-2' : ''}`}
                     style={{
                       animationDelay: `${(index % 2) * 150}ms`,
                     }}
                   >
-                    <ArticlePreview
-                      title={article.title}
-                      slug={article.slug}
-                      image={article.image}
-                      imageAlt={article.title}
-                      publishDate={article.publishDate}
+                    <CaseStudyPreview
+                      title={cs.title}
+                      slug={cs.slug}
+                      image={cs.image}
+                      imageAlt={cs.title}
+                      publishDate={cs.publishDate}
                       className={index === 0 ? 'first-card' : ''}
                     />
                   </li>
@@ -93,8 +92,8 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="border-t border-border mt-24">
-        <div className="article-grid py-12">
-          <div className="article-hero text-center text-sm text-muted-foreground">
+        <div className="case-study-grid py-12">
+          <div className="case-study-hero text-center text-sm text-muted-foreground">
             <p>© 2026 KO. All rights reserved</p>
           </div>
         </div>

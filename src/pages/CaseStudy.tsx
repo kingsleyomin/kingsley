@@ -2,36 +2,36 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Header from "@/components/Header";
 import {
-  Article as ArticleWrapper,
-  ArticleContainer,
-  ArticleContent,
+  CaseStudy as CaseStudyWrapper,
+  CaseStudyContainer,
+  CaseStudyContent,
   TopShares,
-} from "@/components/ArticleComponents";
-import { getArticleBySlug } from "@/data/articles";
+} from "@/components/CaseStudyComponents";
+import { getCaseStudyBySlug } from "@/data/caseStudies";
 import researchImage from "@/assets/case-study-research.jpg";
 import userflowImage from "@/assets/case-study-userflow.jpg";
 import wireframesImage from "@/assets/case-study-wireframes.jpg";
 import solutionImage from "@/assets/case-study-solution.jpg";
 
-const Article = () => {
+const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
-  const articleData = slug ? getArticleBySlug(slug) : undefined;
+  const caseStudyData = slug ? getCaseStudyBySlug(slug) : undefined;
 
-  if (!articleData) {
+  if (!caseStudyData) {
     return <Navigate to="/404" replace />;
   }
 
-  const cs = articleData.caseStudy;
+  const cs = caseStudyData.caseStudy;
 
   // Derive case study meta — prefer typed caseStudy data, fall back to article fields
-  const projectTag = articleData.publishDate;
+  const projectTag = caseStudyData.publishDate;
   const client = cs?.client ?? projectTag.split("—")[0].trim();
-  const role = cs?.role ?? articleData.subtitle ?? "Product Design";
+  const role = cs?.role ?? caseStudyData.subtitle ?? "Product Design";
   const year = cs?.year ?? "2024";
-  const duration = cs?.duration ?? articleData.readTime ?? "8 weeks";
+  const duration = cs?.duration ?? caseStudyData.readTime ?? "8 weeks";
 
   // Section content — use structured caseStudy when available, otherwise slice paragraphs
-  const paragraphs = articleData.content.filter((b) => b.type === "paragraph");
+  const paragraphs = caseStudyData.content.filter((b) => b.type === "paragraph");
   const fallback = (start: number, end?: number): string[] =>
     paragraphs.slice(start, end).map((b) => b.content ?? "").filter(Boolean);
 
@@ -61,7 +61,7 @@ const Article = () => {
   ];
 
   const team = cs?.team ?? [
-    { role: "Product Designer", name: articleData.author.name },
+    { role: "Product Designer", name: caseStudyData.author.name },
     { role: "Design Lead", name: "Amelia Chen" },
     { role: "Product Manager", name: "Marcus Reid" },
     { role: "Engineering Lead", name: "Priya Natarajan" },
@@ -79,16 +79,16 @@ const Article = () => {
   const wireframesSrc = cs?.images?.wireframes ?? wireframesImage;
   const solutionSrc = cs?.images?.solution ?? solutionImage;
 
-  const nextProject = articleData.relatedArticles[0];
+  const nextProject = caseStudyData.relatedCaseStudies[0];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      <ArticleWrapper>
+      <CaseStudyWrapper>
         {/* CASE STUDY HERO */}
-        <section className="article-grid relative pt-12 md:pt-20 pb-16 md:pb-24">
-          <div className="article-hero">
+        <section className="case-study-grid relative pt-12 md:pt-20 pb-16 md:pb-24">
+          <div className="case-study-hero">
             <Link
               to="/blog"
               className="inline-flex items-center text-[0.8125rem] uppercase tracking-[0.15em] font-sans font-medium text-muted-foreground hover:text-foreground transition-colors group mb-12"
@@ -102,7 +102,7 @@ const Article = () => {
             </p>
 
             <h1 className="font-display font-semibold tracking-[-0.03em] leading-[1.05] text-[clamp(2.5rem,7vw,5.5rem)] mb-10 max-w-[18ch]">
-              {articleData.title}
+              {caseStudyData.title}
             </h1>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 pt-10 mt-2 border-t border-border">
@@ -126,12 +126,12 @@ const Article = () => {
         </section>
 
         {/* HERO IMAGE */}
-        <section className="article-grid pb-20 md:pb-32">
-          <div className="article-full-width">
+        <section className="case-study-grid pb-20 md:pb-32">
+          <div className="case-study-full-width">
             <div className="w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
               <img
-                src={articleData.heroImage}
-                alt={articleData.title}
+                src={caseStudyData.heroImage}
+                alt={caseStudyData.title}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -139,8 +139,8 @@ const Article = () => {
         </section>
 
         {/* 01 — INTRODUCTION / OVERVIEW */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="01" label="Introduction & Overview" />
             {introParagraphs.length > 0 ? (
               introParagraphs.map((p, i) => <p key={i}>{p}</p>)
@@ -150,12 +150,12 @@ const Article = () => {
                 mattered for the business and the people who use it every day.
               </p>
             )}
-          </ArticleContent>
-        </ArticleContainer>
+          </CaseStudyContent>
+        </CaseStudyContainer>
 
         {/* 02 — THE CHALLENGE */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="02" label="The Challenge" />
             {challengeParagraphs.length > 0 ? (
               challengeParagraphs.map((p, i) => <p key={i}>{p}</p>)
@@ -169,12 +169,12 @@ const Article = () => {
             <figure className="blockquote-big">
               <blockquote>{challengeHighlight}</blockquote>
             </figure>
-          </ArticleContent>
-        </ArticleContainer>
+          </CaseStudyContent>
+        </CaseStudyContainer>
 
         {/* 03 — PROJECT GOAL */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="03" label="Project Goal" />
             <p>
               We set out to redesign the experience around a focused set of
@@ -195,12 +195,12 @@ const Article = () => {
                 </div>
               ))}
             </div>
-          </ArticleContent>
-        </ArticleContainer>
+          </CaseStudyContent>
+        </CaseStudyContainer>
 
         {/* 04 — PROJECT TEAM */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="04" label="Project Team" />
             <p>
               A small, cross-functional team partnered closely from discovery
@@ -219,12 +219,12 @@ const Article = () => {
                 </div>
               ))}
             </div>
-          </ArticleContent>
-        </ArticleContainer>
+          </CaseStudyContent>
+        </CaseStudyContainer>
 
         {/* 05 — RESEARCH STRATEGY */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="05" label="Research Strategy" />
             {researchParagraphs.length > 0 ? (
               researchParagraphs.map((p, i) => <p key={i}>{p}</p>)
@@ -234,10 +234,10 @@ const Article = () => {
                 analytics review to triangulate what was happening — and why.
               </p>
             )}
-          </ArticleContent>
-        </ArticleContainer>
-        <section className="article-grid pb-16 md:pb-24">
-          <div className="article-full-width">
+          </CaseStudyContent>
+        </CaseStudyContainer>
+        <section className="case-study-grid pb-16 md:pb-24">
+          <div className="case-study-full-width">
             <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
               <img
                 src={researchSrc}
@@ -252,16 +252,16 @@ const Article = () => {
         </section>
 
         {/* 06 — USER FLOWS */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="06" label="User Flows" />
             {userFlowParagraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
-          </ArticleContent>
-        </ArticleContainer>
-        <section className="article-grid pb-16 md:pb-24">
-          <div className="article-full-width">
+          </CaseStudyContent>
+        </CaseStudyContainer>
+        <section className="case-study-grid pb-16 md:pb-24">
+          <div className="case-study-full-width">
             <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
               <img
                 src={userFlowSrc}
@@ -276,16 +276,16 @@ const Article = () => {
         </section>
 
         {/* 07 — WIREFRAMES */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="07" label="Wireframes" />
             {wireframeParagraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
-          </ArticleContent>
-        </ArticleContainer>
-        <section className="article-grid pb-16 md:pb-24">
-          <div className="article-full-width">
+          </CaseStudyContent>
+        </CaseStudyContainer>
+        <section className="case-study-grid pb-16 md:pb-24">
+          <div className="case-study-full-width">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="aspect-[4/5] overflow-hidden rounded-[var(--radius)] bg-muted">
                 <img
@@ -312,8 +312,8 @@ const Article = () => {
         </section>
 
         {/* 08 — THE DESIGN SOLUTION */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="08" label="The Design Solution" />
             {solutionParagraphs.length > 0 ? (
               solutionParagraphs.map((p, i) => <p key={i}>{p}</p>)
@@ -324,10 +324,10 @@ const Article = () => {
                 checkout flow make the experience feel effortless.
               </p>
             )}
-          </ArticleContent>
-        </ArticleContainer>
-        <section className="article-grid pb-16 md:pb-24">
-          <div className="article-full-width">
+          </CaseStudyContent>
+        </CaseStudyContainer>
+        <section className="case-study-grid pb-16 md:pb-24">
+          <div className="case-study-full-width">
             <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
               <img
                 src={solutionSrc}
@@ -342,8 +342,8 @@ const Article = () => {
         </section>
 
         {/* 09 — OUTCOME & IMPACT */}
-        <ArticleContainer className="pb-16 md:pb-24">
-          <ArticleContent>
+        <CaseStudyContainer className="pb-16 md:pb-24">
+          <CaseStudyContent>
             <SectionLabel index="09" label="Outcome & Impact" />
             {outcomeParagraphs.length > 0 ? (
               outcomeParagraphs.map((p, i) => <p key={i}>{p}</p>)
@@ -370,35 +370,35 @@ const Article = () => {
                 </div>
               ))}
             </div>
-          </ArticleContent>
-        </ArticleContainer>
+          </CaseStudyContent>
+        </CaseStudyContainer>
 
         {/* SHARE */}
-        <ArticleContainer className="pb-20 md:pb-28">
-          <div className="article-hero text-center">
+        <CaseStudyContainer className="pb-20 md:pb-28">
+          <div className="case-study-hero text-center">
             <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-6">
               Share this case study
             </p>
             <div className="flex justify-center">
               <TopShares
-                facebookUrl={`https://www.facebook.com/sharer/sharer.php?u=https://example.com/article/${articleData.slug}`}
-                twitterUrl={`https://twitter.com/intent/tweet?url=https://example.com/article/${articleData.slug}`}
-                linkedinUrl={`https://www.linkedin.com/shareArticle?url=https://example.com/article/${articleData.slug}`}
+                facebookUrl={`https://www.facebook.com/sharer/sharer.php?u=https://example.com/case-study/${caseStudyData.slug}`}
+                twitterUrl={`https://twitter.com/intent/tweet?url=https://example.com/case-study/${caseStudyData.slug}`}
+                linkedinUrl={`https://www.linkedin.com/shareArticle?url=https://example.com/case-study/${caseStudyData.slug}`}
               />
             </div>
           </div>
-        </ArticleContainer>
-      </ArticleWrapper>
+        </CaseStudyContainer>
+      </CaseStudyWrapper>
 
       {/* NEXT PROJECT CTA */}
       {nextProject && (
-        <section className="article-grid pb-20 md:pb-32 border-t border-border pt-20 md:pt-28">
-          <div className="article-full-width">
+        <section className="case-study-grid pb-20 md:pb-32 border-t border-border pt-20 md:pt-28">
+          <div className="case-study-full-width">
             <p className="text-center text-[0.6875rem] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium mb-6">
               Next Case Study
             </p>
             <Link
-              to={`/article/${nextProject.slug}`}
+              to={`/case-study/${nextProject.slug}`}
               className="group block max-w-[1100px] mx-auto"
             >
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted mb-8">
@@ -423,8 +423,8 @@ const Article = () => {
 
       {/* Footer */}
       <footer className="border-t border-border">
-        <div className="article-grid py-12">
-          <div className="article-hero text-center text-sm text-muted-foreground">
+        <div className="case-study-grid py-12">
+          <div className="case-study-hero text-center text-sm text-muted-foreground">
             <p>© 2024 All rights reserved.</p>
           </div>
         </div>
@@ -445,4 +445,4 @@ const SectionLabel = ({ index, label }: { index: string; label: string }) => (
   </div>
 );
 
-export default Article;
+export default CaseStudy;

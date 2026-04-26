@@ -19,11 +19,11 @@ export function GridContainer({
   children,
   className = "",
 }: GridContainerProps) {
-  return <div className={`article-section-grid ${className}`}>{children}</div>;
+  return <div className={`case-study-section-grid ${className}`}>{children}</div>;
 }
 
 export function GridContent({ children, className }: GridContainerProps) {
-  return <div className={`article-section-content ${className}`}>{children}</div>;
+  return <div className={`case-study-section-content ${className}`}>{children}</div>;
 }
 
 /**
@@ -33,5 +33,5 @@ export function GridContent({ children, className }: GridContainerProps) {
  * Desktop (1180px): cols 3-28 (26 columns)
  */
 export function GridWrapper({ children, className = "" }: GridWrapperProps) {
-  return <div className={`article-wrapper-constrained ${className}`}>{children}</div>;
+  return <div className={`case-study-wrapper-constrained ${className}`}>{children}</div>;
 }

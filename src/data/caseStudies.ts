@@ -71,7 +71,7 @@ export interface CaseStudyMeta {
   };
 }
 
-export interface ArticleData {
+export interface CaseStudyData {
   slug: string;
   title: string;
   subtitle: string;
@@ -95,7 +95,7 @@ export interface ArticleData {
     author?: string;
     level?: number;
   }[];
-  relatedArticles: {
+  relatedCaseStudies: {
     title: string;
     description: string;
     image: string;
@@ -104,7 +104,7 @@ export interface ArticleData {
   }[];
 }
 
-export const articlesData: Record<string, ArticleData> = {
+export const caseStudiesData: Record<string, CaseStudyData> = {
   "about-james": {
     slug: "about-james",
     title: "Enabling smooth and reliable payments across multiple channels. ",
@@ -232,7 +232,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "Until then, I'll be here in Brooklyn—shooting, learning, and trying to capture something true.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Editorial Elegance",
         description: "Shot for Vogue Italia during Milan Fashion Week. Capturing the intersection of haute couture and architectural minimalism.",
@@ -369,7 +369,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "Good jewelry doesn't need much. Just light, attention, and respect for the craft that made it.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Stories Unbound",
         description: "Narrative fashion photography that tells compelling visual stories.",
@@ -506,7 +506,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "Beauty doesn't need to be complicated. Sometimes it's just showing people exactly what they're getting.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Editorial Elegance",
         description: "Shot for Vogue Italia during Milan Fashion Week. Capturing the intersection of haute couture and architectural minimalism.",
@@ -643,7 +643,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "Luxury streetwear exists in that uncomfortable space between two cultures. Maybe that's what makes it interesting to photograph.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Desert Dreams",
         description: "A journey through minimalist landscapes where fashion meets nature in perfect harmony.",
@@ -780,7 +780,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "Maybe men will wear hats again. Maybe they won't. Either way, documenting well-made things feels like worthwhile work.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Coastal Classic",
         description: "Seaside elegance meets timeless style.",
@@ -846,7 +846,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "I've shot beauty campaigns both ways now. The heavily retouched fantasy and the honest reality. Only one feels like it might age well.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Lavender Fields",
         description: "Romance and elegance captured in the purple hues of Provence.",
@@ -912,7 +912,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "That's the whole game. Make the everyday look intentional. Make the simple look considered. Make the effortless reveal the effort it actually took.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Editorial Elegance",
         description: "Shot for Vogue Italia during Milan Fashion Week. Capturing the intersection of haute couture and architectural minimalism.",
@@ -978,7 +978,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "Fashion as art. Art as fashion. At a certain point, the distinction stops mattering.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Editorial Elegance",
         description: "Shot for Vogue Italia during Milan Fashion Week. Capturing the intersection of haute couture and architectural minimalism.",
@@ -1044,7 +1044,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "Timeless, versatile, cool without trying. That's the leather jacket promise. And after shooting maybe a hundred of them over the years, I still believe it.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Vintage Highway",
         description: "A nostalgic journey through classic American style and the open road.",
@@ -1110,7 +1110,7 @@ export const articlesData: Record<string, ArticleData> = {
         content: "Neon, pixels, screens, glow. This is what fashion spaces look like now. I'm just trying to document it honestly.",
       },
     ],
-    relatedArticles: [
+    relatedCaseStudies: [
       {
         title: "Circular Horizons",
         description: "Geometric patterns and modern design.",
@@ -1122,10 +1122,10 @@ export const articlesData: Record<string, ArticleData> = {
   },
 };
 
-export const getArticleBySlug = (slug: string): ArticleData | undefined => {
-  return articlesData[slug];
+export const getCaseStudyBySlug = (slug: string): CaseStudyData | undefined => {
+  return caseStudiesData[slug];
 };
 
-export const getAllArticleSlugs = (): string[] => {
-  return Object.keys(articlesData);
+export const getAllCaseStudySlugs = (): string[] => {
+  return Object.keys(caseStudiesData);
 };

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-interface ArticlePreviewProps {
+interface CaseStudyPreviewProps {
   title: string;
   slug: string;
   image: string;
@@ -11,7 +11,7 @@ interface ArticlePreviewProps {
   className?: string;
 }
 
-export default function ArticlePreview({
+export default function CaseStudyPreview({
   title,
   slug,
   image,
@@ -20,7 +20,7 @@ export default function ArticlePreview({
   description,
   category,
   className = "",
-}: ArticlePreviewProps) {
+}: CaseStudyPreviewProps) {
   const isFirstCard = className.includes('first-card');
   
   return (
@@ -28,7 +28,7 @@ export default function ArticlePreview({
       <figure className={`relative order-[-1] mb-[1.25rem] overflow-hidden bg-muted group/image ${
         isFirstCard ? 'pb-[56.25%]' : 'pb-[100%]'
       }`}>
-        <Link to={`/article/${slug}`} title={imageAlt}>
+        <Link to={`/case-study/${slug}`} title={imageAlt}>
           <img
             alt={imageAlt}
             src={image}
@@ -50,7 +50,7 @@ export default function ArticlePreview({
 
       <h3 className="mt-[0.1875rem] text-[1.375rem] md:text-[1.6875rem] leading-[1.4] font-display font-semibold tracking-[-0.02em]">
         <Link
-          to={`/article/${slug}`}
+          to={`/case-study/${slug}`}
           className="inline-block transition-colors duration-300 text-foreground hover:text-primary whitespace-pre-line"
         >
           {title}
