@@ -13,8 +13,8 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-background">
-      <div className="article-header-grid" style={{ minHeight: "72px" }}>
-        <div className="article-wrapper-constrained">
+      <div className="case-study-header-grid" style={{ minHeight: "72px" }}>
+        <div className="case-study-wrapper-constrained">
           <div className="flex items-center justify-between h-full py-4">
             <Link to="/" aria-label="Home" className="flex items-center">
               <img src={logo} alt="Logo" className="h-8 w-auto" />
@@ -23,7 +23,7 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <Link
-                to="/article/about-james"
+                to="/case-study/about-james"
                 className="text-[1.125rem] font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 About
@@ -56,7 +56,7 @@ const Header = () => {
                     Home
                   </Link>
                   <Link
-                    to="/article/about-james"
+                    to="/case-study/about-james"
                     onClick={() => setIsOpen(false)}
                     className="text-[1.8rem] font-medium text-foreground hover:text-primary transition-colors"
                   >
