@@ -6,7 +6,7 @@ const desertDreamsHero = "/images/igor-rand-dlR-BNDWz3g-unsplash.jpg";
 const vintageHighwayHero = "/images/dwayne-joe-9wubaeSG13U-unsplash (1).jpg";
 const lavenderFieldsHero = "/images/ozge-karzan-fdZjAjPUQbk-unsplash.jpg";
 const coastalClassicHero = "/images/pexels-adrienne-andersen-1174503-2661255.jpg";
-const storiesUnboundHero = "/images/pexels-ayomide-isaac-66354580-16273825.jpg";
+
 const circularHorizonsHero = "/images/pexels-brianasarejr-12417686.jpg";
 const retroRevivalHero = "/images/pexels-brianasarejr-17553641.jpg";
 const goldenSpheresHero = "/images/pexels-jameshausley-3328337.jpg";
@@ -369,15 +369,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         content: "Good jewelry doesn't need much. Just light, attention, and respect for the craft that made it.",
       },
     ],
-    relatedCaseStudies: [
-      {
-        title: "Stories Unbound",
-        description: "Narrative fashion photography that tells compelling visual stories.",
-        image: storiesUnboundHero,
-        tag: "Editorial",
-        slug: "stories-unbound",
-      },
-    ],
+    relatedCaseStudies: [],
   },
   "desert-dreams": {
     slug: "desert-dreams",
@@ -853,72 +845,6 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         image: lavenderFieldsHero,
         tag: "Editorial",
         slug: "lavender-fields",
-      },
-    ],
-  },
-  "stories-unbound": {
-    slug: "stories-unbound",
-    title: "Effortless Style",
-    subtitle: "The Art of Looking Casual",
-    publishDate: "March 1, 2024",
-    author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
-      avatar: authorAvatar,
-    },
-    heroImage: storiesUnboundHero,
-    readTime: "9 min",
-    viewCount: "3.5k",
-    shareCount: 102,
-    content: [
-      {
-        type: "paragraph",
-        content: "The best style looks like no effort at all.",
-      },
-      {
-        type: "paragraph",
-        content: "An oversized tee, good sneakers, well-fitted pants. Nothing complicated, nothing trying too hard, just clean simple pieces worn with confidence. That's the foundation of street style—fashion that doesn't announce itself but still says something about who you are.",
-      },
-      {
-        type: "paragraph",
-        content: "I shot this series around Bushwick on a Saturday afternoon.",
-      },
-      {
-        type: "paragraph",
-        content: "No studio, no elaborate lighting setups, just natural daylight and interesting walls. The model wore basics—oversized sage green tee, black pants, white sneakers. The kind of outfit you'd see on any Brooklyn street corner. But paired with good proportions and shot well, basics become something more.",
-      },
-      {
-        type: "paragraph",
-        content: "We walked maybe ten blocks, shooting against weathered walls, aged paint, urban texture. The locations weren't Instagram-perfect. They were real—peeling paint, faded colors, the authentic decay of a city constantly remaking itself. That realness matters. Street style photography shouldn't look too polished.",
-      },
-      {
-        type: "paragraph",
-        content: "The key to photographing casual clothes is respecting the casualness.",
-      },
-      {
-        type: "paragraph",
-        content: "Don't over-style, don't over-light, don't force drama where none exists. The model walked, I followed, we stopped when something felt right. Sometimes the best street style shots come from just paying attention to how people naturally move through space.",
-      },
-      {
-        type: "paragraph",
-        content: "White sneakers are having their tenth comeback in as many years. They never really leave—they just cycle between mainstream and cool and back again. Right now they're everywhere, which somehow makes them more invisible, which somehow makes them more essential. The uniform of people who know style isn't about standing out.",
-      },
-      {
-        type: "paragraph",
-        content: "We wrapped after two hours and maybe 150 frames. No costume changes, no hair and makeup team, no assistants hauling equipment. Just a camera, good light, and someone who knew how to wear simple clothes well.",
-      },
-      {
-        type: "paragraph",
-        content: "That's the whole game. Make the everyday look intentional. Make the simple look considered. Make the effortless reveal the effort it actually took.",
-      },
-    ],
-    relatedCaseStudies: [
-      {
-        title: "Editorial Elegance",
-        description: "Shot for Vogue Italia during Milan Fashion Week. Capturing the intersection of haute couture and architectural minimalism.",
-        image: editorialEleganceHero,
-        tag: "Editorial",
-        slug: "editorial-elegance",
       },
     ],
   },
