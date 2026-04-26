@@ -7,8 +7,8 @@ interface CenteredContentProps {
 
 const CenteredContent = ({ children, className = "" }: CenteredContentProps) => {
   return (
-    <div className="article-grid">
-      <div className={`article-centered-content ${className}`}>
+    <div className="case-study-grid">
+      <div className={`case-study-centered-content ${className}`}>
         {children}
       </div>
     </div>

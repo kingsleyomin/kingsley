@@ -188,8 +188,8 @@ const PrivacyPolicy = () => {
 
       {/* Footer */}
       <footer className="border-t border-border mt-12">
-        <div className="article-grid py-12">
-          <div className="article-hero text-center text-sm text-muted-foreground">
+        <div className="case-study-grid py-12">
+          <div className="case-study-hero text-center text-sm text-muted-foreground">
             <p>© 2024 Voyager Press. All rights reserved.</p>
           </div>
         </div>
