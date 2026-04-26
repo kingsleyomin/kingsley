@@ -211,7 +211,7 @@ All colors MUST be HSL.
     }
   }
 
-  /* Fluid typography for article titles */
+  /* Fluid typography for case study titles */
   .fluid-title {
     font-size: clamp(2.5rem, 8vw + 0.625rem, 12.5rem);
     line-height: 0.9;
@@ -230,18 +230,18 @@ All colors MUST be HSL.
     }
   }
 
-  /* Grid System - Article Layout (Tailwind @layer components) */
+  /* Grid System - Case Study Layout (Tailwind @layer components) */
   @layer components {
-    /* Main Article Grid Container */
-    .article-grid {
+    /* Main Case Study Grid Container */
+    .case-study-grid {
       @apply grid w-full max-w-[1920px] mx-auto gap-0;
       @apply grid-cols-18 mb-[2.734375rem];
       @apply md:grid-cols-22;
       @apply lgPlus:grid-cols-30 lgPlus:mb-[3.75rem];
     }
 
-    /* Article Header Grid - Grid for navigation without vertical margins */
-    .article-header-grid {
+    /* Case Study Header Grid - Grid for navigation without vertical margins */
+    .case-study-header-grid {
       @apply grid w-full max-w-[1920px] mx-auto gap-0;
       @apply grid-cols-18;
       @apply md:grid-cols-22;
@@ -249,8 +249,8 @@ All colors MUST be HSL.
     }
   }
 
-    /* Article Body - Narrow reading width with responsive typography */
-    .article-body {
+    /* Case Study Body - Narrow reading width with responsive typography */
+    .case-study-body {
       @apply col-start-2 col-span-16;
       @apply md:col-start-3 md:col-span-18;
       @apply lgPlus:col-start-8 lgPlus:col-span-16;
@@ -260,64 +260,64 @@ All colors MUST be HSL.
       @apply 3xl:text-[2.25rem];
     }
 
-    /* Article Standard Content - Standard width, no typography */
-    .article-content-standard {
+    /* Case Study Standard Content - Standard width, no typography */
+    .case-study-content-standard {
       @apply col-start-2 col-span-16;
       @apply md:col-start-3 md:col-span-18;
       @apply lgPlus:col-start-3 lgPlus:col-span-19;
     }
 
-    /* Article Hero - Narrow width for hero content */
-    .article-hero {
+    /* Case Study Hero - Narrow width for hero content */
+    .case-study-hero {
       @apply col-start-2 col-span-16;
       @apply md:col-start-3 md:col-span-18;
       @apply lgPlus:col-start-8 lgPlus:col-span-16;
     }
 
-    /* Article Wide Content - For wider layouts */
-    .article-wide-content {
+    /* Case Study Wide Content - For wider layouts */
+    .case-study-wide-content {
       @apply self-center;
       @apply col-start-2 col-span-16;
       @apply md:col-start-3 md:col-span-18;
       @apply lgPlus:col-start-3 lgPlus:col-span-19;
     }
 
-    /* Article Centered Content - Extra narrow, centered */
-    .article-centered-content {
+    /* Case Study Centered Content - Extra narrow, centered */
+    .case-study-centered-content {
       @apply self-center;
       @apply col-start-2 col-span-16;
       @apply md:col-start-3 md:col-span-18;
       @apply lgPlus:col-start-9 lgPlus:col-span-14;
     }
 
-    /* Article Full Width - Spans entire grid */
-    .article-full-width {
+    /* Case Study Full Width - Spans entire grid */
+    .case-study-full-width {
       @apply col-span-full self-center;
     }
 
-    /* Article Two Column Grid - For related articles, blog listings */
-    .article-two-columns {
+    /* Case Study Two Column Grid - For related case studies, blog listings */
+    .case-study-two-columns {
       @apply list-none m-0 p-0 grid gap-12;
       @apply md:grid-cols-2 md:gap-[70px];
       @apply lgPlus:gap-24;
       @apply 3xl:gap-32;
     }
 
-    /* Article Column Left - Left side of two-column layout */
-    .article-column-left {
+    /* Case Study Column Left - Left side of two-column layout */
+    .case-study-column-left {
       @apply col-start-1 col-end-9;
       @apply md:col-start-1 md:col-end-11;
       @apply lgPlus:col-start-1 lgPlus:col-end-15;
     }
 
-    /* Article Column Right - Right side of two-column layout */
-    .article-column-right {
+    /* Case Study Column Right - Right side of two-column layout */
+    .case-study-column-right {
       @apply col-start-10 col-end-[-1];
       @apply md:col-start-12 md:col-end-[-1];
       @apply lgPlus:col-start-16 lgPlus:col-end-[-1];
     }
-    /* Article Section Grid - For section-based layouts */
-    .article-section-grid {
+    /* Case Study Section Grid - For section-based layouts */
+    .case-study-section-grid {
       @apply grid w-full max-w-[1920px] gap-0;
       @apply grid-cols-18 my-5;
       @apply md:grid-cols-22 md:my-[2.734375rem];
@@ -325,21 +325,21 @@ All colors MUST be HSL.
       @apply 3xl:my-20;
     }
 
-    /* Article Section Content - Inner grid for sections */
-    .article-section-content {
+    /* Case Study Section Content - Inner grid for sections */
+    .case-study-section-content {
       @apply grid w-full max-w-[1920px] gap-0;
       @apply grid-cols-16 my-8 mb-12;
       @apply md:grid-cols-18;
       @apply lgPlus:grid-cols-26;
     }
 
-    /* Article Wrapper Full - Full width wrapper */
-    .article-wrapper-full {
+    /* Case Study Wrapper Full - Full width wrapper */
+    .case-study-wrapper-full {
       @apply col-span-full;
     }
 
-    /* Article Wrapper Constrained - Constrained width wrapper */
-    .article-wrapper-constrained {
+    /* Case Study Wrapper Constrained - Constrained width wrapper */
+    .case-study-wrapper-constrained {
       @apply col-start-2 col-span-16;
       @apply md:col-start-3 md:col-span-18;
       @apply lgPlus:col-start-3 lgPlus:col-span-26;
