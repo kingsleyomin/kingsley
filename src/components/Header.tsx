@@ -6,7 +6,6 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import NewsletterSheet from "@/components/NewsletterSheet";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
@@ -35,11 +34,6 @@ const Header = () => {
               >
                 Contact
               </Link>
-              <NewsletterSheet>
-                <button className="text-[1.125rem] font-medium text-muted-foreground hover:text-foreground transition-colors">
-                  Newsletter
-                </button>
-              </NewsletterSheet>
             </nav>
 
             {/* Mobile Menu */}
@@ -75,14 +69,6 @@ const Header = () => {
                   >
                     Contact
                   </Link>
-                  <NewsletterSheet>
-                    <button
-                      onClick={() => setIsOpen(false)}
-                      className="text-[1.8rem] font-medium text-foreground hover:text-primary transition-colors text-left"
-                    >
-                      Newsletter
-                    </button>
-                  </NewsletterSheet>
                 </nav>
               </SheetContent>
             </Sheet>
