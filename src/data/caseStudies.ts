@@ -1126,6 +1126,6 @@ export const getCaseStudyBySlug = (slug: string): CaseStudyData | undefined => {
   return caseStudiesData[slug];
 };
 
-export const getAllArticleSlugs = (): string[] => {
+export const getAllCaseStudySlugs = (): string[] => {
   return Object.keys(caseStudiesData);
 };
