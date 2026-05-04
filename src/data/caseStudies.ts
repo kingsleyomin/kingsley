@@ -3,7 +3,7 @@ const authorAvatar = "/images/pexels-kadeem-stewart-170429769-15786936.jpg";
 import aboutSofiaHero from "@/assets/first-case-study-hero.png";
 import editorialEleganceHero from "@/assets/ladda-hero.png";
 const desertDreamsHero = "/images/igor-rand-dlR-BNDWz3g-unsplash.jpg";
-const vintageHighwayHero = "/images/dwayne-joe-9wubaeSG13U-unsplash (1).jpg";
+import vintageHighwayHero from "@/assets/letshego-hero.png";
 const lavenderFieldsHero = "/images/ozge-karzan-fdZjAjPUQbk-unsplash.jpg";
 const coastalClassicHero = "/images/pexels-adrienne-andersen-1174503-2661255.jpg";
 
