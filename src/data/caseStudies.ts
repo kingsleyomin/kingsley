@@ -1,7 +1,7 @@
 // Local images from public/images directory
 const authorAvatar = "/images/pexels-kadeem-stewart-170429769-15786936.jpg";
 import aboutSofiaHero from "@/assets/first-case-study-hero.png";
-const editorialEleganceHero = "/images/amina-atar-tPM3nd4J8xs-unsplash.jpg";
+import editorialEleganceHero from "@/assets/ladda-hero.png";
 const desertDreamsHero = "/images/igor-rand-dlR-BNDWz3g-unsplash.jpg";
 const vintageHighwayHero = "/images/dwayne-joe-9wubaeSG13U-unsplash (1).jpg";
 const lavenderFieldsHero = "/images/ozge-karzan-fdZjAjPUQbk-unsplash.jpg";
