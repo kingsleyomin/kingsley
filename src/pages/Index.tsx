@@ -69,7 +69,7 @@ const Index = () => {
                   <li
                     key={index}
                     ref={(el) => (caseStudiesRef.current[index] = el)}
-                    className={`blog-feed__item ${index === 0 ? 'md:col-span-2' : ''}`}
+                    className="blog-feed__item"
                     style={{
                       animationDelay: `${(index % 2) * 150}ms`,
                     }}
