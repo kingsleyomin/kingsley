@@ -64,12 +64,12 @@ const Index = () => {
         <GridWrapper>
           <GridContent>
             <div className="case-study-full-width">
-              <ul className="grid gap-12 md:grid-cols-2 md:gap-[70px] lgPlus:gap-24 3xl:gap-32">
+              <ul className="grid gap-12 md:gap-[70px] lgPlus:gap-24 3xl:gap-32">
                 {allCaseStudies.slice(0, 5).map((cs, index) => (
                   <li
                     key={index}
                     ref={(el) => (caseStudiesRef.current[index] = el)}
-                    className={`blog-feed__item ${index === 0 ? 'md:col-span-2' : ''}`}
+                    className="blog-feed__item"
                     style={{
                       animationDelay: `${(index % 2) * 150}ms`,
                     }}
