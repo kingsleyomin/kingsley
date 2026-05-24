@@ -64,7 +64,7 @@ const Index = () => {
         <GridWrapper>
           <GridContent>
             <div className="case-study-full-width">
-              <ul className="grid gap-12 md:grid-cols-2 md:gap-[70px] lgPlus:gap-24 3xl:gap-32">
+              <ul className="grid gap-12 md:gap-[70px] lgPlus:gap-24 3xl:gap-32">
                 {allCaseStudies.slice(0, 5).map((cs, index) => (
                   <li
                     key={index}
