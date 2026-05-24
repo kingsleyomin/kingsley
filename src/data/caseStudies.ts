@@ -258,67 +258,68 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     shareCount: 89,
     caseStudy: {
       client: "Ladda",
-      role: "Senior Product Designer",
-      year: "2024",
-      duration: "10 weeks",
+      role: "Product Designer",
+      year: "2021",
+      duration: "8 weeks",
       introduction: {
         paragraphs: [
-          "Ladda is a unified investment platform that lets retail investors hold stocks, fixed income, mutual funds, and savings products in a single account. The team had product-market fit but were losing engaged users at the second-investment moment — people opened an account, made one purchase, and never returned.",
-          "I joined to redesign the discovery and portfolio surfaces, with a brief to make the second investment feel as obvious and confident as the first.",
+          "Ladda is a fintech product of Money Africa that allows users to invest in mutual funds, stocks (both global & local), purchase gift cards, and save from the comfort of their homes.",
+          "Ladda makes investment and stock trading easily accessible by making it available on everyday devices (web & mobile).",
         ],
       },
       challenge: {
         paragraphs: [
-          "Investing across asset classes is genuinely complicated, and the existing app reflected that complexity instead of softening it. Each asset type lived on its own screen, with its own language, its own performance chart, and its own way of showing returns. Users had no single mental model for what they owned.",
-          "On top of that, the discover tab surfaced everything equally — a trending stock sat next to a long-duration bond fund with no context about which made sense for whom. New investors froze. Experienced ones bypassed the app entirely and went to spreadsheets.",
+          "Prior to the last 5–10 years, investing in stocks and mutual funds was a tedious process for the everyday person — finding a broker, having a certain amount of investment capital, filling out lengthy forms, and dealing with a non-transparent process.",
+          "Fast-forward a few years with uncertainties on the rise, demand for financial freedom utilizing savings and investment products has been on the increase as well, which has led to innovations and disruptions in the financial technology sector in Nigeria and globally.",
+          "Ladda's position in the market is to simplify this process and educate its customers while creating opportunities for Africans to invest in local and global assets.",
         ],
         highlight:
-          "A great investment app makes a complicated decision feel like a simple one — without hiding what's actually happening.",
+          "Simplify investing and educate customers — while opening up opportunities for Africans to invest in local and global assets.",
       },
       goals: [
-        "Give every user one consistent view of their portfolio, regardless of asset mix.",
-        "Make discovery feel personal — surface what's relevant to this user, this week.",
-        "Lower the cognitive load of placing a second, third, and fourth investment.",
-        "Maintain the trust signals serious investors expect: clear fees, real performance, no gamification.",
+        "Design a product that is user-friendly and not intimidating for new users, while remaining easy to use for experienced ones.",
+        "Design a platform that helps users kickstart their financial independence.",
+        "Design a smooth and delightful product that users love.",
       ],
       team: [
-        { role: "Senior Product Designer", name: "Kingsley Omin" },
-        { role: "Head of Product", name: "Olamide Bello" },
-        { role: "Engineering Manager", name: "Chinedu Okafor" },
-        { role: "Data Scientist", name: "Aisha Yusuf" },
+        { role: "Product Designer", name: "Kingsley Omin" },
+        { role: "Product Manager", name: "Money Africa" },
+        { role: "Engineering", name: "Ladda Engineering Team" },
+        { role: "Platform", name: "Web & Mobile" },
       ],
       research: {
         paragraphs: [
-          "We ran a mixed-methods study: fifteen user interviews split across first-time and seasoned investors, a diary study with eight users over two weeks, and behavioural analysis of cohorts that had churned after their first transaction.",
-          "The clearest insight came from the diary study: users were checking the app for a feeling — calm, curiosity, or urgency — far more often than to take an action. The product was treating every visit as transactional. It needed to support reflection too.",
+          "On understanding the goal of the product, I kickstarted the research by speaking to potential users, conducting interviews over the phone and sending out questionnaires. (This was during the early stage of the Covid-19 pandemic, so one-on-one interviews weren't possible.)",
+          "The research helped in identifying early adopters who would use the product, and it also provided the data needed to back the design strategy and decisions. Questions explored their preferred investment apps, why they preferred them, the challenges they faced, and improvements they wished for.",
+          "Key findings: users find most investment platforms confusing, leading to a high drop-off rate; users want a product with a simple learning curve; and users perceive investment as a difficult topic, so the product needs to be simple, intuitive, and easy to use.",
         ],
       },
       userFlows: {
         paragraphs: [
-          "The new portfolio flow consolidates all asset classes into a single, scannable overview, with drill-downs that reveal complexity only when wanted. The discover flow was rebuilt around three contextual entry points: 'Continue building', 'New for you', and 'Worth a look this week'.",
-          "Placing an investment was reduced from seven steps to three on the most common path, with the safety checks moved into a single confirmation moment instead of being spread throughout the journey.",
+          "In this phase, I mapped out a user flow to create a visual representation of the steps a user would take to reach their end goal. This also helped identify all the screens to be included in the design.",
         ],
       },
       wireframes: {
         paragraphs: [
-          "Wireframes focused on hierarchy first, visuals second. We tested three structurally different portfolio layouts before settling on the unified one — the alternatives kept reintroducing the per-asset-class fragmentation we were trying to remove.",
-          "Each wireframe round was reviewed with the compliance team to make sure clarity didn't drift into overpromising. Fees, risk labels, and historical performance language were locked in before any high-fidelity work began.",
+          "After understanding the user goals and behaviour, I proceeded with listing all the app features in order to map out the flows and create wireframes.",
+          "The wireframes and low-fidelity prototype gave us more insight into what the product would look like. They were tested with potential users, and more insights and feedback were drawn from those sessions.",
         ],
       },
       solution: {
         paragraphs: [
-          "The redesigned Ladda opens to a single portfolio view that totals everything you own and shows how it's moved today, this month, and all-time. Asset-specific detail lives one tap away but never competes for the headline.",
-          "Discover now feels personal — recommendations are framed around the user's existing portfolio and goals, with clear reasoning shown instead of hidden behind an algorithm. The investment flow is calmer, faster, and ends with a confirmation screen designed to reduce regret rather than celebrate the spend.",
+          "Once the wireframes were approved, I started working on detailed designs for both the web and mobile platforms, with a mobile-first approach.",
+          "The final product was a well-designed investment platform consisting of stock trading, mutual funds, savings, and gift card trading — all in one place.",
         ],
       },
       outcome: {
         paragraphs: [
-          "After launch, repeat investment rate within the first 30 days more than doubled, and weekly active sessions per user grew significantly without any change in marketing spend. Crucially, support contacts about 'how do I see my total portfolio' essentially disappeared.",
+          "The product hit over $130,000 of transaction value in the first 6 months of beta launch. We saw great reviews on the Play Store and a rating of 4.0. That said, we're also aware there's still room for improvement.",
         ],
       },
       metrics: [
-        { value: "2.3x", label: "30-day repeat investment rate" },
-        { value: "+71%", label: "Weekly active sessions" },
+        { value: "$130K+", label: "Transaction value in first 6 months" },
+        { value: "4.0", label: "Play Store rating" },
+        { value: "8 weeks", label: "Project duration" },
       ],
       images: {
         research: laddaResearch,
@@ -327,6 +328,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         solution: laddaSolution,
       },
     },
+
     content: [
       {
         type: "paragraph",
