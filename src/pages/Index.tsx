@@ -80,7 +80,7 @@ const Index = () => {
                       image={cs.image}
                       imageAlt={cs.title}
                       publishDate={cs.publishDate}
-                      className={index === 0 ? 'first-card' : ''}
+                      className="first-card"
                     />
                   </li>
                 ))}
