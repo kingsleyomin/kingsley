@@ -177,8 +177,7 @@ const CaseStudy = () => {
           <CaseStudyContent>
             <SectionLabel index="03" label="Project Goal" />
             <p>
-              We set out to redesign the experience around a focused set of
-              north-star goals — each tied to a measurable business outcome.
+              {cs?.goalsIntro ?? "The work was shaped around a focused set of goals — each one tied to a real user and business outcome."}
             </p>
             <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-10">
               {goals.map((g, i) => (
