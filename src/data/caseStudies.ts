@@ -277,9 +277,10 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
           "Simplify investing and educate customers — while opening up opportunities for Africans to invest in local and global assets.",
       },
       goals: [
-        "Design a product that is user-friendly and not intimidating for new users, while remaining easy to use for experienced ones.",
-        "Design a platform that helps users kickstart their financial independence.",
-        "Design a smooth and delightful product that users love.",
+        "Simplify the investment onboarding to reduce drop-off and build confidence for first-time investors.",
+        "Design an intuitive, non-intimidating interface that makes complex financial decisions feel effortless.",
+        "Deliver a unified product experience across web and mobile for seamless portfolio management.",
+        "Establish a scalable design system that supports stocks, mutual funds, savings, and gift cards.",
       ],
       team: [
         { role: "Product Designer", name: "Kingsley Omin" },
