@@ -56,6 +56,7 @@ export interface CaseStudyMeta {
   introduction: CaseStudySection;
   challenge: CaseStudySection;
   goals: string[];
+  goalsIntro?: string;
   team: CaseStudyTeamMember[];
   research: CaseStudySection;
   userFlows: CaseStudySection;
