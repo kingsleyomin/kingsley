@@ -270,12 +270,11 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
       },
       challenge: {
         paragraphs: [
-          "Prior to the last 5–10 years, investing in stocks and mutual funds was a tedious process for the everyday person — finding a broker, having a certain amount of investment capital, filling out lengthy forms, and dealing with a non-transparent process.",
-          "Fast-forward a few years with uncertainties on the rise, demand for financial freedom utilizing savings and investment products has been on the increase as well, which has led to innovations and disruptions in the financial technology sector in Nigeria and globally.",
-          "Ladda's position in the market is to simplify this process and educate its customers while creating opportunities for Africans to invest in local and global assets.",
+          "Investing in Nigeria has historically been tedious — brokers, paperwork, opaque fees, and high minimums locked most people out. As demand for financial freedom grew, fintech startups began closing that gap.",
+          "Ladda was built from scratch to make investing in local and global assets simple, transparent, and accessible to everyday Africans.",
         ],
         highlight:
-          "Simplify investing and educate customers — while opening up opportunities for Africans to invest in local and global assets.",
+          "Build an investment platform from the ground up that makes stocks, mutual funds, and savings accessible to everyday Africans.",
       },
       goals: [
         "Simplify the investment onboarding to reduce drop-off and build confidence for first-time investors.",
@@ -283,6 +282,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         "Deliver a unified product experience across web and mobile for seamless portfolio management.",
         "Establish a scalable design system that supports stocks, mutual funds, savings, and gift cards.",
       ],
+      goalsIntro: "As a new product, the work was shaped around four clear goals — each one tied to a real user need and business outcome.",
       team: [
         { role: "Product Designer", name: "Kingsley Omin" },
         { role: "Product Manager", name: "Money Africa" },
