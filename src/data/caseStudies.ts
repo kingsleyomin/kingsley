@@ -4,7 +4,7 @@ import aboutSofiaHero from "@/assets/first-case-study-hero.png";
 import editorialEleganceHero from "@/assets/ladda-hero.png";
 import desertDreamsHero from "@/assets/prestmit-hero.png";
 import vintageHighwayHero from "@/assets/letshego-hero.png";
-const lavenderFieldsHero = "/images/ozge-karzan-fdZjAjPUQbk-unsplash.jpg";
+import lavenderFieldsHero from "@/assets/dryva-hero.png";
 const coastalClassicHero = "/images/pexels-adrienne-andersen-1174503-2661255.jpg";
 
 const circularHorizonsHero = "/images/pexels-brianasarejr-12417686.jpg";
