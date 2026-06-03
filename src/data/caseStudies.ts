@@ -260,69 +260,72 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     caseStudy: {
       client: "Ladda",
       role: "Product Designer",
-      year: "2021",
+      year: "2020",
       duration: "8 weeks",
       introduction: {
         paragraphs: [
-          "Ladda is a fintech product of Money Africa that allows users to invest in mutual funds, stocks (both global & local), purchase gift cards, and save from the comfort of their homes.",
-          "Ladda makes investment and stock trading easily accessible by making it available on everyday devices (web & mobile).",
+          "Ladda is a digital investment platform developed by Money Africa that enables users to invest in mutual funds, trade local and international stocks, save towards financial goals, and purchase gift cards — all from a single platform.",
+          "The vision was simple: make investing accessible, understandable, and achievable for everyday Africans, regardless of their financial background or investment experience.",
         ],
       },
       challenge: {
         paragraphs: [
-          "Investing in Nigeria has historically been tedious — brokers, paperwork, opaque fees, and high minimums locked most people out. As demand for financial freedom grew, fintech startups began closing that gap.",
-          "Ladda was built from scratch to make investing in local and global assets simple, transparent, and accessible to everyday Africans.",
+          "For many Nigerians, investing has traditionally been associated with complexity, exclusivity, and high barriers to entry. Processes often required brokers, extensive paperwork, limited transparency, and significant capital commitments.",
+          "While fintech products were beginning to reshape access to financial services, many investment platforms still felt intimidating to first-time investors — with complex onboarding, fragmented experiences across asset classes, and a persistent lack of trust and transparency.",
         ],
         highlight:
-          "Build an investment platform from the ground up that makes stocks, mutual funds, and savings accessible to everyday Africans.",
+          "The opportunity was to create a unified investment experience that simplified wealth creation without oversimplifying financial decisions.",
       },
       goals: [
-        "Simplify the investment onboarding to reduce drop-off and build confidence for first-time investors.",
-        "Design an intuitive, non-intimidating interface that makes complex financial decisions feel effortless.",
-        "Deliver a unified product experience across web and mobile for seamless portfolio management.",
-        "Establish a scalable design system that supports stocks, mutual funds, savings, and gift cards.",
+        "Simplify investment onboarding so first-time investors can confidently complete account setup and make their first investment.",
+        "Make investing feel approachable by transforming complex financial concepts into intuitive user experiences.",
+        "Create a unified wealth platform where users manage stocks, mutual funds, savings, and gift cards in one ecosystem.",
+        "Design for scale with a flexible system capable of supporting future investment products and business growth.",
       ],
-      goalsIntro: "As a new product, the work was shaped around four clear goals — each one tied to a real user need and business outcome.",
+      goalsIntro: "As a new product, the strategy was built around four primary objectives — each tied to a clear user need and business outcome.",
       team: [
         { role: "Product Designer", name: "Kingsley Omin" },
-        { role: "Product Manager", name: "Money Africa" },
-        { role: "Engineering", name: "Ladda Engineering Team" },
-        { role: "Platform", name: "Web & Mobile" },
+        { role: "Product Manager", name: "Adaorah" },
+        { role: "Engineering Lead", name: "Celestine. O" },
+        { role: "Mobile Engineer", name: "Nsikak Thompson" },
       ],
       research: {
         paragraphs: [
-          "On understanding the goal of the product, I kickstarted the research by speaking to potential users, conducting interviews over the phone and sending out questionnaires. (This was during the early stage of the Covid-19 pandemic, so one-on-one interviews weren't possible.)",
-          "The research helped in identifying early adopters who would use the product, and it also provided the data needed to back the design strategy and decisions. Questions explored their preferred investment apps, why they preferred them, the challenges they faced, and improvements they wished for.",
-          "Key findings: users find most investment platforms confusing, leading to a high drop-off rate; users want a product with a simple learning curve; and users perceive investment as a difficult topic, so the product needs to be simple, intuitive, and easy to use.",
+          "To validate assumptions and understand user needs, I conducted remote research through user interviews and surveys — exploring existing investment behaviours, preferred platforms, frustrations, trust concerns, and motivations for investing.",
+          "Four insights stood out: investing felt intimidating and reserved for experts; existing platforms were overwhelming and full of jargon; simplicity built confidence and reduced cognitive load; and trust required clear visibility into where money went and how it performed.",
+          "These insights became the foundational principles that shaped every part of the product experience.",
         ],
       },
       userFlows: {
         paragraphs: [
-          "In this phase, I mapped out a user flow to create a visual representation of the steps a user would take to reach their end goal. This also helped identify all the screens to be included in the design.",
+          "I mapped user flows to visualize every major interaction — from onboarding to portfolio management and investment execution.",
+          "The exercise surfaced friction points, critical decision moments, opportunities for simplification, and the platform architecture required to support a unified, multi-asset experience.",
         ],
       },
       wireframes: {
         paragraphs: [
-          "After understanding the user goals and behaviour, I proceeded with listing all the app features in order to map out the flows and create wireframes.",
-          "The wireframes and low-fidelity prototype gave us more insight into what the product would look like. They were tested with potential users, and more insights and feedback were drawn from those sessions.",
+          "Low-fidelity wireframes were developed to rapidly explore solutions and validate concepts with potential users.",
+          "Multiple iterations refined the navigation structure, investment flows, information hierarchy, and portfolio visibility. Feedback from testing sessions directly informed design decisions before moving into high-fidelity designs.",
         ],
       },
       solution: {
         paragraphs: [
-          "Once the wireframes were approved, I started working on detailed designs for both the web and mobile platforms, with a mobile-first approach.",
-          "The final product was a well-designed investment platform consisting of stock trading, mutual funds, savings, and gift card trading — all in one place.",
+          "The final solution introduced a mobile-first investment platform that consolidated multiple financial products into a seamless experience — a streamlined onboarding flow designed to reduce anxiety and accelerate activation, and a unified dashboard that gave users a single source of truth for every investment.",
+          "Investment journeys were broken into simple, understandable steps that reduced decision fatigue, while a shared design language ensured continuity across web and mobile. A scalable design system of reusable components enabled faster development and future product expansion.",
         ],
       },
       outcome: {
         paragraphs: [
-          "The product hit over $130,000 of transaction value in the first 6 months of beta launch. We saw great reviews on the Play Store and a rating of 4.0. That said, we're also aware there's still room for improvement.",
+          "The product successfully launched and gained early market traction — generating over $130,000 in transaction value within the first six months of beta, alongside positive reviews and a 4.0 rating on the Google Play Store, all delivered within an 8-week end-to-end design and delivery timeline.",
+          "Ladda reinforced the importance of designing financial products around trust, clarity, and simplicity. The biggest lesson: successful fintech experiences are not built by exposing more functionality — they are built by making complex financial decisions feel understandable and achievable.",
         ],
       },
       metrics: [
         { value: "$130K+", label: "Transaction value in first 6 months" },
-        { value: "4.0", label: "Play Store rating" },
-        { value: "8 weeks", label: "Project duration" },
+        { value: "4.0", label: "Google Play Store rating" },
+        { value: "8 weeks", label: "Design to launch timeline" },
       ],
+
       images: {
         research: laddaResearch,
         userFlow: laddaUserflow,
