@@ -1,17 +1,19 @@
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import Header from "@/components/Header";
-import {
-  CaseStudy as CaseStudyWrapper,
-  CaseStudyContainer,
-  CaseStudyContent,
-  TopShares,
-} from "@/components/CaseStudyComponents";
+import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
 import { getCaseStudyBySlug } from "@/data/caseStudies";
 import researchImage from "@/assets/case-study-research.jpg";
 import userflowImage from "@/assets/case-study-userflow.jpg";
 import wireframesImage from "@/assets/case-study-wireframes.jpg";
 import solutionImage from "@/assets/case-study-solution.jpg";
+
+// Editorial palette tokens — Paper & Ink, scoped to this page only
+const PAPER = "#f5f3ee";
+const PAPER_ALT = "#e8e5de";
+const INK = "#0d0d0d";
+const MUTED = "#a8a49a";
+
+const serif = { fontFamily: "'Instrument Serif', serif" } as const;
+const sans = { fontFamily: "'Work Sans', sans-serif" } as const;
 
 const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -23,14 +25,12 @@ const CaseStudy = () => {
 
   const cs = caseStudyData.caseStudy;
 
-  // Derive case study meta — prefer typed caseStudy data, fall back to article fields
   const projectTag = caseStudyData.publishDate;
   const client = cs?.client ?? projectTag.split("—")[0].trim();
   const role = cs?.role ?? caseStudyData.subtitle ?? "Product Design";
   const year = cs?.year ?? "2024";
   const duration = cs?.duration ?? caseStudyData.readTime ?? "8 weeks";
 
-  // Section content — use structured caseStudy when available, otherwise slice paragraphs
   const paragraphs = caseStudyData.content.filter((b) => b.type === "paragraph");
   const fallback = (start: number, end?: number): string[] =>
     paragraphs.slice(start, end).map((b) => b.content ?? "").filter(Boolean);
@@ -42,14 +42,12 @@ const CaseStudy = () => {
     (challengeParagraphs[0]?.slice(0, 140) ||
       "Designing for clarity, speed, and trust at every step.");
   const researchParagraphs = cs?.research.paragraphs ?? fallback(5, 7);
-  const userFlowParagraphs =
-    cs?.userFlows.paragraphs ?? [
-      "Mapping the end-to-end journey surfaced redundant steps and decision points where users hesitated. We rebuilt the flows around the fastest path to a successful outcome.",
-    ];
-  const wireframeParagraphs =
-    cs?.wireframes.paragraphs ?? [
-      "Low-fidelity wireframes let us pressure-test layout and hierarchy quickly. Each iteration was reviewed with engineering to keep the solution feasible and the team aligned.",
-    ];
+  const userFlowParagraphs = cs?.userFlows.paragraphs ?? [
+    "Mapping the end-to-end journey surfaced redundant steps and decision points where users hesitated. We rebuilt the flows around the fastest path to a successful outcome.",
+  ];
+  const wireframeParagraphs = cs?.wireframes.paragraphs ?? [
+    "Low-fidelity wireframes let us pressure-test layout and hierarchy quickly. Each iteration was reviewed with engineering to keep the solution feasible and the team aligned.",
+  ];
   const solutionParagraphs = cs?.solution.paragraphs ?? fallback(7, 9);
   const outcomeParagraphs = cs?.outcome.paragraphs ?? fallback(9);
 
@@ -73,7 +71,6 @@ const CaseStudy = () => {
     { value: "98%", label: "Stakeholder approval" },
   ];
 
-  // Per-project imagery, with generic fallbacks
   const researchSrc = cs?.images?.research ?? researchImage;
   const userFlowSrc = cs?.images?.userFlow ?? userflowImage;
   const wireframesSrc = cs?.images?.wireframes ?? wireframesImage;
@@ -82,338 +79,429 @@ const CaseStudy = () => {
   const nextProject = caseStudyData.relatedCaseStudies[0];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <div
+      className="min-h-screen w-full"
+      style={{ backgroundColor: PAPER, color: INK, ...sans }}
+    >
+      {/* Header */}
+      <nav
+        className="flex items-center justify-between px-6 md:px-12 py-8 border-b"
+        style={{ borderColor: `${INK}1a` }}
+      >
+        <Link
+          to="/"
+          className="text-3xl italic tracking-tight leading-none"
+          style={serif}
+        >
+          Kingsley
+        </Link>
+        <div className="flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-medium">
+          <Link to="/blog" className="hover:opacity-50 transition-opacity">
+            Work
+          </Link>
+          <Link to="/contact" className="hover:opacity-50 transition-opacity">
+            Contact
+          </Link>
+        </div>
+      </nav>
 
-      <CaseStudyWrapper>
-        {/* CASE STUDY HERO */}
-        <section className="case-study-grid relative pt-12 md:pt-20 pb-16 md:pb-24">
-          <div className="case-study-hero">
-            <Link
-              to="/blog"
-              className="inline-flex items-center text-[0.8125rem] uppercase tracking-[0.15em] font-sans font-medium text-muted-foreground hover:text-foreground transition-colors group mb-12"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+      <article className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
+        {/* HERO */}
+        <header className="mb-28 md:mb-40">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-3 mb-14 group"
+          >
+            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            <span className="text-[11px] uppercase tracking-[0.2em] font-semibold">
               All Case Studies
-            </Link>
+            </span>
+          </Link>
 
-            <p className="font-sans text-[0.75rem] md:text-[0.8125rem] uppercase tracking-[0.2em] text-primary font-semibold mb-6">
+          <div className="flex items-center gap-4 mb-10">
+            <span
+              className="text-[11px] uppercase tracking-[0.25em] font-semibold"
+              style={{ color: `${INK}99` }}
+            >
               {projectTag}
-            </p>
-
-            <h1 className="font-display font-semibold tracking-[-0.03em] leading-[1.05] text-[clamp(2.5rem,7vw,5.5rem)] mb-10 max-w-[18ch]">
-              {caseStudyData.title}
-            </h1>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 pt-10 mt-2 border-t border-border">
-              {[
-                { label: "Client", value: client },
-                { label: "Role", value: role },
-                { label: "Year", value: year },
-                { label: "Duration", value: duration },
-              ].map((m) => (
-                <div key={m.label}>
-                  <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-2">
-                    {m.label}
-                  </p>
-                  <p className="text-[0.9375rem] md:text-[1rem] font-sans font-semibold text-foreground">
-                    {m.value}
-                  </p>
-                </div>
-              ))}
-            </div>
+            </span>
           </div>
-        </section>
+
+          <h1
+            className="leading-[0.92] tracking-[-0.02em] mb-16 max-w-6xl italic font-normal"
+            style={{
+              ...serif,
+              fontSize: "clamp(3rem, 9vw, 8.5rem)",
+            }}
+          >
+            {caseStudyData.title}
+          </h1>
+
+          <div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t"
+            style={{ borderColor: `${INK}1a` }}
+          >
+            {[
+              { label: "Client", value: client },
+              { label: "Role", value: role },
+              { label: "Year", value: year },
+              { label: "Duration", value: duration },
+            ].map((m) => (
+              <div key={m.label} className="space-y-2">
+                <p
+                  className="text-[10px] uppercase tracking-[0.2em]"
+                  style={{ color: `${INK}80` }}
+                >
+                  {m.label}
+                </p>
+                <p className="text-base md:text-lg font-medium">{m.value}</p>
+              </div>
+            ))}
+          </div>
+        </header>
 
         {/* HERO IMAGE */}
-        <section className="case-study-grid pb-20 md:pb-32">
-          <div className="case-study-full-width">
-            <div className="w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
-              <img
-                src={caseStudyData.heroImage}
-                alt={caseStudyData.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+        <section className="mb-28 md:mb-40">
+          <div
+            className="w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden"
+            style={{ backgroundColor: PAPER_ALT }}
+          >
+            <img
+              src={caseStudyData.heroImage}
+              alt={caseStudyData.title}
+              className="w-full h-full object-cover"
+            />
           </div>
         </section>
 
-        {/* 01 — INTRODUCTION / OVERVIEW */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="01" label="Introduction & Overview" />
+        {/* 01 — INTRODUCTION */}
+        <SectionRow index="01" label="Overview" title="The Overview">
+          <div className="space-y-6">
             {introParagraphs.length > 0 ? (
-              introParagraphs.map((p, i) => <p key={i}>{p}</p>)
+              introParagraphs.map((p, i) => (
+                <p
+                  key={i}
+                  className="text-xl md:text-2xl leading-relaxed font-light"
+                  style={{ color: `${INK}cc` }}
+                >
+                  {p}
+                </p>
+              ))
             ) : (
-              <p>
-                A snapshot of the project, the product context, and why this work
-                mattered for the business and the people who use it every day.
+              <p className="text-xl md:text-2xl leading-relaxed font-light">
+                A snapshot of the project, the product context, and why this
+                work mattered.
               </p>
             )}
-          </CaseStudyContent>
-        </CaseStudyContainer>
+          </div>
+        </SectionRow>
 
-        {/* 02 — THE CHALLENGE */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="02" label="The Challenge" />
-            {challengeParagraphs.length > 0 ? (
-              challengeParagraphs.map((p, i) => <p key={i}>{p}</p>)
-            ) : (
-              <p>
-                Customers were dropping off at key points in the journey. The
-                existing experience was fragmented, slow to load, and lacked the
-                clarity needed to build trust at the moment of payment.
+        {/* 02 — CHALLENGE */}
+        <SectionRow index="02" label="Challenge" title="The Challenge">
+          <div className="space-y-6">
+            {challengeParagraphs.map((p, i) => (
+              <p
+                key={i}
+                className="text-lg leading-relaxed"
+                style={{ color: `${INK}b3` }}
+              >
+                {p}
               </p>
-            )}
-            <figure className="blockquote-big">
-              <blockquote>{challengeHighlight}</blockquote>
+            ))}
+            <figure
+              className="mt-12 border-l-2 pl-8 py-2"
+              style={{ borderColor: INK }}
+            >
+              <blockquote
+                className="text-2xl md:text-3xl italic leading-snug"
+                style={serif}
+              >
+                “{challengeHighlight}”
+              </blockquote>
             </figure>
-          </CaseStudyContent>
-        </CaseStudyContainer>
+          </div>
+        </SectionRow>
 
         {/* 03 — PROJECT GOAL */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="03" label="Project Goal" />
-            <p>
-              {cs?.goalsIntro ?? "The work was shaped around a focused set of goals — each one tied to a real user and business outcome."}
-            </p>
-            <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-10">
-              {goals.map((g, i) => (
-                <div
-                  key={i}
-                  className="flex gap-4 rounded-[var(--radius)] border border-border bg-card p-6"
+        <SectionRow index="03" label="Project Goal" title="Project Goals">
+          <p
+            className="text-lg leading-relaxed mb-10"
+            style={{ color: `${INK}b3` }}
+          >
+            {cs?.goalsIntro ??
+              "The work was shaped around a focused set of goals — each one tied to a real user and business outcome."}
+          </p>
+          <ul
+            className="space-y-8 border-l pl-8"
+            style={{ borderColor: `${INK}1f` }}
+          >
+            {goals.map((g, i) => (
+              <li key={i} className="group">
+                <span
+                  className="block text-xs font-semibold mb-2 tracking-[0.18em]"
+                  style={{ color: `${INK}66` }}
                 >
-                  <span className="font-display font-semibold text-[0.875rem] tracking-[0.15em] text-primary shrink-0">
-                    0{i + 1}
-                  </span>
-                  <p className="font-sans text-[0.9375rem] md:text-[1rem] leading-[1.55] text-foreground m-0">
-                    {g}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </CaseStudyContent>
-        </CaseStudyContainer>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-lg md:text-xl leading-relaxed">{g}</p>
+              </li>
+            ))}
+          </ul>
+        </SectionRow>
 
-        {/* 04 — PROJECT TEAM */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="04" label="Project Team" />
-            <p>
-              A small, cross-functional team partnered closely from discovery
-              through launch — keeping design, product, and engineering aligned
-              on outcomes.
-            </p>
-            <div className="not-prose grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-10">
-              {team.map((t) => (
-                <div key={t.role} className="border-t border-border pt-5">
-                  <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-2">
-                    {t.role}
-                  </p>
-                  <p className="text-[0.9375rem] md:text-[1rem] font-sans font-semibold text-foreground">
-                    {t.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </CaseStudyContent>
-        </CaseStudyContainer>
-
-        {/* 05 — RESEARCH STRATEGY */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="05" label="Research Strategy" />
-            {researchParagraphs.length > 0 ? (
-              researchParagraphs.map((p, i) => <p key={i}>{p}</p>)
-            ) : (
-              <p>
-                We combined qualitative interviews, usability testing, and
-                analytics review to triangulate what was happening — and why.
-              </p>
-            )}
-          </CaseStudyContent>
-        </CaseStudyContainer>
-        <section className="case-study-grid pb-16 md:pb-24">
-          <div className="case-study-full-width">
-            <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
-              <img
-                src={researchSrc}
-                alt="Research session with user interview and sticky notes"
-                loading="lazy"
-                width={1280}
-                height={800}
-                className="w-full h-full object-cover"
-              />
-            </div>
+        {/* 04 — TEAM */}
+        <SectionRow index="04" label="Team" title="Project Team">
+          <p
+            className="text-lg leading-relaxed mb-10"
+            style={{ color: `${INK}b3` }}
+          >
+            A small, cross-functional team partnered closely from discovery
+            through launch.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-x-10 gap-y-8">
+            {team.map((t) => (
+              <div
+                key={t.role + t.name}
+                className="border-t pt-5"
+                style={{ borderColor: `${INK}1a` }}
+              >
+                <p
+                  className="text-[10px] uppercase tracking-[0.2em] mb-2"
+                  style={{ color: `${INK}80` }}
+                >
+                  {t.role}
+                </p>
+                <p className="text-base md:text-lg font-medium">{t.name}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </SectionRow>
+
+        {/* 05 — RESEARCH */}
+        <SectionRow index="05" label="Research" title="Research Strategy">
+          <div className="space-y-6">
+            {researchParagraphs.map((p, i) => (
+              <p
+                key={i}
+                className="text-lg leading-relaxed"
+                style={{ color: `${INK}b3` }}
+              >
+                {p}
+              </p>
+            ))}
+          </div>
+        </SectionRow>
+        <FigureWide
+          src={researchSrc}
+          alt="Research"
+          caption="Fig 1.1 — Qualitative research synthesis."
+        />
 
         {/* 06 — USER FLOWS */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="06" label="User Flows" />
+        <SectionRow index="06" label="Flows" title="User Flows">
+          <div className="space-y-6">
             {userFlowParagraphs.map((p, i) => (
-              <p key={i}>{p}</p>
+              <p
+                key={i}
+                className="text-lg leading-relaxed"
+                style={{ color: `${INK}b3` }}
+              >
+                {p}
+              </p>
             ))}
-          </CaseStudyContent>
-        </CaseStudyContainer>
-        <section className="case-study-grid pb-16 md:pb-24">
-          <div className="case-study-full-width">
-            <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
-              <img
-                src={userFlowSrc}
-                alt="User flow diagram"
-                loading="lazy"
-                width={1280}
-                height={800}
-                className="w-full h-full object-contain bg-card"
-              />
-            </div>
           </div>
-        </section>
+        </SectionRow>
+        <FigureWide
+          src={userFlowSrc}
+          alt="User flows"
+          caption="Fig 2.1 — End-to-end user flow mapping."
+          contain
+        />
 
         {/* 07 — WIREFRAMES */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="07" label="Wireframes" />
+        <SectionRow index="07" label="Wireframes" title="Wireframes">
+          <div className="space-y-6">
             {wireframeParagraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </CaseStudyContent>
-        </CaseStudyContainer>
-        <section className="case-study-grid pb-16 md:pb-24">
-          <div className="case-study-full-width">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              <div className="aspect-[4/5] overflow-hidden rounded-[var(--radius)] bg-muted">
-                <img
-                  src={wireframesSrc}
-                  alt="Mobile wireframes"
-                  loading="lazy"
-                  width={1280}
-                  height={800}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="aspect-[4/5] overflow-hidden rounded-[var(--radius)] bg-muted md:mt-16">
-                <img
-                  src={wireframesSrc}
-                  alt="Mobile wireframes — second iteration"
-                  loading="lazy"
-                  width={1280}
-                  height={800}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 08 — THE DESIGN SOLUTION */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="08" label="The Design Solution" />
-            {solutionParagraphs.length > 0 ? (
-              solutionParagraphs.map((p, i) => <p key={i}>{p}</p>)
-            ) : (
-              <p>
-                The final design brings clarity, speed, and confidence to every
-                step. A unified visual system, clearer states, and a focused
-                checkout flow make the experience feel effortless.
+              <p
+                key={i}
+                className="text-lg leading-relaxed"
+                style={{ color: `${INK}b3` }}
+              >
+                {p}
               </p>
-            )}
-          </CaseStudyContent>
-        </CaseStudyContainer>
-        <section className="case-study-grid pb-16 md:pb-24">
-          <div className="case-study-full-width">
-            <div className="w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted">
+            ))}
+          </div>
+        </SectionRow>
+        <section className="mb-28 md:mb-40">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div
+              className="aspect-[4/5] overflow-hidden"
+              style={{ backgroundColor: PAPER_ALT }}
+            >
               <img
-                src={solutionSrc}
-                alt="Final design solution screens"
+                src={wireframesSrc}
+                alt="Wireframes"
                 loading="lazy"
-                width={1280}
-                height={800}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              className="aspect-[4/5] overflow-hidden md:mt-16"
+              style={{ backgroundColor: PAPER_ALT }}
+            >
+              <img
+                src={wireframesSrc}
+                alt="Wireframes — iteration"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
+          <p
+            className="mt-6 text-xs italic"
+            style={{ color: MUTED }}
+          >
+            Fig 3.1 — Low-fidelity wireframe iterations.
+          </p>
         </section>
 
-        {/* 09 — OUTCOME & IMPACT */}
-        <CaseStudyContainer className="pb-16 md:pb-24">
-          <CaseStudyContent>
-            <SectionLabel index="09" label="Outcome & Impact" />
-            {outcomeParagraphs.length > 0 ? (
-              outcomeParagraphs.map((p, i) => <p key={i}>{p}</p>)
-            ) : (
-              <p>
-                Within the first quarter after launch, the redesigned experience
-                delivered measurable gains across conversion, engagement, and
-                stakeholder confidence.
+        {/* 08 — SOLUTION — featured editorial pull */}
+        <section className="mb-28 md:mb-40">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
+            <p
+              className="text-[10px] uppercase tracking-[0.4em] font-semibold"
+              style={{ color: `${INK}80` }}
+            >
+              08 — The Design Solution
+            </p>
+            <h2
+              className="italic font-normal leading-[1.05] tracking-[-0.01em]"
+              style={{
+                ...serif,
+                fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
+              }}
+            >
+              {solutionParagraphs[0]?.split(".")[0] ??
+                "A design language rooted in clarity and precision."}
+              .
+            </h2>
+            <div
+              className="w-px h-20 mx-auto"
+              style={{ backgroundColor: `${INK}33` }}
+            />
+            {solutionParagraphs.slice(1).map((p, i) => (
+              <p
+                key={i}
+                className="text-lg md:text-xl leading-relaxed text-left md:text-center"
+                style={{ color: `${INK}b3` }}
+              >
+                {p}
               </p>
-            )}
+            ))}
+          </div>
+        </section>
+        <FigureWide
+          src={solutionSrc}
+          alt="Final design solution"
+          caption="Fig 4.1 — Final design surfaces."
+        />
 
-            <div className="not-prose grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 mb-16">
+        {/* 09 — OUTCOME */}
+        <section
+          className="border-t pt-20 md:pt-28 grid grid-cols-1 md:grid-cols-12 gap-12 mb-20"
+          style={{ borderColor: `${INK}1a` }}
+        >
+          <div className="md:col-span-4">
+            <p
+              className="text-[10px] uppercase tracking-[0.2em] font-semibold mb-4"
+              style={{ color: `${INK}80` }}
+            >
+              09 — Outcome
+            </p>
+            <h2
+              className="text-4xl md:text-5xl italic font-normal leading-tight"
+              style={serif}
+            >
+              The Outcome
+            </h2>
+          </div>
+          <div className="md:col-start-6 md:col-span-7 space-y-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
               {metrics.map((m) => (
-                <div
-                  key={m.label}
-                  className="rounded-[var(--radius)] border border-border bg-card p-6 md:p-8"
-                >
-                  <p className="font-display font-semibold text-[2.25rem] md:text-[2.75rem] leading-none tracking-[-0.02em] text-foreground mb-3">
+                <div key={m.label}>
+                  <p
+                    className="text-5xl md:text-6xl italic mb-3 leading-none"
+                    style={serif}
+                  >
                     {m.value}
                   </p>
-                  <p className="text-[0.8125rem] uppercase tracking-[0.15em] font-sans text-muted-foreground">
+                  <p
+                    className="text-[11px] uppercase tracking-[0.2em]"
+                    style={{ color: `${INK}80` }}
+                  >
                     {m.label}
                   </p>
                 </div>
               ))}
             </div>
-          </CaseStudyContent>
-        </CaseStudyContainer>
-
-        {/* SHARE */}
-        <CaseStudyContainer className="pb-20 md:pb-28">
-          <div className="case-study-hero text-center">
-            <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground font-sans font-medium mb-6">
-              Share this case study
-            </p>
-            <div className="flex justify-center">
-              <TopShares
-                facebookUrl={`https://www.facebook.com/sharer/sharer.php?u=https://example.com/case-study/${caseStudyData.slug}`}
-                twitterUrl={`https://twitter.com/intent/tweet?url=https://example.com/case-study/${caseStudyData.slug}`}
-                linkedinUrl={`https://www.linkedin.com/shareArticle?url=https://example.com/case-study/${caseStudyData.slug}`}
-              />
+            <div className="space-y-6">
+              {outcomeParagraphs.map((p, i) => (
+                <p
+                  key={i}
+                  className="text-lg leading-relaxed"
+                  style={{ color: `${INK}b3` }}
+                >
+                  {p}
+                </p>
+              ))}
             </div>
           </div>
-        </CaseStudyContainer>
-      </CaseStudyWrapper>
+        </section>
+      </article>
 
-      {/* NEXT PROJECT CTA */}
+      {/* NEXT PROJECT */}
       {nextProject && (
-        <section className="case-study-grid pb-20 md:pb-32 border-t border-border pt-20 md:pt-28">
-          <div className="case-study-full-width">
-            <p className="text-center text-[0.6875rem] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium mb-6">
+        <section
+          className="border-t"
+          style={{ borderColor: `${INK}1a` }}
+        >
+          <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
+            <p
+              className="text-[10px] uppercase tracking-[0.3em] font-semibold mb-8"
+              style={{ color: `${INK}80` }}
+            >
               Next Case Study
             </p>
             <Link
               to={`/case-study/${nextProject.slug}`}
-              className="group block max-w-[1100px] mx-auto"
+              className="group block"
             >
-              <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[var(--radius)] bg-muted mb-8">
+              <div className="flex items-end justify-between gap-8 mb-10">
+                <h3
+                  className="italic font-normal leading-[1.05] tracking-[-0.01em] max-w-[20ch] group-hover:opacity-70 transition-opacity"
+                  style={{
+                    ...serif,
+                    fontSize: "clamp(2rem, 5vw, 4.5rem)",
+                  }}
+                >
+                  {nextProject.title}
+                </h3>
+                <span
+                  className="hidden md:inline-flex shrink-0 items-center justify-center w-16 h-16 rounded-full border transition-all group-hover:translate-x-1"
+                  style={{ borderColor: `${INK}33` }}
+                >
+                  <ArrowUpRight className="w-5 h-5" />
+                </span>
+              </div>
+              <div
+                className="w-full aspect-[16/9] overflow-hidden"
+                style={{ backgroundColor: PAPER_ALT }}
+              >
                 <img
                   src={nextProject.image}
                   alt={nextProject.title}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
-              </div>
-              <div className="flex items-end justify-between gap-6 px-2">
-                <h3 className="font-display font-semibold tracking-[-0.02em] leading-[1.1] text-[clamp(1.75rem,4vw,3.25rem)] max-w-[20ch] group-hover:text-primary transition-colors">
-                  {nextProject.title}
-                </h3>
-                <span className="hidden md:inline-flex shrink-0 items-center justify-center w-14 h-14 rounded-full border border-border group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground transition-all">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
               </div>
             </Link>
           </div>
@@ -421,27 +509,94 @@ const CaseStudy = () => {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-border">
-        <div className="case-study-grid py-12">
-          <div className="case-study-hero text-center text-sm text-muted-foreground">
-            <p>© 2024 All rights reserved.</p>
-          </div>
+      <footer
+        className="border-t"
+        style={{ borderColor: `${INK}1a` }}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p
+            className="text-[10px] uppercase tracking-[0.25em]"
+            style={{ color: `${INK}80` }}
+          >
+            © 2026 Kingsley Omin
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] font-semibold group"
+          >
+            Start a project
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </footer>
     </div>
   );
 };
 
-const SectionLabel = ({ index, label }: { index: string; label: string }) => (
-  <div className="not-prose flex items-center gap-4 mb-8">
-    <span className="font-display font-semibold text-[0.875rem] tracking-[0.15em] text-primary">
-      {index}
-    </span>
-    <span className="h-px flex-1 max-w-[3rem] bg-border" />
-    <span className="font-sans text-[0.75rem] md:text-[0.8125rem] uppercase tracking-[0.2em] font-semibold text-foreground">
-      {label}
-    </span>
-  </div>
+const SectionRow = ({
+  index,
+  label,
+  title,
+  children,
+}: {
+  index: string;
+  label: string;
+  title: string;
+  children: React.ReactNode;
+}) => (
+  <section className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-28 md:mb-40">
+    <div className="md:col-span-4">
+      <div className="md:sticky md:top-12 space-y-4">
+        <p
+          className="text-[10px] uppercase tracking-[0.25em] font-semibold"
+          style={{ color: `${INK}80` }}
+        >
+          {index} — {label}
+        </p>
+        <h2
+          className="text-3xl md:text-4xl italic font-normal leading-tight tracking-[-0.01em]"
+          style={serif}
+        >
+          {title}
+        </h2>
+      </div>
+    </div>
+    <div className="md:col-start-6 md:col-span-7">{children}</div>
+  </section>
+);
+
+const FigureWide = ({
+  src,
+  alt,
+  caption,
+  contain = false,
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  contain?: boolean;
+}) => (
+  <section className="mb-28 md:mb-40">
+    <div
+      className="w-full aspect-[16/9] overflow-hidden"
+      style={{ backgroundColor: PAPER_ALT }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className={`w-full h-full ${contain ? "object-contain p-6" : "object-cover"}`}
+      />
+    </div>
+    {caption && (
+      <p
+        className="mt-6 text-xs italic"
+        style={{ color: MUTED }}
+      >
+        {caption}
+      </p>
+    )}
+  </section>
 );
 
 export default CaseStudy;
