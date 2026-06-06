@@ -526,7 +526,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   },
   "vintage-highway": {
     slug: "vintage-highway",
-    title: "Helping businesses send and manage SMS easily at scale.\n\n\n",
+    title: "SMS API Routing & Messaging Intelligence Hub",
     subtitle: "From Streets to Status",
     publishDate: "LETSHEGO — SMS API HUB",
     author: {
@@ -541,66 +541,72 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     caseStudy: {
       client: "Letshego",
       role: "Product Designer",
-      year: "2024",
-      duration: "9 weeks",
+      year: "2022",
+      duration: "4 weeks",
       introduction: {
         paragraphs: [
-          "Letshego's SMS API Hub is a B2B platform that lets businesses send transactional and marketing SMS at scale across multiple African markets. The product worked well technically, but the dashboard had been built primarily for engineers — operations and marketing users couldn't get to the information they needed without help from a developer.",
-          "The brief was to redesign the hub for the people who actually run SMS campaigns day to day: ops managers, marketers, and customer success teams.",
+          "Letshego SMS Hub is a high-performance messaging infrastructure designed to intelligently route SMS traffic across multiple providers based on cost, reliability, and geographic performance.",
+          "Instead of relying on a single SMS gateway, the system dynamically selects the most effective provider per region and time window, ensuring faster delivery rates, lower costs, and improved message reliability at scale.",
+          "The platform was built to support enterprise-level messaging demands across Letshego's ecosystem of financial products, where timely SMS delivery directly impacts user trust, transaction confirmation, and service accessibility.",
         ],
       },
       challenge: {
         paragraphs: [
-          "The existing dashboard exposed every API field as a UI control. Sending a campaign required understanding sender IDs, throttling rates, and DLR codes — concepts that meant nothing to the marketing managers who were the actual senders. Most teams worked around the dashboard by emailing requests to their developers.",
-          "Reporting was even harder. Delivery, failure, and engagement data lived in three separate exports. Composing a single weekly report meant joining CSVs by hand. The team needed a dashboard that respected non-engineers without removing the depth that engineers depended on.",
+          "As Letshego's digital products expanded, SMS became a critical communication layer for authentication, transaction alerts, and customer engagement. However, the existing setup had major limitations: reliance on single or manually selected SMS providers, inconsistent delivery performance across countries, lack of visibility into message status and delivery outcomes, no centralized system for managing multiple SMS APIs, and limited ability to optimize cost vs reliability in real time.",
+          "These issues resulted in delayed messages, failed notifications, and operational inefficiencies that directly affected customer experience and support workload. The challenge was to design a system that could intelligently manage SMS delivery across multiple providers while maintaining speed, reliability, and full operational visibility.",
         ],
         highlight:
-          "The best B2B tools quietly handle complexity, exposing it only to the people who need it.",
+          "The challenge was to design a system that could intelligently manage SMS delivery across multiple providers while maintaining speed, reliability, and full operational visibility.",
       },
       goals: [
-        "Let a non-technical user send a compliant campaign in under five minutes.",
-        "Consolidate delivery, failure, and engagement reporting into one explorable view.",
-        "Preserve full API-level control for technical users — without making it the default.",
-        "Build role-aware navigation so ops, marketing, and dev teams each see the right entry points.",
+        "Improve SMS Delivery Intelligence: enable automated routing of SMS traffic based on provider performance, cost efficiency, and geographic reliability.",
+        "Provide Real-Time Visibility: give teams live insights into message status, delivery success, provider performance, and failure rates.",
+        "Simplify Provider Onboarding: design a clear system for integrating and configuring multiple SMS API providers without technical ambiguity.",
+        "Support High-Volume Scalability: ensure the system can handle large-scale SMS requests without degradation in performance or usability.",
       ],
+      goalsIntro: "The design strategy was guided by four core objectives:",
       team: [
         { role: "Product Designer", name: "Kingsley Omin" },
-        { role: "Senior PM", name: "Lerato Nkosi" },
-        { role: "Engineering Lead", name: "Kabelo Moeng" },
-        { role: "Customer Success Manager", name: "Thandi Dube" },
+        { role: "Senior Product Manager", name: "Olaide" },
+        { role: "Engineering Lead", name: "Tolu" },
       ],
       research: {
         paragraphs: [
-          "We interviewed twelve customer accounts across banking, retail, and logistics, speaking to both the marketing/ops users and the developers who supported them. Shadowing sessions revealed how often developers were pulled into routine campaign sends — sometimes daily.",
-          "We also ran a competitive teardown of five SMS platforms, focusing on how they balanced approachability with developer depth. The strongest patterns went into the design principles for the redesign.",
+          "Since much of the technical groundwork had already been explored by the Letshego team, the design process began by synthesizing existing research and identifying usability gaps in the system architecture.",
+          "Key inputs included internal product and engineering documentation, operational requirements for SMS routing logic, provider performance datasets, and system constraints for high-volume messaging. Core system requirements identified included the ability to dynamically select the cheapest and most reliable SMS provider per country, centralized logging of all SMS events, real-time system monitoring and failure tracking, and an admin interface for adding and configuring new SMS providers.",
+          "The key insight was that the system was not just a messaging tool — it was a decision engine interface, and the challenge was making invisible routing logic visible, understandable, and controllable.",
         ],
       },
       userFlows: {
         paragraphs: [
-          "We designed two parallel flows for sending a campaign: a guided builder for non-technical users and an advanced editor for engineers. Both produce the same underlying API call, so a marketer's draft can be reviewed or refined by a developer without rebuilding.",
-          "Reporting was rebuilt around a single explore view with saved filters, replacing the three-export workflow. Scheduled report subscriptions removed another recurring manual task entirely.",
+          "We mapped the full lifecycle of an SMS: message request initiation, routing decision with provider selection logic, provider execution, delivery response, and logging and analytics. This helped identify where visibility and control were most critical.",
+          "One of the key design exercises was translating backend concepts into user-friendly structures: providers became manageable modules, routing logic became a configurable rules engine, delivery logs became a searchable event timeline, and system health became real-time dashboard metrics.",
         ],
       },
       wireframes: {
         paragraphs: [
-          "Wireframes for the campaign builder were tested with six marketing users across three customer accounts. Early versions still leaked technical jargon; the third iteration replaced that language with plain task-led copy and tested noticeably better.",
-          "The advanced editor wireframes were validated with developers, who confirmed they retained access to every parameter they used in the previous UI.",
+          "A major focus was designing the provider onboarding experience. We simplified what was originally a technical configuration flow into a guided process: add provider credentials, define regional coverage, set priority rules for cost, speed, and reliability, test connectivity, and activate the provider in the routing pool.",
+          "This ensured non-technical users could safely configure complex integrations, and every wireframe was validated against both operational and engineering requirements before moving into high-fidelity design.",
         ],
       },
       solution: {
         paragraphs: [
-          "The new SMS API Hub opens to a role-aware dashboard. Marketing users see a campaign builder, recent sends, and a clean reporting summary. Developers see API keys, logs, and webhook configuration as their primary surface.",
-          "Reporting is one explorable view: filter by campaign, country, sender, or time, save the view, and optionally schedule it as an email. The dashboard preserves every advanced control behind progressive disclosure, so power users lose nothing.",
+          "The final design introduced a structured, modular SMS intelligence platform built around three core experiences. The Smart Routing Engine Interface visually represents how SMS messages are routed across providers based on performance rules and geographic conditions.",
+          "The Real-Time Monitoring Dashboard provides a live view of SMS delivery status, provider performance comparison, failure rates and retry logs, and geographic success distribution — giving teams immediate operational awareness.",
+          "The Provider Management System is a structured configuration interface that allows admins to add multiple SMS providers, configure routing rules per country, monitor provider health, and adjust prioritization strategies.",
         ],
       },
       outcome: {
         paragraphs: [
-          "Customer accounts reported a sharp drop in developer-assisted campaign requests within the first month. Time-to-first-campaign for new customer ops users fell from over an hour to under ten minutes, and weekly reporting time was cut by more than half across pilot accounts.",
+          "The redesigned SMS Hub enabled Letshego to transition from a fragmented SMS system into a centralized, intelligent messaging infrastructure.",
+          "Product impact included improved reliability of SMS delivery across regions, reduced manual intervention in SMS routing decisions, increased operational visibility into messaging performance, scalable onboarding of new SMS providers without system redesign, and improved speed of diagnosing and resolving delivery failures.",
+          "This project reinforced that the most complex systems are not defined by their backend logic — but by how clearly that logic is communicated to the people who depend on it. By designing for clarity, control, and system transparency, we transformed a fragmented messaging setup into a scalable enterprise-grade routing platform.",
         ],
       },
       metrics: [
-        { value: "−68%", label: "Dev-assisted send requests" },
-        { value: "−85%", label: "Time-to-first-campaign" },
+        { value: "Real-time", label: "SMS routing & monitoring" },
+        { value: "Multiple", label: "Providers integrated" },
+        { value: "4 weeks", label: "Design timeline" },
       ],
       images: {
         research: letshegoResearch,
