@@ -380,16 +380,16 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   },
   "desert-dreams": {
     slug: "desert-dreams",
-    title: "Reimagining the  mobile app experience to improve usability.",
-    subtitle: "The Power of Color",
+    title: "Redesigning a high-volume fintech experience for speed, trust, and scale.",
+    subtitle: "Product Designer",
     publishDate: "PRESTMIT — MOBILE APP REDESIGN",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Kingsley Omin",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: desertDreamsHero,
-    readTime: "6 min",
+    readTime: "8 weeks",
     viewCount: "1.8k",
     shareCount: 64,
     caseStudy: {
@@ -399,62 +399,71 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
       duration: "8 weeks",
       introduction: {
         paragraphs: [
-          "Prestmit is one of West Africa's most-used platforms for trading gift cards, cryptocurrency, and bill payments. The mobile app handled millions of transactions a year, but its UX had grown by accretion — every new product line had been bolted onto the home screen, and the experience felt heavier with each release.",
-          "I led a ground-up redesign of the mobile app, prioritising clarity, trust, and speed for users who are often transacting in moments of real financial pressure.",
+          "Prestmit is one of West Africa's leading digital trading platforms, enabling users to trade gift cards, cryptocurrencies, and pay bills from a single application.",
+          "As the platform expanded and new services were introduced, the mobile experience became increasingly difficult to navigate. Features had been added over time without a unified information architecture, creating friction for both new and existing users.",
+          "The goal of this project was to redesign the mobile experience from the ground up — making transactions faster, navigation clearer, and the platform scalable for future growth.",
         ],
       },
       challenge: {
         paragraphs: [
-          "User reviews were honest about the problems: a confusing home screen, unclear rates before submission, and a trade flow that asked for too much information too early. New users abandoned their first trade nearly half the time.",
-          "Internally, the team also needed a flexible architecture — Prestmit launches new card types and crypto pairs constantly, and the old design couldn't accommodate a new product without an emergency redesign each time.",
+          "Prestmit processes thousands of transactions daily, often for users making time-sensitive financial decisions. However, the existing experience was creating unnecessary friction at critical moments in the user journey.",
+          "User feedback, app store reviews, and internal product metrics surfaced recurring issues: a cluttered home screen that made product discovery difficult, inconsistent navigation and iconography, and information overload that increased cognitive effort. Users could not view live cryptocurrency rates before initiating a transaction, the trade flow asked for too much information too early, and nearly half of new users abandoned their first transaction before completion.",
+          "The challenge was not simply to improve the interface — it was to rebuild user confidence and create a product architecture that could support the company's rapid expansion.",
         ],
         highlight:
-          "Trust isn't a colour or a copy line. It's earned in the seconds between submitting a trade and seeing it confirmed.",
+          "Trust isn't built through branding alone. It's earned in the moments between initiating a transaction and receiving confirmation.",
       },
+      goalsIntro:
+        "The redesign was guided by four strategic objectives — each tied to a clear user need and business outcome.",
       goals: [
-        "Redesign the home and trade flows around the user's primary intent: 'I want to trade this for that, now.'",
-        "Show real, current rates upfront — not after the user has invested effort.",
-        "Cut steps in the gift card and crypto trade flows by at least 40%.",
-        "Build a modular interface that can absorb new products without redesign.",
+        "Improve product discoverability by redesigning the home screen to clearly communicate Prestmit's core services.",
+        "Increase transaction transparency by surfacing real-time exchange rates and key information earlier in the journey.",
+        "Streamline onboarding and transactions to improve activation, completion, and retention.",
+        "Design for future growth with a modular interface capable of absorbing new products without major redesign.",
       ],
       team: [
         { role: "Product Designer", name: "Kingsley Omin" },
-        { role: "Product Lead", name: "Emeka Nwosu" },
-        { role: "Mobile Engineering Lead", name: "Adaeze Iwu" },
-        { role: "Customer Success Lead", name: "Bisi Adeyemi" },
+        { role: "Product Manager", name: "Elizabeth Ajao" },
+        { role: "Product Lead", name: "Oluwatosin Adimula" },
+        { role: "Mobile Engineering Lead", name: "Tobi A." },
       ],
       research: {
         paragraphs: [
-          "We started with a heuristic audit of the existing app, then ran ten remote user sessions with active traders across Nigeria, Ghana, and Kenya. App store reviews from the previous twelve months were coded into a thematic map of complaints.",
-          "Three themes dominated: rate visibility, trade speed, and the anxiety of uploading a card image and not knowing what happens next. The redesign was scoped around solving those three problems before anything else.",
+          "To understand the root causes behind user frustration, we ran a comprehensive review of the existing experience — combining a heuristic evaluation of the mobile app, analysis of app store reviews from the previous twelve months, remote interviews with active traders across Nigeria and Ghana, and a review of existing user journeys and transaction flows.",
+          "Four insights stood out: navigation was a major pain point, with users struggling to locate services and understand where to begin; visual hierarchy was weak, presenting too much information at once; users wanted more transparency, particularly around live cryptocurrency rates; and product categories felt scattered, making the platform appear more complex than it actually was.",
+          "These findings helped us prioritise usability improvements over feature additions, and shaped the direction of the redesign.",
         ],
       },
       userFlows: {
         paragraphs: [
-          "We mapped the existing trade flow next to the proposed one and found we could remove four screens entirely without losing any required information — most of them existed only because of historical UI choices, not real user needs.",
-          "The new flow puts the rate, the amount, and the payout method on a single screen so users can see the entire deal before committing. Status updates after submission were redesigned as a clear, narrated timeline instead of a silent loading state.",
+          "We reimagined the information architecture around three primary user intents — Gift Cards, Cryptocurrency, and Bill Payments — instead of presenting multiple independent entry points. This structure aligned with users' mental models and reduced decision fatigue.",
+          "Mapping the existing transaction flow against a proposed future-state experience revealed unnecessary screens and redundant inputs that existed due to historical design decisions rather than user needs. Removing these friction points created a more direct path from onboarding to successful transaction completion.",
         ],
       },
       wireframes: {
         paragraphs: [
-          "We wireframed the new home screen as a configurable grid of intents — 'Sell gift card', 'Sell crypto', 'Pay a bill', 'Buy data' — that the team can reorder as new products launch. Engineering signed off on the modular structure before high-fidelity began.",
-          "Two rounds of unmoderated testing on UserTesting validated the new trade flow with first-time users completing a trade in under 90 seconds.",
+          "Low and high-fidelity prototypes were tested internally and refined through feedback sessions, focusing on home screen usability, product discoverability, transaction speed, exchange rate visibility, and overall user confidence.",
+          "Each iteration was reviewed with product and engineering to validate feasibility and ensure the modular structure could scale as Prestmit introduced new services.",
         ],
       },
       solution: {
         paragraphs: [
-          "The new Prestmit app opens to a calm, intent-led home screen, with live rates surfaced at the top for the user's most-used products. The trade flow is three screens: choose what you're trading, confirm the rate, see it complete.",
-          "Trust signals are quiet but ever-present — verified rates, transaction status timeline, support reachable from any screen. The visual language was rebuilt around legibility on the lower-end Android devices most of Prestmit's users carry.",
+          "The redesigned Prestmit experience introduced a cleaner, more intuitive structure built around speed and clarity. A new intent-led home screen uses a card-based layout that immediately surfaces the platform's three primary services, simplifying decision-making and reducing visual clutter.",
+          "Cryptocurrencies were consolidated into a unified category — users selecting 'Sell Cryptocurrency' can now view all supported assets in one place, creating a more scalable and discoverable experience. Exchange rates were surfaced earlier in the journey to improve confidence, and the transaction flow was streamlined to minimise unnecessary inputs.",
+          "Underpinning all of this is a modular design system — a flexible component architecture that allows new products and services to be introduced without redesigning the home screen or navigation structure.",
         ],
       },
       outcome: {
         paragraphs: [
-          "Six weeks after rollout, first-trade completion rose dramatically, average trade time fell, and the app's store rating climbed to its highest point ever. The modular home screen has since absorbed three new product lines without a single design change.",
+          "The redesign significantly improved both usability and business performance. The platform crossed 50,000+ downloads following the rollout and reached a 4.4 Play Store rating — the highest user satisfaction score the product had achieved at that time.",
+          "First-time transaction completion rates increased, average transaction time dropped, product discoverability improved across key services, and navigation-related complaints fell. The modular architecture has since enabled the seamless addition of new product lines without redesigning the core experience.",
+          "This project reinforced an important lesson about fintech design: users rarely evaluate a platform based on features alone — they evaluate it based on how confident and in control they feel while handling their money. By simplifying navigation, improving transparency, and restructuring the experience around user intent, we transformed a growing collection of features into a cohesive financial platform.",
         ],
       },
       metrics: [
-        { value: "+62%", label: "First-trade completion" },
-        { value: "−44%", label: "Average trade time" },
+        { value: "50K+", label: "Downloads" },
+        { value: "4.4", label: "Play Store rating" },
+        { value: "8 weeks", label: "Project timeline" },
       ],
       images: {
         research: prestmitResearch,
