@@ -709,8 +709,9 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
       ],
       team: [
         { role: "Product Designer", name: "Namnso Ukpanah" },
-        { role: "Mobile Engineering Lead", name: "Folake Adekunle" },
-        { role: "Operations Lead", name: "Henry Obi" },
+        { role: "UI/UX Designer", name: "Kingsley Omin" },
+        { role: "Mobile Engineering Lead", name: "Nsikak T." },
+        { role: "CTO", name: "Celestine O." },
       ],
       research: {
         paragraphs: [
