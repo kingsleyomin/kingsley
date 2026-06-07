@@ -669,81 +669,85 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   },
   "lavender-fields": {
     slug: "lavender-fields",
-    title: "Connecting car owners with reliable drivers . \n",
-    subtitle: "Elevated Menswear Accessories",
+    title: "On-Demand Driver Marketplace for Car Owners",
+    subtitle: "Driver Marketplace",
     publishDate: "DRYVA — DRIVER MARKETPLACE",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Kingsley Omin",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: lavenderFieldsHero,
-    readTime: "5 min",
+    readTime: "6 min",
     viewCount: "2.2k",
     shareCount: 71,
     caseStudy: {
       client: "Dryva",
       role: "Product Designer",
-      year: "2024",
-      duration: "11 weeks",
+      year: "2020",
+      duration: "4 weeks",
       introduction: {
         paragraphs: [
-          "Dryva is a marketplace that connects car owners with vetted, professional drivers — for daily commutes, long trips, or full-time hires. The product launched on demand from a clear early-adopter base, but the matching experience hadn't been designed end-to-end. Bookings were happening, but trust was leaking at every step.",
-          "I led the redesign of both sides of the marketplace: the owner app for booking drivers and the driver app for managing trips and earnings.",
+          "Dryva is a mobility marketplace that connects verified professional drivers with car owners who prefer to be driven in their own vehicles. Unlike traditional ride-hailing platforms that serve users without cars, Dryva targets a different but often overlooked segment — car owners who occasionally or temporarily need professional drivers due to lifestyle demands, long commutes, or urban stress.",
+          "The platform enables flexible driver hiring for daily trips, short-term engagements, or long-term arrangements, offering users convenience without requiring them to give up vehicle ownership or commit to full-time driver employment.",
+          "As the Product Designer, I was responsible for defining the end-to-end experience of both riders (car owners) and drivers — from product discovery and UX research through interaction design, wireframing, prototyping, and mobile UI design.",
         ],
       },
       challenge: {
         paragraphs: [
-          "Car owners didn't have enough information to confidently choose a driver. Profiles were sparse, ratings were inconsistently displayed, and pricing felt opaque. Many bookings were being made and then cancelled within minutes once the owner saw the final fare.",
-          "On the driver side, the app was a simple job list with no clear earnings view, no trip history, and no way to manage availability. Top-rated drivers were leaving the platform, and the matching algorithm was favouring availability over quality, accelerating the spiral.",
+          "In large urban cities like Lagos, transportation challenges go beyond access to vehicles. Many car owners still experience stressful driving conditions caused by traffic congestion, long daily commutes that reduce productivity and personal time, and fatigue from daily self-driving responsibilities.",
+          "Existing ride-hailing services focus primarily on users without cars, leaving a significant gap for car owners who only need driving assistance occasionally. Full-time driver employment carries financial and operational burdens that many owners are unwilling to take on.",
         ],
         highlight:
-          "A two-sided marketplace stands or falls on whether both sides feel respected by the design.",
+          "How might we design a platform that allows car owners to easily hire trusted drivers on-demand or short-term — without the financial and operational burden of full-time employment?",
       },
       goals: [
-        "Give car owners enough information to choose a driver in under two minutes, with confidence.",
-        "Make pricing transparent before the booking commitment, not after.",
-        "Build a driver experience that surfaces earnings, ratings, and availability as a coherent dashboard.",
-        "Improve the quality of matches by giving both sides better signals to act on.",
+        "Improve quality of life through flexible mobility — enable users to delegate driving tasks when needed, reducing daily stress and improving productivity.",
+        "Enable fast and flexible driver hiring — design a seamless flow for discovering, booking, and managing drivers within minutes.",
+        "Create a transparent driver marketplace — build trust through verified profiles, ratings, and clear availability visibility.",
+        "Design a minimal, action-oriented experience — reduce complexity and ensure users can complete core actions with minimal steps.",
       ],
       team: [
         { role: "Product Designer", name: "Kingsley Omin" },
-        { role: "Co-founder & CEO", name: "Damilola Ade" },
         { role: "Mobile Engineering Lead", name: "Folake Adekunle" },
         { role: "Operations Lead", name: "Henry Obi" },
       ],
       research: {
         paragraphs: [
-          "We ran parallel research streams on both sides of the marketplace: nine interviews with car owners (a mix of first-time and repeat bookers) and seven interviews with active drivers across full-time and part-time tiers.",
-          "The strongest insight: both sides wanted the same thing — predictability. Owners wanted predictable pricing and reliable drivers. Drivers wanted predictable income and respectful clients. Designing for predictability became the project's organising principle.",
+          "We conducted qualitative research with working professionals who own private vehicles and frequently commute in high-traffic urban environments. Through one-on-one interviews, we explored their daily routines, pain points, and attitudes toward hiring drivers.",
+          "Key questions focused on understanding their typical workday commute, self-driving frequency, daily driving challenges, how they currently handle fatigue or long-distance travel, and their openness to occasionally or temporarily hiring a driver.",
+          "Four critical insights emerged from the research. First, driving is mentally and physically exhausting — users reported significant fatigue from long commutes and stressful traffic conditions. Second, full-time drivers are not always practical — many users did not want the financial commitment of a permanent driver. Third, flexibility is more valuable than ownership — users preferred short-term or on-demand access over long-term contracts. Fourth, trust is the primary barrier — concerns around safety, reliability, and driver verification were major blockers to adoption.",
         ],
       },
       userFlows: {
         paragraphs: [
-          "The owner booking flow was rebuilt to surface vetted profiles, full pricing breakdown, and trip details on a single screen, with the booking action only enabled once everything is visible. Cancellation, rebooking, and rating flows were redesigned to feel humane on both sides.",
-          "The driver flow now centres on a daily dashboard: today's trips, this week's earnings, current rating, and availability toggles, all in a single scannable view.",
+          "We designed two interconnected journeys to ensure both sides of the marketplace were balanced and intuitive. The Car Owner Journey covers request, match, hire, and complete trip — with clear visibility into driver profiles, availability, and booking confirmation. The Driver Journey covers onboarding, availability management, job acceptance, and earnings tracking.",
+          "The hiring flow was reduced to a minimal set of actions: select trip type (daily, weekly, long-term), view available drivers, compare profiles including ratings and experience, send a request or book immediately, and confirm the assignment. The goal was to eliminate unnecessary steps while maintaining trust signals at every point.",
         ],
       },
       wireframes: {
         paragraphs: [
-          "Wireframes were tested with five owners and five drivers per round, across three rounds. Iteration on the driver dashboard was particularly fast — small changes to the earnings card noticeably affected how confident drivers felt about the platform.",
-          "The matching logic was redesigned in parallel with the UI, so the screens and the algorithm shipped as one coherent change rather than a UX retrofit on a legacy system.",
+          "Early wireframes were used to test driver discovery patterns, booking flow clarity, profile structure and trust indicators, and overall navigation simplicity. We tested with car owners and drivers across multiple rounds to identify where hesitation and confusion occurred.",
+          "Iterations focused heavily on reducing cognitive load and improving decision confidence. Small changes to the driver profile layout and booking confirmation screen noticeably affected how confident users felt about proceeding with a hire.",
         ],
       },
       solution: {
         paragraphs: [
-          "The redesigned Dryva owner app makes choosing a driver feel like choosing from a curated set rather than scrolling a directory. Profiles, pricing, and trip details are all visible before commitment, and post-trip ratings are framed around specific qualities rather than star averages alone.",
-          "The driver app is now a calm daily companion — earnings, schedule, and reputation are visible in one place, and availability can be adjusted without digging through settings. Both apps share a single design system that keeps the brand coherent across the marketplace.",
+          "The final solution introduced a lightweight but structured marketplace experience focused on clarity and trust. The Driver Discovery Dashboard gives users clear visibility into ratings and reviews, availability status, experience level, and trip suitability — making it easy to compare and choose with confidence.",
+          "Flexible Hiring Options allow users to choose between hourly or daily hiring, short-term assignments, and long-term driver arrangements. This flexibility is central to the product value, addressing the core insight that users want access without commitment.",
+          "A reduced-step Simplified Booking Flow ensures users can complete driver requests quickly without confusion or unnecessary inputs. On the supply side, a Driver Performance Dashboard gives drivers a dedicated interface to track earnings, ratings, availability status, and completed trips — improving engagement and retention. The overall interface prioritizes action over complexity, reducing friction in both discovery and booking flows.",
         ],
       },
       outcome: {
         paragraphs: [
-          "Booking-to-confirmation conversion rose substantially after launch, and post-booking cancellations fell by more than half. Driver retention measurably improved over the first quarter, with the highest-rated drivers staying on the platform longer than at any previous point.",
+          "The final product successfully validated the demand for flexible driver hiring in urban markets. The redesigned experience improved ease of discovering and hiring drivers, reduced friction in booking workflows, and created a clearer driver-customer matching experience. Stronger trust was established through structured profiles and ratings, while simplified navigation reduced the number of user actions required to complete a hire.",
+          "This project reinforced an important principle in marketplace design: success depends on balancing both sides of the ecosystem equally. The real design challenge was not just enabling users to book a driver, but to create trust, flexibility, and clarity in a space where safety and reliability are critical. By focusing on simplicity, transparency, and user control, we created a foundation for a mobility service that better fits the realities of urban life in high-density cities.",
         ],
       },
       metrics: [
-        { value: "+38%", label: "Booking conversion" },
-        { value: "−56%", label: "Post-booking cancellations" },
+        { value: "4 Weeks", label: "Design timeline" },
+        { value: "On-Demand", label: "Driver marketplace" },
+        { value: "2-Sided", label: "Platform experience" },
       ],
       images: {
         research: dryvaResearch,
@@ -755,43 +759,15 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     content: [
       {
         type: "paragraph",
-        content: "Most men don't wear hats anymore.",
+        content: "Dryva is a mobility marketplace that connects verified professional drivers with car owners who prefer to be driven in their own vehicles.",
       },
       {
         type: "paragraph",
-        content: "Somewhere between the 1960s and now, hats went from essential menswear to occasional accessory. You see them at the beach, on the golf course, maybe during winter. But that everyday hat—the one men used to wear to work, to dinner, to everywhere—disappeared from American life.",
+        content: "Unlike traditional ride-hailing platforms that serve users without cars, Dryva targets a different but often overlooked segment — car owners who occasionally or temporarily need professional drivers due to lifestyle demands, long commutes, or urban stress.",
       },
       {
         type: "paragraph",
-        content: "This shoot was about bringing it back.",
-      },
-      {
-        type: "paragraph",
-        content: "We photographed a collection from a NYC hatmaker who crafts wide-brim felt hats by hand. Classic silhouettes, modern proportions. The kind of pieces that work with contemporary clothes but carry echoes of when everyone wore hats. Our model paired them with turtlenecks, blazers, casual knitwear—showing how a good hat elevates whatever you're already wearing.",
-      },
-      {
-        type: "paragraph",
-        content: "I shot against warm, simple backgrounds—golden yellows, burnt orange, amber tones that complemented the brown felt without competing. We kept everything clean. Profile shots that showed the hat's shape. Upward angles that created drama. Close-ups that revealed the texture of the felt and the precision of the stitching.",
-      },
-      {
-        type: "paragraph",
-        content: "The lighting was critical. Too harsh and the hat's brim creates ugly shadows across the face. Too soft and you lose the material's texture. We used golden hour light filtered through diffusion, creating warmth without harshness. The model's profile caught the light perfectly—strong jawline, contemplative upward gaze, hat brim creating clean geometry.",
-      },
-      {
-        type: "paragraph",
-        content: "That upward-looking shot became the campaign's hero image.",
-      },
-      {
-        type: "paragraph",
-        content: "There's something aspirational about a well-made hat. It suggests intention, care about presentation, respect for the ritual of getting dressed. In an era of athleisure and casual everything, a hat is a statement that says you're making an effort. Not for others necessarily, but for yourself.",
-      },
-      {
-        type: "paragraph",
-        content: "The hatmaker told me each piece takes two days to complete. Steaming, shaping, finishing. All done by hand in a small workshop in the Garment District. When you photograph something made with that much care, you owe it similar attention.",
-      },
-      {
-        type: "paragraph",
-        content: "Maybe men will wear hats again. Maybe they won't. Either way, documenting well-made things feels like worthwhile work.",
+        content: "The platform enables flexible driver hiring for daily trips, short-term engagements, or long-term arrangements, offering users convenience without requiring them to give up vehicle ownership or commit to full-time driver employment.",
       },
     ],
     relatedCaseStudies: [
