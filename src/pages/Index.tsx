@@ -52,7 +52,7 @@ const Index = () => {
         <GridWrapper>
           <GridContent className="!mt-0 !mb-0">
             <BlogHero
-              title="Namnso"
+              title="Kingsley"
               description="A creative Product Designer with a focus on helping startups and large organizations design modern and user-centric solutions."
             />
           </GridContent>
@@ -94,7 +94,7 @@ const Index = () => {
       <footer className="border-t border-border mt-24">
         <div className="case-study-grid py-12">
           <div className="case-study-hero text-center text-sm text-muted-foreground">
-            <p>© 2026 NU. All rights reserved</p>
+            <p>© 2026 KO. All rights reserved</p>
           </div>
         </div>
       </footer>

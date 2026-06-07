@@ -23,7 +23,7 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <Link
-                to="/case-study/about-namnso"
+                to="/case-study/about-james"
                 className="text-[1.125rem] font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 About
@@ -56,7 +56,7 @@ const Header = () => {
                     Home
                   </Link>
                   <Link
-                    to="/case-study/about-namnso"
+                    to="/case-study/about-james"
                     onClick={() => setIsOpen(false)}
                     className="text-[1.8rem] font-medium text-foreground hover:text-primary transition-colors"
                   >
