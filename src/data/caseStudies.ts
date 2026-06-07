@@ -106,14 +106,14 @@ export interface CaseStudyData {
 }
 
 export const caseStudiesData: Record<string, CaseStudyData> = {
-  "about-james": {
-    slug: "about-james",
+  "about-namnso": {
+    slug: "about-namnso",
     title: "Enabling smooth and reliable payments across multiple channels. ",
     subtitle: "A Personal Introduction",
     publishDate: "ZEST PAYMENT GATEWAY",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Namnso Ukpanah",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: aboutSofiaHero,
@@ -249,8 +249,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     subtitle: "The Power of Accessories",
     publishDate: "LADDA — ALL YOUR INVESTMENTS IN ONE PLACE.",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Namnso Ukpanah",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: editorialEleganceHero,
@@ -530,8 +530,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     subtitle: "From Streets to Status",
     publishDate: "LETSHEGO — SMS API HUB",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Namnso Ukpanah",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: vintageHighwayHero,
@@ -786,8 +786,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     subtitle: "Beauty Without Filters",
     publishDate: "March 5, 2024",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Namnso Ukpanah",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: coastalClassicHero,
@@ -852,8 +852,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     subtitle: "When Style Becomes Expression",
     publishDate: "February 28, 2024",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Namnso Ukpanah",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: circularHorizonsHero,
@@ -918,8 +918,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     subtitle: "Timeless Rebellion",
     publishDate: "February 24, 2024",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Namnso Ukpanah",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: retroRevivalHero,
@@ -984,8 +984,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     subtitle: "Fashion in Digital Spaces",
     publishDate: "February 20, 2024",
     author: {
-      name: "James Carter",
-      title: "Fashion Photographer",
+      name: "Namnso Ukpanah",
+      title: "Product Designer",
       avatar: authorAvatar,
     },
     heroImage: goldenSpheresHero,
