@@ -146,7 +146,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         "Establish a scalable design system to support future channels and markets.",
       ],
       team: [
-        { role: "Lead Product Designer", name: "Kingsley Omin" },
+        { role: "Lead Product Designer", name: "Namnso Ukpanah" },
         { role: "Product Manager", name: "Ifeoma Eze" },
         { role: "Engineering Lead", name: "Tunde Akinola" },
         { role: "User Researcher", name: "Sade Adebayo" },
@@ -284,7 +284,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
       ],
       goalsIntro: "As a new product, the strategy was built around four primary objectives — each tied to a clear user need and business outcome.",
       team: [
-        { role: "Product Designer", name: "Kingsley Omin" },
+        { role: "Product Designer", name: "Namnso Ukpanah" },
         { role: "Product Manager", name: "Adaorah" },
         { role: "Engineering Lead", name: "Celestine. O" },
         { role: "Mobile Engineer", name: "Nsikak Thompson" },
@@ -384,7 +384,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     subtitle: "Product Designer",
     publishDate: "PRESTMIT — MOBILE APP REDESIGN",
     author: {
-      name: "Kingsley Omin",
+      name: "Namnso Ukpanah",
       title: "Product Designer",
       avatar: authorAvatar,
     },
@@ -422,7 +422,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         "Design for future growth with a modular interface capable of absorbing new products without major redesign.",
       ],
       team: [
-        { role: "Product Designer", name: "Kingsley Omin" },
+        { role: "Product Designer", name: "Namnso Ukpanah" },
         { role: "Product Manager", name: "Elizabeth Ajao" },
         { role: "Product Lead", name: "Oluwatosin Adimula" },
         { role: "Mobile Engineering Lead", name: "Tobi A." },
@@ -566,7 +566,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
       ],
       goalsIntro: "The design strategy was guided by four core objectives:",
       team: [
-        { role: "Product Designer", name: "Kingsley Omin" },
+        { role: "Product Designer", name: "Namnso Ukpanah" },
         { role: "Senior Product Manager", name: "Olaide" },
         { role: "Engineering Lead", name: "Tolu" },
       ],
@@ -673,7 +673,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     subtitle: "Driver Marketplace",
     publishDate: "DRYVA — DRIVER MARKETPLACE",
     author: {
-      name: "Kingsley Omin",
+      name: "Namnso Ukpanah",
       title: "Product Designer",
       avatar: authorAvatar,
     },
@@ -708,7 +708,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         "Design a minimal, action-oriented experience — reduce complexity and ensure users can complete core actions with minimal steps.",
       ],
       team: [
-        { role: "Product Designer", name: "Kingsley Omin" },
+        { role: "Product Designer", name: "Namnso Ukpanah" },
         { role: "Mobile Engineering Lead", name: "Folake Adekunle" },
         { role: "Operations Lead", name: "Henry Obi" },
       ],
