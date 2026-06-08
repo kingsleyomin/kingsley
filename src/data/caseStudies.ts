@@ -108,84 +108,89 @@ export interface CaseStudyData {
 export const caseStudiesData: Record<string, CaseStudyData> = {
   "about-james": {
     slug: "about-james",
-    title: "Building a payment infrastructure company from the ground up.",
-    subtitle: "Founding Product Designer",
+    title: "Building a payment gateway from the ground up.",
+    subtitle: "Lead Product Designer · Founding Team",
     publishDate: "ZEST PAYMENT GATEWAY",
     author: {
       name: "Kingsley Omin",
-      title: "Founding Product Designer",
+      title: "Lead Product Designer",
       avatar: authorAvatar,
     },
     heroImage: aboutSofiaHero,
-    readTime: "10 min",
+    readTime: "10 weeks",
     viewCount: "4.8k",
     shareCount: 142,
     caseStudy: {
       client: "Zest",
-      role: "Founding Product Designer",
+      role: "Lead Product Designer · Founding Team",
       year: "2022",
-      duration: "2022 – Present",
+      duration: "10 weeks",
       introduction: {
         paragraphs: [
-          "Zest was created with a simple but ambitious mission: make digital payments seamless, reliable, and accessible for businesses across Africa.",
-          "As one of the founding members of the company and the first product designer, I had the unique opportunity to help shape the business from day one — not just the product experience, but the systems, processes, and design foundations that would support the company's growth.",
-          "Over the years, Zest evolved into a payment gateway enabling businesses to accept payments through cards, bank transfers, USSD, QR payments, mobile wallets, and other digital payment channels through a single integration. This case study highlights my role in designing and scaling the platform from inception to a transaction-processing business handling billions in payment volume.",
+          "Zest is a payment gateway that enables African businesses to accept payments through multiple channels — including cards, bank transfers, USSD, and mobile wallets — all through a single integration.",
+          "I joined Zest as one of the founding team members, responsible for designing the product experience from the ground up. At the time, there was no existing product, no established design system, and no merchant experience to iterate on. We were building the company, product, and operational foundations simultaneously.",
+          "The challenge extended beyond designing interfaces. We had to define how merchants would onboard, how transactions would be monitored, how settlements would be reconciled, and how developers would integrate with the platform. Our goal was to create a payment infrastructure product that merchants could trust with their business-critical transactions.",
         ],
       },
       challenge: {
         paragraphs: [
-          "Across Africa, businesses often struggle with fragmented payment systems, complex integrations, inconsistent payment experiences, and operational inefficiencies. Merchants needed a single platform to accept payments across multiple channels, faster onboarding, better visibility into transactions and settlements, reliable infrastructure, and developer-friendly tools.",
-          "As a newly formed fintech company, we had an opportunity to build a modern payment platform designed around merchant needs from day one. The challenge was not simply designing screens — it was designing the foundation of an entire payments ecosystem.",
+          "Digital businesses rely on payment gateways as the engine that powers revenue generation. Yet many existing solutions created unnecessary complexity for merchants — lengthy onboarding processes delaying activation, poor visibility into transactions and settlements, complex reconciliation workflows, fragmented merchant and developer experiences, inconsistent reporting across channels, and difficulty scaling to support new payment methods and markets.",
+          "For merchants, every failed payment represented a potential loss of revenue. For developers, every integration challenge delayed product launches. For the business, trust depended on delivering clarity in moments where money was moving. The design challenge became clear: how might we build a payment platform that helps merchants confidently accept, monitor, reconcile, and grow payments across multiple channels from a single experience?",
         ],
         highlight:
-          "Building a payment company from zero meant designing the foundation of an entire ecosystem, not just screens.",
+          "Money moves fast. The interface around it should feel calm, predictable, and trustworthy.",
       },
+      goalsIntro:
+        "The product strategy focused on four critical objectives — each tied directly to merchant outcomes and long-term platform scalability.",
       goals: [
-        "Build a unified payment platform enabling merchants to accept payments across multiple channels through a single integration.",
-        "Simplify merchant onboarding and developer integration to accelerate activation and reduce time-to-first-transaction.",
-        "Create complete visibility into transactions, settlements, and payment performance so merchants feel confident and in control.",
-        "Establish a scalable design system and product foundation capable of supporting future payment channels and market expansion.",
+        "Reduce time-to-first-transaction by helping merchants complete onboarding and process a successful payment as quickly as possible.",
+        "Increase transaction transparency with clear visibility into status, fees, settlement timelines, and payment outcomes.",
+        "Unify merchant and developer experiences to reduce context switching across operational and technical workflows.",
+        "Design for scale with a flexible platform that supports future payment channels, business models, and geographic expansion.",
       ],
       team: [
-        { role: "Founding Product Designer", name: "Kingsley Omin" },
+        { role: "Lead Product Designer", name: "Kingsley Omin" },
+        { role: "Senior Product Manager", name: "Ifeoluwa Ayoade" },
+        { role: "Engineering Lead", name: "Eno Ekanem" },
+        { role: "Frontend Engineer", name: "Victory Ejike" },
       ],
       research: {
         paragraphs: [
-          "To understand merchant needs, we conducted interviews with businesses across different industries including e-commerce merchants, digital service providers, educational platforms, subscription businesses, and enterprise organizations. We also analyzed competing payment providers and existing merchant workflows.",
-          "Key insights emerged from the research: merchants care deeply about visibility and want immediate answers on payment status, settlement timing, and failures; payment complexity creates a heavy support burden; developers influence adoption through the quality of integration experience; and trust is built through transparency in every interaction.",
-          "These insights became the foundational principles that shaped every product decision, from the merchant dashboard to the developer onboarding experience.",
+          "Since we were building the platform from scratch, discovery became one of the most important phases of the project. Over two weeks, we engaged merchants across e-commerce, ticketing, SaaS, and digital service businesses, and reviewed support patterns and operational challenges experienced with competing payment solutions. Activities spanned merchant interviews, workflow observation, competitive analysis, support ticket reviews, and onboarding funnel audits.",
+          "Three insights stood out. Merchants cared about three things above all else: did the customer pay, when will I receive the money, and why did a transaction fail. Reconciliation was painful — merchants struggled to connect transactions, settlements, and payouts across reporting systems. And onboarding friction from KYC and integration complexity created significant drop-off.",
+          "Developers needed better context too. Technical documentation was often disconnected from the operational tools merchants used daily. These insights became foundational principles for the platform.",
         ],
       },
       userFlows: {
         paragraphs: [
-          "We identified and optimized the highest-value merchant workflows: merchant onboarding, payment integration, transaction monitoring, settlement reconciliation, refund management, and reporting and exports. Each flow was designed to reduce friction and accelerate task completion.",
-          "The merchant dashboard became the operational center of the platform. Instead of overwhelming merchants with data, we prioritized transaction health, revenue visibility, settlement tracking, payment performance, and actionable insights — transforming the dashboard into a decision-making tool rather than simply a reporting interface.",
+          "Rather than designing individual screens, we mapped the merchant lifecycle: registration, business verification, integration setup, first transaction, transaction monitoring, settlement reconciliation, and business growth. This allowed us to design the platform around outcomes rather than features.",
+          "Three workflows had the highest impact and received the most focus — merchant onboarding (simplified KYC and activation broken into clear, sequential steps with visible progress), transaction monitoring (a structured experience that helps merchants quickly understand payment outcomes), and settlement management (a reconciliation flow connecting transactions, fees, and settlements in a single view).",
         ],
       },
       wireframes: {
         paragraphs: [
-          "Starting from a blank canvas, low-fidelity wireframes and clickable prototypes were used to define core merchant journeys and validate information hierarchy before any visual polish. Early sketches explored how payment channels should be presented, what information merchants needed most frequently, and how to make complex payment operations easy to understand.",
-          "Every wireframe was reviewed with engineering and product to ensure feasibility, and iterated based on feedback from internal stakeholders and early merchant conversations. This kept the design grounded in what was actually shippable while remaining focused on merchant outcomes.",
+          "Three rounds of iterative prototypes were tested with merchants and internal stakeholders. Sessions focused on information hierarchy, transaction discoverability, settlement understanding, onboarding clarity, and developer usability.",
+          "Each round produced refinements to layout, terminology, and flow before moving into high-fidelity execution — ensuring the final designs were grounded in real merchant feedback rather than internal assumption.",
         ],
       },
       solution: {
         paragraphs: [
-          "The final platform delivered a unified payment infrastructure experience enabling merchants to accept payments across multiple channels — cards, bank transfers, USSD, QR payments, and mobile wallets — and monitor transactions in real time.",
-          "A merchant dashboard centered on transaction health, revenue visibility, and settlement tracking replaced fragmented reporting interfaces. Settlement timelines, statuses, and reconciliation information became significantly easier to understand.",
-          "Developer documentation and integration tools were embedded directly into the product to reduce the time between account creation and first successful transaction. A scalable design system standardized components, interaction patterns, visual language, accessibility standards, and product behaviours — enabling faster development and consistent experiences across products.",
+          "The final solution introduced a modern payment operating system built around transparency, efficiency, and scalability. The Merchant Command Center surfaced the metrics merchants cared about most — payments received, settlements pending, failed transactions, and revenue performance — at a glance.",
+          "Unified Transaction Management introduced a consistent framework for successful, pending, failed, and refunded payments. This language stayed consistent across dashboards, exports, notifications, and APIs, removing ambiguity wherever money was being discussed. Settlement Intelligence made it easy for merchants to track how payments flowed through the system and when funds would become available.",
+          "An embedded developer experience brought documentation and integration guidance directly into the platform, reducing context switching. Alongside the product, we built the Zest Design System (ZDS) — a scalable foundation for future products, payment channels, and platform expansion.",
         ],
       },
       outcome: {
         paragraphs: [
-          "The platform became a critical payment infrastructure provider for businesses across multiple industries, processing over ₦700 billion in total transaction value and generating over $600,000 in revenue through payment processing activities, with 14× revenue growth achieved within the first half of 2025.",
-          "Product impact included improved merchant onboarding completion, reduced payment-related support requests, faster merchant activation, increased adoption of multiple payment channels, and a scalable foundation for future products.",
-          "Being a founding designer required far more than designing interfaces. It meant helping define how the company thinks about products, users, systems, and growth. From a blank canvas to a platform processing hundreds of billions in transaction value, Zest taught me how design can influence not only user experience, but also business strategy, operational efficiency, and organizational growth.",
+          "The platform successfully launched and became the foundation for Zest's payment infrastructure business — processing over ₦700 billion in transaction value and achieving 14× revenue growth in H1 2025. Product impact included improved onboarding completion, reduced support requests around transaction status and settlements, faster merchant activation, improved transaction visibility, and the ability to launch new payment channels rapidly.",
+          "Building Zest was fundamentally different from redesigning an existing product. The biggest challenge was not deciding how screens should look — it was deciding what the product should be. As one of the founding members, I learned how design can influence far more than user interfaces; it can shape business strategy, product direction, operational workflows, and company culture.",
+          "This project reinforced my belief that great fintech products are built on trust. Every design decision — from onboarding to settlement reporting — should help users feel confident about where their money is, what is happening to it, and what they should do next. Helping build Zest from the ground up remains one of the most impactful experiences of my career.",
         ],
       },
       metrics: [
         { value: "₦700B+", label: "Transaction value processed" },
-        { value: "$600K+", label: "Revenue generated" },
         { value: "14×", label: "Revenue growth (H1 2025)" },
+        { value: "10 weeks", label: "Design timeline" },
       ],
       images: {
         research: zestResearch,
@@ -197,43 +202,11 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
     content: [
       {
         type: "paragraph",
-        content: "Zest was created with a simple but ambitious mission: make digital payments seamless, reliable, and accessible for businesses across Africa.",
+        content: "Zest is a payment gateway that enables African businesses to accept payments through cards, bank transfers, USSD, and mobile wallets — all through a single integration.",
       },
       {
         type: "paragraph",
-        content: "As one of the founding members of the company and the first product designer, I had the unique opportunity to help shape the business from day one — not just the product experience, but the systems, processes, and design foundations that would support the company's growth.",
-      },
-      {
-        type: "paragraph",
-        content: "Unlike many design projects that begin with an existing product, Zest started with a blank canvas. We were building the company, product, merchant experience, payment infrastructure, and design culture simultaneously.",
-      },
-      {
-        type: "paragraph",
-        content: "Over the years, Zest evolved into a payment gateway enabling businesses to accept payments through cards, bank transfers, USSD, QR payments, mobile wallets, and other digital payment channels through a single integration.",
-      },
-      {
-        type: "paragraph",
-        content: "Across Africa, businesses often struggle with fragmented payment systems, complex integrations, inconsistent payment experiences, and operational inefficiencies. As a newly formed fintech company, we had an opportunity to build a modern payment platform designed around merchant needs from day one.",
-      },
-      {
-        type: "paragraph",
-        content: "The challenge was not simply designing screens — it was designing the foundation of an entire payments ecosystem.",
-      },
-      {
-        type: "paragraph",
-        content: "To understand merchant needs, we conducted interviews with businesses across different industries and analyzed competing payment providers. Key insights shaped every product decision: merchants care about visibility, payment complexity creates support burden, developers influence adoption, and trust is built through transparency.",
-      },
-      {
-        type: "paragraph",
-        content: "The final platform delivered a unified payment infrastructure experience. Merchants could accept payments across multiple channels, monitor transactions in real time, track settlements with confidence, and integrate faster with developer-friendly tools.",
-      },
-      {
-        type: "paragraph",
-        content: "The platform became a critical payment infrastructure provider, processing over ₦700 billion in total transaction value and generating over $600,000 in revenue through payment processing activities, with 14× revenue growth achieved within the first half of 2025.",
-      },
-      {
-        type: "paragraph",
-        content: "From a blank canvas to a platform processing hundreds of billions in transaction value, Zest taught me how design can influence not only user experience, but also business strategy, operational efficiency, and organizational growth.",
+        content: "I joined Zest as one of the founding team members, responsible for designing the product experience from the ground up. There was no existing product, no design system, and no merchant experience to iterate on.",
       },
     ],
     relatedCaseStudies: [
